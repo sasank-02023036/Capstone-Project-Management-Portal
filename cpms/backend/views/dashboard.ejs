@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Table</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <style>
+      .custom-search {
+  width: 300px; /* set the width to 300px */
+  height: 40px; /* set the height to 40px */
+}
+    </style>
+  </head>
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <img src="Logo.png" alt="My Logo" width="200" height="50">
+    <a class="navbar-brand " >CPMS</a>
+
+
+    
+    <div class="collapse navbar-collapse text-right" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        
+        <li class="nav-item ml-auto">
+          <a class="nav-link" href="#"><i class="fa fa-user-circle" aria-hidden="true"></i></a>
+        </li>
+      </ul>
+      
+      <ul class="navbar-nav">
+        
+        <li class="nav-item ml-auto">
+          <a class="nav-link" href="#"><i class="fa fa-user-circle" aria-hidden="true"></i> Profile</a>
+        </li>
+        <li class="nav-item  ml-auto" >
+          <a class="nav-link" href="#"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+
+  <div class="container">
+
+    <div class="row mt-4">
+      <div class="col-md-6">
+        <h1>Welcome <%= user.name %></h1>
+      </div>
+      <div class="col-md-6 text-right">
+        <p> DASHBOARD </p>
+      </div>
+    </div>
+
+    
+
+    <div class="row mt-4">
+        <div class="col-md-6">
+            <input class="form-control  custom-search" type="search" placeholder="Search" aria-label="Search">
+        </div>
+        <div class="col-md-6 text-right">
+            <button type="button" class="btn btn-primary">Create Project</button>
+        </div>
+    </div>
+
+    <table class="table table-striped mt-4">
+        <thead>
+            <tr>
+                <th>ID No.</th>
+                <th>Project Title</th>
+                <th>Project Updated Date</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- You can loop through your projects data here and generate rows -->
+            <tr>
+                <td>1</td>
+                <td>Sample Project</td>
+                <td>2023-03-30</td>
+                <td>
+                    <button type="button" class="btn btn-sm btn-info">Edit</button>
+                    <button type="button" class="btn btn-sm btn-danger">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>
