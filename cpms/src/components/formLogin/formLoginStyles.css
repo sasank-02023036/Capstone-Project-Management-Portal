@@ -1,0 +1,264 @@
+.formLogin{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 96.5vh; 
+    background-color: white;
+}
+
+.formLogin-container{
+    flex-direction: column;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 425px;
+    height: 589px;
+    z-index: 10;
+    background-color: white;
+    transform: translate(-50%, -50%);
+    border-radius: 20px;
+    border: 2.25px solid var(--cams-blue);
+}
+
+
+.actualForm{
+    width: 425px;
+    height: 589px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+}
+
+.forLogin-Logo-Help{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-top: 52.5px;
+    margin-bottom: 25px;
+}
+
+
+.formLogin-logo{
+    display: flex;
+    align-items: center;
+    margin-left: 52.5px;
+  }
+
+
+
+.formLogin-help { 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 27px;
+    width: 27px;
+    padding: 09px 08px 06.5px 08px;
+    border-radius: 50px;
+    display: flex;
+    margin-right: 50.5px;
+}
+
+.formLogin-help:hover {
+    transition:  0.25s ease-in-out;
+    padding: 09px 08px 06.5px 08px;
+    border-radius: 50px;
+    /*color: var(--primary-color);*/
+    cursor: pointer;
+    background: #0099eb1d;
+}
+
+.formLogin-help .qSvg path{
+    fill: var(--cams-blue);
+}
+
+.sign-in{
+    display: flex;
+    flex-direction: column;
+    margin-left: 52.5px;
+    font-family: Poppins;
+    font-size: 25px;
+    font-weight: 400;
+    font-stretch: normal;
+    font-style: normal;
+    letter-spacing: normal;
+    color: var(--cams-dark);
+}
+
+.input-fields{
+    display: flex;
+    flex-direction: column;
+    height: 200px;
+}
+
+
+.email{
+    display: flex;
+    flex-direction: column;
+    margin-top: 32px;
+    margin-left: 52.5px;
+}
+
+.email .input{
+    left: 18px;
+    width:285px;
+    height: 45px;
+    font-family: Poppins;
+    font-size: 16px;
+    font-weight: 400;
+    border: 2px solid #E9E9E9;
+    border-radius: 6px;
+    background-color: transparent;
+    padding-left: 18px;
+}
+
+.email .input:focus {
+    outline: none;
+    border: 2px solid var(--cams-blue);
+}
+
+.email .label {
+    position: absolute;
+    pointer-events: none;
+    margin-top: 14px;
+    width:112px;
+    left: 70px;
+    font-size: 15.5px;
+    font-family: Poppins;
+    font-weight: 400;
+    color: #9F9F9F;
+    transition: all 0.2s ease;
+    background-color: transparent;
+    border-radius: 2px;
+    padding-left: 5px;
+}
+
+.email  .input.focused ~ .label,
+.email  .label.focused {
+    padding-left: 5px;
+    margin-top: -10px;
+    font-size: 15px;
+    font-weight: 500;
+    right: 10px;
+    color: var(--cams-blue);
+    background-color: #fff;
+}
+
+.password{
+    display: flex;
+    flex-direction: column;
+    width: 305px; 
+    margin-top: 32px;
+    margin-left: 52.5px;
+}
+
+.password .pwd-input{
+    left: 18px;
+    width:285px;
+    height: 45px;
+    font-family: Poppins;
+    font-size: 16px;
+    font-weight: 400;
+    border: 2px solid #E9E9E9;
+    border-radius: 6px;
+    background-color: transparent;
+    padding-left: 18px;
+}
+
+.password .pwd-input:focus {
+    outline: none;
+    border: 2px solid var(--cams-blue);
+}
+
+.password .pwd-label {
+    position: absolute;
+    width:78px;
+    pointer-events: none;
+    margin-top: 14px;
+    left: 70px;
+    font-size: 15.5px;
+    font-family: Poppins;
+    font-weight: 400;
+    color: #9F9F9F;
+    transition: all 0.2s ease;
+    background-color: transparent;
+    border-radius: 2px;
+    padding-left: 5px;
+}
+
+.password  .pwd-input.focused ~ .pwd-label,
+.password  .pwd-label.focused {
+    padding-left: 5px;
+    margin-top: -10px;
+    font-size: 15px;
+    font-weight: 500;
+    right: 10px;
+    color: var(--cams-blue);
+    background-color: #fff;
+}
+
+.forgot-password{
+    margin-top: 5px;
+    margin-left: 231.5px;
+    font-size: 14.5px;
+    font-family: Poppins;
+    font-weight: 500;
+    color: var(--cams-blue);
+}
+
+.forgot-password:hover{
+    cursor:pointer;
+}
+
+.form-buttons{
+    display: flex;
+    flex-direction: column;
+    height: 200px;
+    margin-top: 27px;
+}
+
+.form-buttons .LoginForm-continue {
+    margin-left: 52.5px;
+    width:310px;
+    height: 46px;
+    border-radius: 5px;
+    font-size: 15.5px;
+    font-family: Poppins;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    letter-spacing: normal;
+    color: #fff;
+    background-color: var(--cams-blue);
+    border: 2.5px solid transparent;
+}
+
+.form-buttons .LoginForm-continue:hover{
+    transition:  0.1s ease;
+    cursor: pointer;
+ }
+
+ .form-buttons .LoginFrom-homepage {
+    margin-left: 52.5px;
+    margin-top:27px;
+    width:310px;
+    height: 46px;
+    border-radius: 5px;
+    font-size: 15.5px;
+    font-family: Poppins;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    letter-spacing: normal;
+    color: var(--cams-dark-grey);
+    background-color: #fff;
+    border: 1.5px solid var(--cams-dark-grey);
+}
+
+.form-buttons .LoginFrom-homepage:hover{
+    transition:  0.1s ease;
+    cursor: pointer;
+ }

@@ -1,0 +1,377 @@
+.formContact{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width:100%;
+    height: 87vh;
+    background-color: #fafafa;
+}
+
+.formContact-container{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 500px;
+    height: 650px;
+    background-color: white;
+    border-radius:20px 20px 20px 20px ;
+    transform: translateX(0rem);
+}
+
+.contact-us-bg{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 400px;
+    height:650px;
+    color: transparent;
+    border-radius: 15px 0px 0px 15px ;
+    background: url('../../assets/contact-bg-01.png') no-repeat center center/cover;
+}
+
+.formContact-actualForm{
+    width: 500px;
+    height: 650px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+}
+
+.formContact-Logo-Help{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-top: 37.5px;
+    margin-bottom: 20px;
+}
+
+
+.formContact-logo{
+    font-family: Poppins;
+    font-size: 26px;
+    font-weight: 400;
+    color: var(--cams-dark);
+    display: flex;
+    align-items: center;
+    margin-left: 52.5px;
+  }
+
+
+
+.formContact-help { 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 27px;
+    width: 27px;
+    padding: 09px 08px 06.5px 08px;
+    border-radius: 50px;
+    display: flex;
+    margin-right: 50.5px;
+}
+
+.formContact-help:hover {
+    transition:  0.25s ease-in-out;
+    padding: 09px 08px 06.5px 08px;
+    border-radius: 50px;
+    /*color: var(--primary-color);*/
+    cursor: pointer;
+    background: #0099eb1d;
+}
+
+.formContact-help .qSvg path{
+    fill: var(--cams-blue);
+}
+
+.sign-up-to-submit{
+    display: flex;
+    flex-direction: column;
+    margin-left: 52.5px;
+    font-family: Poppins;
+    font-size: 25px;
+    font-weight: 400;
+    font-stretch: normal;
+    font-style: normal;
+    letter-spacing: normal;
+    color: var(--cams-dark);
+}
+
+.formContact-input-fields{
+    display: flex;
+    flex-direction: column;
+    height: 200px;
+    margin-top: 10px;
+}
+
+
+
+.formContact-fullName-ID{
+    display: flex;
+    flex-direction: column;
+    width: 305px; 
+    margin-top: 0px;
+    margin-left: 52.5px;
+}
+
+.formContact-fullName-ID .formContact-fullName-ID-input{
+    left: 18px;
+    width:365px;
+    height: 45px;
+    font-family: Poppins;
+    font-size: 16px;
+    font-weight: 400;
+    border: 2px solid #E9E9E9;
+    border-radius: 6px;
+    background-color: transparent;
+    padding-left: 18px;
+}
+
+.formContact-fullName-ID .formContact-fullName-ID-input:focus {
+    outline: none;
+    border: 2px solid var(--cams-blue);
+}
+
+.formContact-fullName-ID .formContact-fullName-ID-label {
+    position: absolute;
+    width:82.5px;
+    pointer-events: none;
+    margin-top: 14px;
+    left: 70px;
+    font-size: 15.5px;
+    font-family: Poppins;
+    font-weight: 400;
+    color: #9F9F9F;
+    transition: all 0.2s ease;
+    background-color: transparent;
+    border-radius: 2px;
+    padding-left: 5px;
+}
+
+.formContact-fullName-ID .formContact-fullName-ID-input.focused ~ .formContact-fullName-ID-label,
+.formContact-fullName-ID .formContact-fullName-ID-label.focused {
+    padding-left: 5px;
+    margin-top: -10px;
+    font-size: 15px;
+    font-weight: 500;
+    right: 10px;
+    color: var(--cams-blue);
+    background-color: white;
+}
+
+
+
+
+
+
+.formContact-Email-ID{
+    display: flex;
+    flex-direction: column;
+    width: 500px; 
+    margin-top: 24px;
+    margin-left: 52.5px;
+}
+
+.formContact-Email-ID .formContact-Email-ID-input{
+    left: 18px;
+    width:365px;
+    height: 45px;
+    font-family: Poppins;
+    font-size: 16px;
+    font-weight: 400;
+    border: 2px solid #E9E9E9;
+    background-color: transparent;
+    border-radius: 6px;
+    padding-left: 18px;
+}
+
+.formContact-Email-ID .formContact-Email-ID-input:focus {
+    outline: none;
+    border: 2px solid var(--cams-blue);
+}
+
+.formContact-Email-ID .formContact-Email-ID-label {
+    position: absolute;
+    width:151px;
+    pointer-events: none;
+    margin-top: 14px;
+    left: 70px;
+    font-size: 15.5px;
+    font-family: Poppins;
+    font-weight: 400;
+    color: #9F9F9F;
+    transition: all 0.2s ease;
+    background-color: transparent;
+    border-radius: 2px;
+    padding-left: 5px;
+}
+
+.formContact-Email-ID .formContact-Email-ID-input.focused ~ .formContact-Email-ID-label,
+.formContact-Email-ID .formContact-Email-ID-label.focused {
+    padding-left: 5px;
+    margin-top: -10px;
+    font-size: 15px;
+    font-weight: 500;
+    right: 10px;
+    color: var(--cams-blue);
+    background-color: white;
+}
+
+
+
+
+
+.formContact-subject{
+    display: flex;
+    flex-direction: column;
+    margin-top: 32px;
+    margin-left: 52.5px;
+}
+
+.formContact-subject .formContact-subject-input{
+    left: 18px;
+    width:365px;
+    height: 45px;
+    font-family: Poppins;
+    font-size: 16px;
+    font-weight: 400;
+    border: 2px solid #E9E9E9;
+    background-color: transparent;
+    border-radius: 6px;
+    padding-left: 18px;
+}
+
+.formContact-subject .formContact-subject-input:focus {
+    outline: none;
+    border: 2px solid var(--cams-blue);
+}
+
+.formContact-subject .formContact-subject-label {
+    position: absolute;
+    pointer-events: none;
+    margin-top: 14px;
+    width:62px;
+    left: 70px;
+    font-size: 15.5px;
+    font-family: Poppins;
+    font-weight: 400;
+    color: #9F9F9F;
+    transition: all 0.2s ease;
+    background-color: transparent;
+    border-radius: 2px;
+    padding-left: 5px;
+}
+
+.formContact-subject  .formContact-subject-input.focused ~ .formContact-subject-label,
+.formContact-subject  .formContact-subject-label.focused {
+    padding-left: 5px;
+    margin-top: -10px;
+    font-size: 15px;
+    font-weight: 500;
+    right: 10px;
+    color: var(--cams-blue);
+    background-color: white;
+}
+
+
+
+
+
+
+
+.formContact-message{
+    display: flex;
+    flex-direction: column;
+    width: 305px; 
+    margin-top: 32px;
+    margin-left: 52.5px;
+}
+
+.formContact-message .formContact-message-input{
+    left: 18px;
+    width:365px;
+    height: 150px;
+    font-family: Poppins;
+    font-size: 16px;
+    font-weight: 400;
+    border: 2px solid #E9E9E9;
+    background-color: transparent;
+    border-radius: 6px;
+    padding-left: 18px;
+    padding-top: 18px;
+    resize: none;
+}
+
+.formContact-message .formContact-message-input:focus {
+    outline: none;
+    border: 2px solid var(--cams-blue);
+}
+
+.formContact-message .formContact-message-label {
+    position: absolute;
+    width:193px;
+    pointer-events: none;
+    margin-top: 14px;
+    left: 70px;
+    font-size: 15.5px;
+    font-family: Poppins;
+    font-weight: 400;
+    color: #9F9F9F;
+    transition: all 0.2s ease;
+    background-color: transparent;
+    border-radius: 2px;
+    padding-left: 5px;
+}
+
+.formContact-message .formContact-message-input.focused ~ .formContact-message-label,
+.formContact-message .formContact-message-label.focused {
+    padding-left: 5px;
+    margin-top: -10px;
+    font-size: 15px;
+    font-weight: 500;
+    right: 10px;
+    color: var(--cams-blue);
+    background-color: white;
+}
+
+
+
+
+
+
+.formContact-buttons{
+    display: flex;
+    flex-direction: column;
+    height: 300px;
+    margin-top: 247.5px;
+}
+
+.formContact-buttons .formContact-submit {
+    margin-left: 52.5px;
+    width:387.5px;
+    height: 46px;
+    border-radius: 5px;
+    font-size: 15.5px;
+    font-family: Poppins;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    letter-spacing: normal;
+    color: #fff;
+    background-color: var(--cams-blue);
+    border: 2.5px solid transparent;
+}
+
+.formContact-buttons .formContact-submit:hover{
+    transition:  0.1s ease;
+    cursor: pointer;
+ }
+
+ @media screen and (max-width: 940px) {
+    .formcontact  {
+        width: 100%;
+        height: 100%;
+    }
+}
