@@ -1,0 +1,18 @@
+:root {
+    --cams-blue:#0097EB;
+    --cams-secondary-blue:#0F4B6C;
+    --cams-grey: #efefef;
+    --cams-dark: #0d2154;
+    --cams-dark-grey:#9F9F9F; 
+    --cams-bg-grey:#f6f6f6; 
+    --primary-color: rgb(0, 151, 235);
+    --primary-dark: #0d2154;
+    --secondary-color: #38ceef;
+  }
+  
+
+.Random{
+  position: relative;
+  padding-top: 340px;
+  padding-bottom: 540px;
+}
