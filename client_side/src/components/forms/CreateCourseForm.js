@@ -3,7 +3,7 @@ import "../../styles/InviteLink.css";
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
-function CreateCourseForm({closePopup , handleChange}) {
+function CreateCourseForm({handleChange}) {
     const navigate = useNavigate();
     const [name, setName] = useState('');
     const [popup, setPopup] = useState(false);
@@ -18,6 +18,7 @@ function CreateCourseForm({closePopup , handleChange}) {
     }
 
     const handleClose = (event) => {
+        event.preventDefault();
         setPopup(false)
     }
   
@@ -61,7 +62,7 @@ function CreateCourseForm({closePopup , handleChange}) {
   
     return (
       <div>
-        <button className='create-course-button' onClick={() => setPopup(true)}>Create Course</button>
+        <button className='create-course-button' onClick={() => setPopup(true)}>Create New Course</button>
 
         {popup && 
         (<div className="modal-content" >

@@ -1,3 +1,10 @@
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+
+
 :root {
     --cams-blue:#0097EB;
     --cams-secondary-blue:#0F4B6C;
@@ -16,3 +23,22 @@
   padding-top: 340px;
   padding-bottom: 540px;
 }
+
+.container{
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex: 1;
+}
+
+.mid{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 40vh;
+}
+

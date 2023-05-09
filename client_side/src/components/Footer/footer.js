@@ -3,6 +3,15 @@ import '../../styles/footer.css'
 import camsBlue from '../../assets/camsBlue.png';
 
 const Footer = () => {
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  };
+
+
   return (
     <div className='footer'>
             
@@ -20,7 +29,7 @@ const Footer = () => {
                     <p className='footer-privacy'>Privacy & Terms</p>
 
                 {/* Top to the page icon goes here */}
-                 <div className='arrow'> 
+                 <div className='arrow' onClick={scrollToTop}> 
                         <svg className='qSvg' xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36">
                               <g id="top" transform="translate(-1821 -920)">
                               <circle id="Ellipse_1" data-name="Ellipse 1" cx="18" cy="18" r="18" transform="translate(1821 920)" fill="#0097eb"/>

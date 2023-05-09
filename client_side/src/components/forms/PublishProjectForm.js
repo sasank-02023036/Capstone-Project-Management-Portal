@@ -3,7 +3,7 @@ import axios from "axios";
 import "../../styles/PublishProjectForm.css";
 import { useNavigate } from "react-router-dom";
 
-const PublishProjectForm = () => {
+const PublishProjectForm = ({data, setData}) => {
   const navigate = useNavigate();
   const [popup, setPopup] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
@@ -42,9 +42,6 @@ const PublishProjectForm = () => {
       document.getElementById('projectAttachments').click();
     }
 
-
-    
-
     const handleFocus = () => {
         setIsFocused(true);
     };
@@ -53,8 +50,6 @@ const PublishProjectForm = () => {
         setIsFocused(false);
         setHasValue(e.target.value !== '');
     };
-  
-
 
   const handleProjectTitleChange = (event) => {
     setProjectTitle(event.target.value);
@@ -130,11 +125,13 @@ const PublishProjectForm = () => {
           },
         });
         
-
-        switch (response.status) {
-          case 201:
-            setCurrentPage(currentPage + 1);
-            break;
+        if (response.status === 201) {
+          setData([response.data, ...data]);
+          setCurrentPage(currentPage + 1);
+        }
+        
+      } catch (error) {
+        switch (error.response.status) {
           case 401:
             navigate("/signin", { replace: true });
             break;
@@ -147,7 +144,6 @@ const PublishProjectForm = () => {
           default:
             console.log("unexpected error");
         }
-      } catch (error) {
         console.log(error);
       }
     }

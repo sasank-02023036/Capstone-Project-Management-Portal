@@ -53,7 +53,7 @@ exports.createProject = async (req, res, next) => {
       // Save new project to the database
       await newProject.save();
 
-      return res.status(201).json({ message: "Project created successfully" });
+      return res.status(201).json(newProject);
     } catch (error) {
       console.error(error);
       return res.status(500).json({ error: "Server Error" });
