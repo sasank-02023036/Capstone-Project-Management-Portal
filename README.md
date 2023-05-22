@@ -1,1 +1,1 @@
-# CS682-CPMS
+# CS682-Capstone Project Management System
