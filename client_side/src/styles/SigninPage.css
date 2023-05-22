@@ -1,0 +1,265 @@
+.sign-in-page{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 96.5vh; 
+    background-color: white;
+    position: relative;
+}
+
+
+.formSignIn-container{
+    flex-direction: column;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 425px;
+    height: 589px;
+    z-index: 10;
+    border-radius: 20px;
+    border: 2.25px solid var(--cams-blue);
+}
+
+.forSignIn-Top{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-top: 52.5px;
+    margin-bottom: 25px;
+}
+
+
+.formSignIn-logo{
+    display: flex;
+    align-items: center;
+    margin-left: 52.5px;
+    margin-top: 32.5px;
+  }
+
+.formSignIn-help { 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 27px;
+    width: 27px;
+    padding: 09px 08px 06.5px 08px;
+    border-radius: 50px;
+    display: flex;
+    margin-right: 50.5px;
+    margin-top: 32.5px;
+}
+
+.formSignIn-help:hover {
+    transition:  0.25s ease-in-out;
+    padding: 09px 08px 06.5px 08px;
+    border-radius: 50px;
+    /*color: var(--primary-color);*/
+    cursor: pointer;
+    background: #0099eb1d;
+}
+
+.formSignIn-help .qSvg path{
+    fill: var(--cams-blue);
+}
+
+.formSignIn{
+    display: flex;
+    flex-direction: column;
+    font-family: Poppins;
+    font-size: 25px;
+    font-weight: 400;
+    font-stretch: normal;
+    font-style: normal;
+    letter-spacing: normal;
+    color: var(--cams-dark);
+    margin-right: 120.5px;
+    margin-bottom: 25px;
+}
+
+.formSignIn-form{
+    display: flex;
+    flex-direction: column;
+}
+
+.formSignIn-inputfields{
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.formSignIn-email{
+    display: flex;
+    flex-direction: column;
+}
+
+.formSignIn-email .input{
+    left: 18px;
+    width:285px;
+    height: 40px;
+    font-family: Poppins;
+    font-size: 16px;
+    font-weight: 400;
+    border: 2px solid #E9E9E9;
+    border-radius: 6px;
+    background-color: transparent;
+    padding-left: 18px;
+    box-shadow: none;
+}
+
+.formSignIn-email .input:focus {
+    outline: none;
+    border: 2px solid var(--cams-blue);
+}
+
+.formSignIn-email .label {
+    position: absolute;
+    pointer-events: none;
+    margin-top: 18px;
+    width:50px;
+    left: 70px;
+    font-size: 15.5px;
+    font-family: Poppins;
+    font-weight: 400;
+    color: #9F9F9F;
+    transition: all 0.2s ease;
+    background-color: transparent;
+    border-radius: 2px;
+    padding-left: 5px;
+}
+
+.formSignIn-email  .input.focused ~ .label,
+.formSignIn-email  .label.focused {
+    padding-left: 5px;
+    margin-top: -10px;
+    font-size: 15px;
+    font-weight: 500;
+    right: 10px;
+    color: var(--cams-blue);
+    background-color: #fff;
+}
+
+
+.formSignIn-password{
+    display: flex;
+    flex-direction: column;
+    width: 310px; 
+    margin-top: 25px;
+}
+
+.formSignIn-password .pwd-input{
+    left: 18px;
+    width:285px;
+    height: 40px;
+    font-family: Poppins;
+    font-size: 16px;
+    font-weight: 400;
+    border: 2px solid #E9E9E9;
+    border-radius: 6px;
+    background-color: transparent;
+    padding-left: 18px;
+    box-shadow: none;
+}
+
+.formSignIn-password .pwd-input:focus {
+    outline: none;
+    border: 2px solid var(--cams-blue);
+}
+
+.formSignIn-password .pwd-label {
+    position: absolute;
+    width:78px;
+    pointer-events: none;
+    margin-top: 18px;
+    left: 70px;
+    font-size: 15.5px;
+    font-family: Poppins;
+    font-weight: 400;
+    color: #9F9F9F;
+    transition: all 0.2s ease;
+    background-color: transparent;
+    border-radius: 2px;
+    padding-left: 5px;
+}
+
+.formSignIn-password  .pwd-input.focused ~ .pwd-label,
+.formSignIn-password  .pwd-label.focused {
+    padding-left: 5px;
+    margin-top: -10px;
+    font-size: 15px;
+    font-weight: 500;
+    right: 10px;
+    color: var(--cams-blue);
+    background-color: #fff;
+}
+
+
+
+.form-buttons{
+    display: flex;
+    flex-direction: column;
+    height: 200px;
+    margin-top: 25px;
+}
+
+.form-buttons .LoginForm-continue {
+    width:310px;
+    height: 46px;
+    border-radius: 5px;
+    font-size: 15.5px;
+    font-family: Poppins;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    letter-spacing: normal;
+    color: #fff;
+    background-color: var(--cams-blue);
+    border: 2.5px solid transparent;
+}
+
+.form-buttons .LoginForm-continue:hover{
+    transition:  0.1s ease;
+    cursor: pointer;
+ }
+
+ .form-buttons .LoginFrom-homepage {
+    margin-top:25px;
+    width:310px;
+    height: 46px;
+    border-radius: 5px;
+    font-size: 15.5px;
+    font-family: Poppins;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    letter-spacing: normal;
+    color: var(--cams-dark-grey);
+    background-color: #fff;
+    border: 1.5px solid var(--cams-dark-grey);
+}
+
+.form-buttons .LoginFrom-homepage:hover{
+    transition:  0.1s ease;
+    cursor: pointer;
+ }
+
+
+ .forgot-password{
+    margin-top: 10px;
+    margin-left: 180.5px;
+    font-size: 14.5px;
+    font-family: Poppins;
+    font-weight: 500;
+    color: var(--cams-blue);
+    font-style: normal;
+}
+
+.forgot-password:hover{
+    cursor:pointer;
+}
+
+a.forgot-password {
+    text-decoration: none;
+  }

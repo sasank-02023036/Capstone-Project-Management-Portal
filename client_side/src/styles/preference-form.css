@@ -1,0 +1,201 @@
+  .set-preferences-modal-wrapper{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 99;
+    animation: fade-in 0.5s;
+  }
+
+
+   .set-preferences-popup-content{
+    display: flex;
+    position: absolute;
+    flex-direction: column;
+    z-index: 100;
+    width: 550px;
+    height: 625px;
+    background-color: #f8f8f8 ;
+    padding-right: 40px;
+    padding-left: 40px;
+    padding-top: 15px;
+    padding-bottom: 18px;
+    animation: fade-in 0.5s;
+    background-color: white;
+    border-radius: 15px;
+    border: 2.25px solid var(--cams-blue);
+  }
+
+ 
+  .set-preferences-top{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 15px;
+    margin-bottom: 10px;
+  }
+
+  .set-preferences-title{
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    width: 50%;
+    align-items: center;
+    font-family: Poppins;
+    font-size: 24px;
+    font-weight: 400;
+    font-stretch: normal;
+    font-style: normal;
+    letter-spacing: normal;
+    color: var(--cams-blue);
+    margin-bottom: 10px;
+  }
+
+
+  .set-preferences-close-wrapper{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 50%;
+    margin-bottom: 10px;
+    margin-top: 16px;
+    }
+    
+    .set-preferences-close{
+    display: flex;
+    height: 15px;
+    width: 15px;
+    padding: 04px 03px 04px 05px;
+    border-radius: 50px;
+    border: 2px solid var(--cams-blue);
+    margin-bottom: 10px;
+    }
+    
+    .set-preferences-close:hover {
+    transition:  0.25s ease-in-out;
+    cursor: pointer;
+    background: #0099eb1d;
+    }
+    
+    .set-preferences-close-button .cSvg path{
+    fill: var(--cams-blue);
+    }
+
+    .set-preferences-button-group{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+    }
+    
+    .set-preferences-button-group .set-preferences-save-button {
+    width:100%;
+    height: 46px;
+    border-radius: 5px;
+    font-size: 15.5px;
+    font-family: Poppins;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    letter-spacing: normal;
+    color: #fff;
+    background-color: var(--cams-blue);
+    border: 2.5px solid transparent;
+    }
+    
+    
+    .set-preferences-button-group .set-preferences-save-button:hover{
+    transition:  0.1s ease;
+    cursor: pointer;
+    }
+
+
+    .preference-form{
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      width: 100%;
+      height: 450px ;
+      background-color: rgba(0, 151, 235, 0.17);
+      margin-bottom: 25px;
+      border-radius: 10px;
+    }
+
+.preference-field{
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  color: var(--cams-blue);
+  font-family: Poppins;
+  font-size: 18px;
+  font-weight: 400;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+}
+
+.preference-select{
+  position: relative;
+  margin-right: 10px;
+  margin-left: 10px;
+  margin-bottom:20px;
+}
+
+.preference-label{
+  position: relative;
+  margin-bottom:20px;
+}
+
+
+.option option {
+  font-family: Poppins;
+  font-weight: 400;
+  font-size: 18px; /* Adjust the font size as desired */
+  width: 100px;
+  height: 30px;
+}
+
+
+
+
+
+  .set-preferences{
+  font-family: Poppins;
+  height: 46px;
+  width: 160px;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--primary-color);
+  color: #f8f8f8;
+  font-size: 16px;
+  font-weight: 400;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  display: flex;
+  border-radius: 5px;
+  border: 1px solid var(--cams-blue);
+  margin-left: 15px;
+}
+
+
+
+.set-preferences:hover{
+   transition:  0.1s ease;
+   cursor: pointer;
+   background-color: #0083c9;
+}
+  

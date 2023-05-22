@@ -1,0 +1,193 @@
+
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.popup-wrapper{
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: white;
+  border-radius: 15px;
+  width: 850px;
+  height: 850px;
+  border: 2px solid var(--cams-blue);
+}
+
+.popup-content {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: white;
+  height: 90%;
+  width: 87.5%;
+}
+
+.pdf-top{
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+
+.title{
+  color: var(--cams-blue);
+  font-family: Poppins;
+  font-size: 27px;
+  font-weight: 400;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 50%;
+}
+
+.popup-close-wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 50%;
+  }
+  
+  .popup-close {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    height: 12px;
+    width: 12px;
+    padding: 7.5px 05px 4.75px 7px;
+    border-radius: 50px;
+    border: 2px solid var(--cams-blue);
+    margin-left: 0px;
+  }
+  
+  .popup-close:hover {
+  transition:  0.25s ease-in-out;
+  cursor: pointer;
+  background: #0099eb1d;
+  }
+
+  .popup-close-button .cSvg path{
+  fill: var(--cams-blue);
+  }
+
+  .popup-content-01{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    margin-top: 20px;
+    border-radius: 10px;
+    background-color: #0099eb1d;
+    overflow-y: auto;
+  }
+
+  .popup-content-header{
+    color: var(--cams-dark);
+    font-family: Poppins;
+    font-size: 21px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    margin-top: 20px ;
+    margin-bottom: 20px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-left: 45px ;
+    width: 100%;
+  } 
+
+  .popup-content-desc{
+    color: var(--cams-dark-grey);
+    font-family: Poppins;
+    font-size: 16px;
+    font-weight: 300;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    margin-left: 45px;
+    min-height: 100px;
+  }
+  
+  .pdf-download{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-top: 30px;
+  }
+
+  .attachments{
+    color: var(--cams-dark-grey);
+    font-family: Poppins;
+    font-size: 21px;
+    font-weight: 400;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 50%;
+  }
+
+  .p-d{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 50%;
+  }
+
+  .popup-download {
+    font-family: Poppins;
+    font-size: 18px;
+    font-weight: 400;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    position: relative;
+    width: 160px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--cams-blue);
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    border: 1px solid transparent;
+  }

@@ -1,0 +1,139 @@
+.Auto-Assign-button {
+    width: 225px;
+    height: 46px;
+    border-radius: 5px;
+    font-size: 15.5px;
+    font-family: Poppins;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    letter-spacing: normal;
+    color: var(--cams-dark);
+    background-color: white;
+    border: 1.5px solid var(--cams-dark);
+    }
+    
+    
+   .Auto-Assign-button:hover{
+    transition:  0.1s ease;
+    cursor: pointer;
+    background-color: whitesmoke;
+    }
+
+    .Auto-Assign-wrapper{
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        z-index: 99;
+        animation: fade-in 0.5s;
+      }
+      
+      
+      
+      .Auto-Assign-wrapper-modal-content{
+        display: flex;
+        position: absolute;
+        flex-direction: column;
+        z-index: 100;
+        width: 550px;
+        height: 265px;
+        background-color: #f8f8f8 ;
+        padding-right: 30px;
+        padding-left: 30px;
+        padding-top: 15px;
+        padding-bottom: 18px;
+        animation: fade-in 0.5s;
+        background-color: white;
+        border-radius: 15px;
+        border: 2.25px solid var(--cams-blue);
+      }
+      
+      .Auto-Assign-top{
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      
+      .Auto-Assign-title{
+        display: flex;
+        justify-content: flex-start;
+        width: 50%;
+        display: flex;
+        align-items: center;
+        font-family: Poppins;
+        font-size: 21px;
+        font-weight: 400;
+        font-stretch: normal;
+        font-style: normal;
+        letter-spacing: normal;
+        color: var(--cams-blue);
+        margin-bottom: 15px;
+      }
+    
+      .Auto-Assign-close{
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        width: 50%;
+        margin-bottom: 10px;
+        margin-top: 16px;
+        }
+        
+        .Auto-Assign-close-button{
+        display: flex;
+        height: 15px;
+        width: 15px;
+        padding: 04px 03px 04px 05px;
+        border-radius: 50px;
+        border: 2px solid var(--cams-blue);
+        margin-bottom: 20px;
+        }
+        
+        .Auto-Assign-close-button:hover {
+        transition:  0.25s ease-in-out;
+        cursor: pointer;
+        background: #0099eb1d;
+        }
+        .Auto-Assign-close-button .cSvg path{
+        fill: var(--cams-blue);
+        }
+
+        .table-wrapper{
+            margin-bottom: 25px;
+        }
+
+        .auto-assign-button-group{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+          
+          .auto-assign-button-group .auto-assign {
+          width:100%;
+          margin-top:10px;
+          height: 46px;
+          border-radius: 5px;
+          font-size: 15.5px;
+          font-family: Poppins;
+          font-weight: 500;
+          font-stretch: normal;
+          font-style: normal;
+          letter-spacing: normal;
+          color: #fff;
+          background-color: var(--cams-blue);
+          border: 2.5px solid transparent;
+          }
+          
+          
+          .auto-assign-button-group .auto-assign:hover{
+          transition:  0.1s ease;
+          cursor: pointer;
+          }
