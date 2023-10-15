@@ -21,7 +21,7 @@
   background-color: white;
   border-radius: 15px;
   width: 850px;
-  height: 850px;
+  height: 650px;
   border: 2px solid var(--cams-blue);
 }
 
@@ -32,7 +32,7 @@
   justify-content: center;
   flex-direction: column;
   background-color: white;
-  height: 90%;
+  height: 80%;
   width: 87.5%;
 }
 

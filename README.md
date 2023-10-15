@@ -30,3 +30,6 @@
   
 - Homepage issues
 ![](bugs/homepage.png)
+  
+- Download PDF is not working
+![](bugs/downloadPDF.png)
