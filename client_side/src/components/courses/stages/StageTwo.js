@@ -151,7 +151,7 @@ export default function StageTwo({ data, setData }) {
     setSearchName(event.target.value);
     if (searchName) {
       const filtered = students.filter((student) =>
-        student.name.includes(searchName)
+        student.name.toLowerCase().includes(searchName.toLowerCase())
       );
       setFilteredStudents(filtered);
     } else {
@@ -161,7 +161,7 @@ export default function StageTwo({ data, setData }) {
 
   useEffect(() => {
     if (searchName) {
-      const filtered = students.filter((student) => student.name.includes(searchName));
+      const filtered = students.filter((student) => student.name.toLowerCase().includes(searchName.toLowerCase()));
       setFilteredStudents(filtered);
     } else {
       setFilteredStudents(students);
