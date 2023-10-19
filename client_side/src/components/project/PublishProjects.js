@@ -125,6 +125,7 @@ function PublishProjects() {
   const [popup, setPopup] = React.useState(false);
   const [clients, setClients] = React.useState([]);
   const [selectedClient, setSelectedClient] = React.useState("");
+  const [emailToDelete, setEmailToDelete] = useState("");
 
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(10);
@@ -161,19 +162,20 @@ function PublishProjects() {
     }
   }, [clients, searchName]);
 
-  const handleClick = (id) => {
+  const handleClick = (email) => {
     setPopup(true);
-    setSelectedClient(id);
+    setEmailToDelete(email);
+    console.log(emailToDelete);
   };
 
   const handleYes = async () => {
     try {
-      const response = await axios.delete("/api/user/" + selectedClient);
+      const response = await axios.delete("/api/user/"+emailToDelete);
       switch (response.status) {
         case 200:
           console.log("Deleted successfully");
           setPopup(false);
-          setClients(clients.filter((p) => p.email !== selectedClient));
+          setClients(clients.filter((p) => p.email !== emailToDelete));
           setSelectedClient("");
           break;
         case 401:
@@ -311,7 +313,7 @@ function PublishProjects() {
                         align="center"
                       >
                         <IconButton
-                          onClick={() => handleClick(row._id)}
+                          onClick={() => handleClick(row.email)}
                           color="error"
                         >
                           <Delete />
