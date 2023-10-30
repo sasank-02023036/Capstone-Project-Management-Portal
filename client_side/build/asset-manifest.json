@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/static/css/main.3b316af1.css",
-    "main.js": "/static/js/main.f67b9102.js",
-    "static/media/background-bg.png": "/static/media/background-bg.ecda8866d5b388503c23.png",
+    "main.css": "/static/css/main.d1b75c0d.css",
+    "main.js": "/static/js/main.782a89a2.js",
+    "static/media/cams-low-resolution-color-logo.png": "/static/media/cams-low-resolution-color-logo.f61e2a35a58b94877a46.png",
     "static/media/SecondaryNav.svg": "/static/media/SecondaryNav.28e98b55067821cb3e7b.svg",
     "index.html": "/index.html",
     "static/media/calendar.svg": "/static/media/calendar.4aa0718afc3279c200f0.svg",
-    "main.3b316af1.css.map": "/static/css/main.3b316af1.css.map",
-    "main.f67b9102.js.map": "/static/js/main.f67b9102.js.map"
+    "main.d1b75c0d.css.map": "/static/css/main.d1b75c0d.css.map",
+    "main.782a89a2.js.map": "/static/js/main.782a89a2.js.map"
   },
   "entrypoints": [
-    "static/css/main.3b316af1.css",
-    "static/js/main.f67b9102.js"
+    "static/css/main.d1b75c0d.css",
+    "static/js/main.782a89a2.js"
   ]
 }
