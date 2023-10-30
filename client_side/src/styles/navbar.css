@@ -241,14 +241,3 @@
      color: var(--cams-blue);
      cursor: pointer;
   }
- /* help-icon pop up button */
- .popup {
-    position: fixed;
-    top: 10px; 
-    right: 10px; 
-    background-color: #cfbdbd;
-    border: 2px solid #030308;
-    padding: 30px; 
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  }
-  
