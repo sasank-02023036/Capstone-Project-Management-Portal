@@ -1,5 +1,6 @@
 import React from "react";
 import "../../styles/navbar.css";
+import { useState } from "react";
 import camsLogo from "../../assets/camsBlue.png";
 import Cookies from "js-cookie";
 import { useNavigate } from "react-router-dom";
@@ -81,7 +82,7 @@ const Navbar = () => {
         {/* logo goes here */}
         <div className="navbar-logo">
           <div class="navbar-camsLogo">
-            {" "}
+            {" "} 
             <img src={camsLogo} alt="CAMS Logo" />{" "}
           </div>
         </div>
@@ -198,15 +199,7 @@ const Navbar = () => {
           </div>
 
           {/* Help icon goes here */}
-          <div 
-             className="navbar-help"
-             ref={anchorRefHelp}
-             id="composition-help-button"
-             aria-controls={openHelp ? 'composition-help-menu' : undefined}
-             aria-expanded={openHelp ? 'true' : undefined}
-             aria-haspopup="true"
-            onClick={handleToggleHelp}>
-            
+          <div className="navbar-help">
             <div className="question">
               <svg
                 className="qSvg"
@@ -256,6 +249,20 @@ const Navbar = () => {
               )}
             </Popper>
           </div>
+          {isPopupVisible && (
+            <div className="popup" id="help-popup">
+              <p>Contact us at:</p>
+              <ul>
+                <li><a href="mailto:v.narayanappa001@umb.edu">v.narayanappa001@umb.edu</a></li>
+                <li><a href="mailto:f.qudseensultana001@umb.edu">f.qudseensultana001@umb.edu</a></li>
+                <li><a href="mailto:Sasank.Varanasi001@umb.edu">Sasank.Varanasi001@umb.edu</a></li>
+                <li><a href="mailto:V.parushaboyena001@umb.edu">V.parushaboyena001@umb.edu</a></li>
+              </ul>
+              <button id="close-popup" onClick={togglePopup}>
+                Close
+              </button>
+            </div>
+          )}
         </div>
       </div>
     </div>
