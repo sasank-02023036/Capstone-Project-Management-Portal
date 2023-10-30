@@ -25,12 +25,25 @@
      cursor: pointer;
   }
 
+<<<<<<< HEAD
 .sidenavitems .projets:hover{
      transition:  0.25s ease-in-out;
      border-radius: 6px;
      color:white;
      cursor: pointer;
   }
+=======
+.navbar-logo {
+    position: absolute;
+    left: 0;
+    z-index: 16;
+    display: flex;
+    align-items: center;
+    color: #000000;
+    width: 30%;
+    margin-left: 3rem;
+}
+>>>>>>> 300ac5609cffcc71f6693d7c991720f60b5ee5a1
 
 .sidenavitems .dashboard:hover{
      transition:  0.25s ease-in-out;

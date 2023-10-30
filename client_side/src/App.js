@@ -10,6 +10,7 @@ import jwt_decode from 'jwt-decode';
 import CoursesPage from 'pages/CoursesPage';
 import CoursePage from 'pages/CoursePage';
 import Test from 'pages/Test';
+import UserProfilePage from 'pages/UserProfilePage';
 import PreferenceForm from 'components/forms/PreferenceForm';
 
 function App() {
@@ -56,6 +57,7 @@ function App() {
         <Route path="/dashboard" element={<DashBoardPage />} onEnter={isLoggedIn} />
         <Route path="/courses" element={<CoursesPage />} onEnter={isLoggedIn} />
         <Route path="/courses/:name" element={<CoursePage />}  onEnter={isLoggedIn} />
+        <Route path="/profile" element={<UserProfilePage />} onEnter={isLoggedIn} /> 
         <Route path="/test" element={<Test />} />
         <Route path='*' element={<PageNotFound />} />
       </Routes>

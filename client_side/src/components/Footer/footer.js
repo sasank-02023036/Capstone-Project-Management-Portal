@@ -25,7 +25,6 @@ const Footer = () => {
 
                 {/* Footer Links goes here */}
                  <div className='footer-links'>
-                    <p className='footer-contact'>Contact Us</p>
                     <p className='footer-privacy'>Privacy & Terms</p>
 
                 {/* Top to the page icon goes here */}

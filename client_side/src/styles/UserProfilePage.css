@@ -1,0 +1,45 @@
+/* UserProfilePage.css */
+
+
+.user-profile-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+} 
+
+.user-profile-content {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px 0px #ccc;
+}
+
+.user-profile-actions {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    justify-content: space-between;
+}
+
+.user-profile-form {
+    display: flex;
+    margin-bottom: 50px; 
+    flex-direction: column;
+    gap: 20px;
+    max-width: 300px; /* Set the maximum width for the form */
+    padding: 40px;
+    margin: 50px auto 0 auto;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px 0px #ccc;
+}
+.user-profile-header {
+    margin-bottom: 50px; 
+    margin: 0 auto;/* Add some space below the header */
+    background-color: #1976D2; /* Set the background color for the header to blue */
+    color: #fff; /* Set the text color to white */
+    padding: 10px;
+    border-radius: 5px;
+}

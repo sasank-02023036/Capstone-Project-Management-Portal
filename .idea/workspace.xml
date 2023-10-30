@@ -2,17 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5013bcb9-ebf6-4118-be2f-655c8982a18f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/client_side/src/pages/UserProfilePage.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client_side/src/styles/UserProfilePage.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/b00deb1e-bf80-4b93-a2b8-4083efc00ae8.pdf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client_side/build/asset-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/client_side/build/asset-manifest.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client_side/build/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/client_side/build/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client_side/src/components/Dashboard/AdminDashboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/client_side/src/components/Dashboard/AdminDashboard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client_side/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/client_side/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client_side/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client_side/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client_side/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/client_side/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client_side/src/components/Footer/footer.js" beforeDir="false" afterPath="$PROJECT_DIR$/client_side/src/components/Footer/footer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client_side/src/components/Header/navbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/client_side/src/components/Header/navbar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client_side/src/pages/HomePage.js" beforeDir="false" afterPath="$PROJECT_DIR$/client_side/src/pages/HomePage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client_side/src/pages/SigninPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/client_side/src/pages/SigninPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client_side/src/styles/SigninPage.css" beforeDir="false" afterPath="$PROJECT_DIR$/client_side/src/styles/SigninPage.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client_side/src/styles/home-navbar.css" beforeDir="false" afterPath="$PROJECT_DIR$/client_side/src/styles/home-navbar.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client_side/src/styles/navbar.css" beforeDir="false" afterPath="$PROJECT_DIR$/client_side/src/styles/navbar.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server_side/controllers/userController.js" beforeDir="false" afterPath="$PROJECT_DIR$/server_side/controllers/userController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server_side/models/users.js" beforeDir="false" afterPath="$PROJECT_DIR$/server_side/models/users.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uploads/25994cf4-ff46-4384-9012-a1d0bb0f9e0e.pdf" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

@@ -96,7 +96,8 @@ exports.deleteUserByEmail = async (req, res) => {
 
 exports.updateUser = async (req, res) => {
   const { name, password, role } = req.body;
-  const currentUserEmail = req.params.email;
+  const currentUserEmail = req.user.email;
+  const { email } = req.params;
 
   try {
     let user = await User.findOne({ email: email });
@@ -105,23 +106,11 @@ exports.updateUser = async (req, res) => {
       return res.status(404).json({ error: "User not found" });
     }
 
-    // Only allow the user to update their own name and password
-    if (email === currentUserEmail) {
-      const updateFields = {};
-      if (name) updateFields.name = name;
-      if (password) updateFields.password = password;
-
-      await User.updateOne({ email: email }, updateFields);
-    }
-
-    // Allow admin to update any user's name and role
-    if (req.user.role === "ADMIN") {
-      const updateFields = {};
-      if (name) updateFields.name = name;
-      if (role) updateFields.role = role;
-
-      await User.updateOne({ email: email }, updateFields);
-    }
+    const updateFields = {};
+    if (name) updateFields.name = name;
+    if (password) updateFields.password = await User.hashNewPassword(email, password);
+    if (role) updateFields.role = role;
+    await User.updateOne({ email: email }, updateFields);
 
     return res.status(200).json({ message: "Successfully updated user" });
   } catch (err) {
