@@ -4,16 +4,76 @@ import camsLogo from "../../assets/camsBlue.png";
 import Cookies from "js-cookie";
 import { useNavigate } from "react-router-dom";
 import jwt_decode from "jwt-decode";
+import { Link } from "react-router-dom";
+
+import ClickAwayListener from '@mui/material/ClickAwayListener';
+import Grow from '@mui/material/Grow';
+import Paper from '@mui/material/Paper';
+import Popper from '@mui/material/Popper';
+import MenuItem from '@mui/material/MenuItem';
+import MenuList from '@mui/material/MenuList';
+import Stack from '@mui/material/Stack';
 
 const Navbar = () => {
   const token = Cookies.get("token");
   const payload = jwt_decode(token);
   const navigate = useNavigate();
+  const [openProfile, setOpenProfile] = React.useState(false);
+  const [openHelp, setOpenHelp] = React.useState(false);
+
+  const anchorRefProfile = React.useRef(null);
+  const anchorRefHelp = React.useRef(null);
 
   const handleLogout = () => {
     Cookies.remove("token");
     navigate("/", { replace: true });
   };
+
+  const handleToggleProfile = () => {
+    setOpenProfile((prevOpen) => !prevOpen);
+  };
+
+  const handleCloseProfile = (event) => {
+    if (anchorRefProfile.current && anchorRefProfile.current.contains(event.target)) {
+      return;
+    }
+    setOpenProfile(false);
+  };
+
+  const handleProfileMenuItemClick = (event) => {
+    setOpenProfile(false);
+    navigate("/profile", { replace: true });
+  }
+
+  function handleProfileListKeyDown(event) {
+    if (event.key === 'Tab') {
+      event.preventDefault();
+      setOpenHelp(false);
+    } else if (event.key === 'Escape') {
+      setOpenHelp(false);
+    }
+  }
+  const handleToggleHelp = () => {
+    setOpenHelp((prevOpen) => !prevOpen);
+  };
+
+  const handleCloseHelp = (event) => {
+    if (anchorRefHelp.current && anchorRefHelp.current.contains(event.target)) {
+      return;
+    }
+
+    setOpenHelp(false);
+  };
+
+  function handleHelpListKeyDown(event) {
+    if (event.key === 'Tab') {
+      event.preventDefault();
+      setOpenHelp(false);
+    } else if (event.key === 'Escape') {
+      setOpenHelp(false);
+    }
+  }
+
 
   return (
     <div className="navbar">
@@ -57,7 +117,15 @@ const Navbar = () => {
 
         <div className="navbar-buttons">
           {/* Profile icon goes here */}
-          <div className="navbar-profile">
+          <div
+           className="navbar-profile"
+           ref={anchorRefProfile}
+           id="composition-button"
+           aria-controls={openProfile ? 'composition-menu' : undefined}
+           aria-expanded={openProfile ? 'true' : undefined}
+           aria-haspopup="true"
+           onClick={handleToggleProfile}
+           >
             <div className="profile-icon">
               <svg
                 className="pSvg"
@@ -74,6 +142,38 @@ const Navbar = () => {
                 />
               </svg>
             </div>
+              <Popper
+              open={openProfile}
+              anchorEl={anchorRefProfile.current}
+              role={undefined}
+              placement="bottom-start"
+              transition
+              disablePortal
+              >
+              {({ TransitionProps, placement }) => (
+                <Grow
+                  {...TransitionProps}
+                  style={{
+                    transformOrigin:
+                      placement === 'bottom-start' ? 'left top' : 'left bottom',
+                  }}
+                >
+                  <Paper>
+                    <ClickAwayListener onClickAway={handleCloseProfile}>
+                      <MenuList
+                        autoFocusItem={openProfile}
+                        id="composition-menu"
+                        aria-labelledby="composition-button"
+                        onKeyDown={handleProfileListKeyDown}
+                      >
+                        <MenuItem onClick={handleProfileMenuItemClick}>Profile</MenuItem>
+                        <MenuItem onClick={handleCloseProfile}>My account</MenuItem>
+                      </MenuList>
+                    </ClickAwayListener>
+                  </Paper>
+                </Grow>
+              )}
+            </Popper>
           </div>
 
           {/* Sign Out Button goes here */}
@@ -98,7 +198,15 @@ const Navbar = () => {
           </div>
 
           {/* Help icon goes here */}
-          <div className="navbar-help">
+          <div 
+             className="navbar-help"
+             ref={anchorRefHelp}
+             id="composition-help-button"
+             aria-controls={openHelp ? 'composition-help-menu' : undefined}
+             aria-expanded={openHelp ? 'true' : undefined}
+             aria-haspopup="true"
+            onClick={handleToggleHelp}>
+            
             <div className="question">
               <svg
                 className="qSvg"
@@ -115,6 +223,38 @@ const Navbar = () => {
                 />
               </svg>
             </div>
+            <Popper
+              open={openHelp}
+              anchorEl={anchorRefHelp.current}
+              role={undefined}
+              placement="bottom-start"
+              transition
+              disablePortal
+              >
+              {({ TransitionProps, placement }) => (
+                <Grow
+                  {...TransitionProps}
+                  style={{
+                    transformOrigin:
+                      placement === 'bottom-end' ? 'left top' : 'left bottom',
+                  }}
+                >
+                  <Paper>
+                    <ClickAwayListener onClickAway={handleCloseHelp}>
+                    <MenuList
+                        autoFocusItem={openHelp}
+                        id="composition-help-menu"
+                        aria-labelledby="composition-help-button"
+                        onKeyDown={handleHelpListKeyDown}
+                      >
+                     <MenuItem onClick={() => window.open("mailto:support@example.com")}>Support</MenuItem>
+                     <MenuItem onClick={() => window.open("mailto:help@example.com")}>Help</MenuItem>
+                     </MenuList>
+                    </ClickAwayListener>
+                  </Paper>
+                </Grow>
+              )}
+            </Popper>
           </div>
         </div>
       </div>
