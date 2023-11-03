@@ -98,6 +98,7 @@ exports.getProjectPdf = async (req, res) => {
         return res.status(200).json(project);
       }
       const filePath = path.resolve(__dirname, "..", "..","uploads", project.fileUrl);
+      console.log(filePath);
       return res.download(filePath);
     } catch (error) {
       console.error(error);
