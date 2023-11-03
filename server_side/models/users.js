@@ -75,6 +75,15 @@ userSchema.static("matchPasswordAndGenerateToken", async function(email, passwor
   return null;
 });
 
+userSchema.static("hashNewPassword", async function(email, password) {
+  const user = await this.findOne({email});
+  if (!user) return null;
+
+  return createHmac('sha256', user.salt)
+  .update(password)
+  .digest('hex');
+});
+
 const User = mongoose.model('User', userSchema);
 
 module.exports = User;
