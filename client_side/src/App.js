@@ -10,6 +10,8 @@ import jwt_decode from 'jwt-decode';
 import CoursesPage from 'pages/CoursesPage';
 import CoursePage from 'pages/CoursePage';
 import Test from 'pages/Test';
+
+
 import PreferenceForm from 'components/forms/PreferenceForm';
 
 function App() {
