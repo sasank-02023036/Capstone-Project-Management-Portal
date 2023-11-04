@@ -130,7 +130,11 @@ exports.deleteProject = async (req, res) => {
       }
   
       // Remove the PDF file from the uploads folder
-      fs.unlinkSync(path.resolve(__dirname, '..', '..', 'uploads', project.fileUrl));
+      try {
+        fs.unlinkSync(path.resolve(__dirname, '..', '..', 'uploads', project.fileUrl));
+      } catch(ex) {
+        //The file may be missing
+      }
   
       // Delete the project from the database
       await Project.findByIdAndDelete(projectId);

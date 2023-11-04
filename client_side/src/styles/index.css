@@ -418,3 +418,20 @@ html, body {
   background-color:  var(--cams-blue);
   border: 1.5px solid transparent;
 }
+
+.card-container {
+  margin: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-end;
+  column-gap: 1.5rem;
+  row-gap: 1.5rem;
+  justify-content: center;
+  .MuiCard-root{
+    display: flex;
+    flex-direction: column;
+  }
+  .MuiCardActions-root{
+     margin-top: auto;
+  }
+}

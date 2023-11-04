@@ -12,6 +12,7 @@ import CoursePage from 'pages/CoursePage';
 import Test from 'pages/Test';
 import UserProfilePage from 'pages/UserProfilePage';
 import PreferenceForm from 'components/forms/PreferenceForm';
+import Privacy_PolicyPage from 'pages/Privacy_Policy';
 
 function App() {
 
@@ -59,6 +60,7 @@ function App() {
         <Route path="/courses/:name" element={<CoursePage />}  onEnter={isLoggedIn} />
         <Route path="/profile" element={<UserProfilePage />} onEnter={isLoggedIn} /> 
         <Route path="/test" element={<Test />} />
+        <Route path="/privacy" element={<Privacy_PolicyPage />} />
         <Route path='*' element={<PageNotFound />} />
       </Routes>
     </Router>
