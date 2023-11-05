@@ -10,12 +10,7 @@ import jwt_decode from 'jwt-decode';
 import CoursesPage from 'pages/CoursesPage';
 import CoursePage from 'pages/CoursePage';
 import Test from 'pages/Test';
-<<<<<<< HEAD
-
-
-=======
 import UserProfilePage from 'pages/UserProfilePage';
->>>>>>> 6b96b62dbc7ccc7faa810878bfa181509c5ff041
 import PreferenceForm from 'components/forms/PreferenceForm';
 import Privacy_PolicyPage from 'pages/Privacy_Policy';
 

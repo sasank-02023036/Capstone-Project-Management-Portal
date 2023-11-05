@@ -272,44 +272,6 @@ function ActiveProjects() {
          <PublishProjectForm data={projects} setData={setProjects} />
          <Box sx={{ml:1.5}} ></Box>
         </Toolbar>
-<<<<<<< HEAD
-        <TableContainer >
-          <Table sx={{ width: '100%' }}>
-            <TableHead>
-              <TableRow sx={{height:"30px" }}>
-                <HeaderTableCell sx={{width:"5%", paddingLeft:"25px"}} >S.No</HeaderTableCell>
-                <HeaderTableCell sx={{width:"20%"}} >Project Name</HeaderTableCell>
-                <HeaderTableCell sx={{width:"25%"}} >Skills</HeaderTableCell>
-                <HeaderTableCell sx={{width:"15%"}} >Course</HeaderTableCell>
-                <HeaderTableCell sx={{width:"10%"}} >Created On</HeaderTableCell>
-                <HeaderTableCell sx={{width:"20%"}} >Created By</HeaderTableCell>
-                <HeaderTableCell sx={{width:"5%", paddingRight:"42px" }} >Actions</HeaderTableCell>
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              {filteredProjects
-                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                .map((row, index) => {
-                  return (
-                    <HoverTableRow key={row._id}>
-                      <StyledTableCell sx={{ width:"5%", paddingLeft:"25px"}} onClick={() => {setSelectedProject(row._id); setPreview(true);}} >{index + 1 + page * rowsPerPage}</StyledTableCell>
-                      <StyledTableCell sx={{width:"20%"}} onClick={() => {setSelectedProject(row._id); setPreview(true);}} >{row.name}</StyledTableCell>
-                      <StyledTableCell sx={{width:"25%"}} onClick={() => {setSelectedProject(row._id); setPreview(true);}} >{row.skills}</StyledTableCell>
-                      <StyledTableCell sx={{width:"15%"}} onClick={() => {setSelectedProject(row._id); setPreview(true);}} >{row.course || 'N/A'} </StyledTableCell>
-                      <StyledTableCell sx={{width:"10%"}} onClick={() => {setSelectedProject(row._id); setPreview(true);}} >{getDate(row.createdAt)}</StyledTableCell>
-                      <StyledTableCell sx={{width:"20%"}} onClick={() => {setSelectedProject(row._id); setPreview(true);}} >{row.createdBy}</StyledTableCell>
-                      <StyledTableCell sx={{width:"5%", paddingRight:"42px"}} align="center">
-                        <IconButton onClick={() => handleClick(row._id)} color="error">
-                          <Delete />
-                        </IconButton>
-                      </StyledTableCell>
-                    </HoverTableRow>
-                  );
-                })}
-            </TableBody>
-          </Table>
-        </TableContainer>
-=======
         <div className='card-container'>
           {filteredProjects
           .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
@@ -339,7 +301,6 @@ function ActiveProjects() {
             );
           })}
         </div>
->>>>>>> 3118537847476a19d4d2379e56f66ecf928e217b
         <TablePagination
           sx = {{marginRight:"1.5rem"}}
           component="div"
