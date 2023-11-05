@@ -3,16 +3,16 @@ import SelectProjectsForCourse from "components/forms/SelectProjectsForCourse";
 import ProjectPreview from "components/project/ProjectPreview";
 
 import { 
-  Table, 
-  TableBody, 
   TableCell, 
-  TableContainer, 
-  TableHead, 
   TableRow, 
   TablePagination, 
   Paper, 
   Toolbar, 
   Typography, 
+  Card,
+  CardContent,
+  CardActions,
+  IconButton
 } from '@mui/material';
 import { styled, alpha } from '@mui/material/styles';
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
@@ -206,80 +206,30 @@ export default function CoursesProject({course}) {
 
             <Box sx={{ ml: 1.5 }}></Box>
           </Toolbar>
-          <TableContainer>
-            <Table sx={{ width: "100%" }}>
-              <TableHead>
-                <TableRow sx={{ height: "30px" }}>
-                  <HeaderTableCell sx={{ width: "5%", paddingLeft: "25px" }}>
-                    S.No
-                  </HeaderTableCell>
-                  <HeaderTableCell sx={{ width: "30%" }}>
-                    Project Name
-                  </HeaderTableCell>
-                  <HeaderTableCell sx={{ width: "40%" }}>
-                    Skills
-                  </HeaderTableCell>
-                  <HeaderTableCell sx={{ width: "10%" }}>
-                    Created On
-                  </HeaderTableCell>
-                  <HeaderTableCell sx={{ width: "15%" }}>
-                    Created By
-                  </HeaderTableCell>
-                </TableRow>
-              </TableHead>
-              <TableBody>
-                {filteredProjects
-                  .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                  .map((row, index) => {
-                    return (
-                      <HoverTableRow key={row._id}>
-                        <StyledTableCell
-                          sx={{ width: "5%", paddingLeft: "25px" }}
-                        >
-                          {index + 1 + page * rowsPerPage}
-                        </StyledTableCell>
-                        <StyledTableCell
-                          sx={{ width: "30%" }}
-                          onClick={() => {
-                            setSelectedProject(row._id);
-                            preview(true);
-                          }}
-                        >
-                          {row.name}
-                        </StyledTableCell>
-                        <StyledTableCell
-                          sx={{ width: "40%" }}
-                          onClick={() => {
-                            setSelectedProject(row._id);
-                            preview(true);
-                          }}
-                        >
-                          {row.skills}
-                        </StyledTableCell>
-                        <StyledTableCell
-                          sx={{ width: "10%" }}
-                          onClick={() => {
-                            setSelectedProject(row._id);
-                            preview(true);
-                          }}
-                        >
-                          {getDate(row.createdAt)}
-                        </StyledTableCell>
-                        <StyledTableCell
-                          sx={{ width: "15%" }}
-                          onClick={() => {
-                            setSelectedProject(row._id);
-                            preview(true);
-                          }}
-                        >
-                          {row.createdBy}
-                        </StyledTableCell>
-                      </HoverTableRow>
-                    );
-                  })}
-              </TableBody>
-            </Table>
-          </TableContainer>
+          <div className='card-container'>
+          {filteredProjects
+          .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+          .map((row, index) => {
+            return (
+              <Card sx={{ width: 250 }}>
+                <CardContent onClick={() => {setSelectedProject(row._id); setPreview(true);}}>
+                  <Typography variant="h5" component="div">
+                    {row.name}
+                  </Typography>
+                  <Typography variant="body2">
+                    Skills: {row.skills}
+                  </Typography>
+                  <Typography variant="body2">
+                    Created On: {getDate(row.createdAt)}
+                  </Typography>
+                  <Typography variant="body2">
+                    Created By: {row.createdBy}
+                  </Typography>
+                </CardContent>
+              </Card>
+            );
+          })}
+        </div>
           <TablePagination
             sx={{ marginRight: "1.5rem" }}
             component="div"
