@@ -25,7 +25,7 @@ const Footer = () => {
 
                 {/* Footer Links goes here */}
                  <div className='footer-links'>
-                    <p className='footer-privacy'>Privacy & Terms</p>
+                    <a href='/privacy' className='footer-privacy'>Privacy & Terms</a>
 
                 {/* Top to the page icon goes here */}
                  <div className='arrow' onClick={scrollToTop}> 

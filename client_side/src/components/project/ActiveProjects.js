@@ -9,17 +9,16 @@ import ProjectPreview from './ProjectPreview';
 
 // Import Material-UI components
 import { 
-  Table, 
-  TableBody, 
   TableCell, 
-  TableContainer, 
-  TableHead, 
   TableRow, 
   TablePagination, 
   Paper, 
   Toolbar, 
   Typography, 
-  IconButton, 
+  Card,
+  CardContent,
+  CardActions,
+  IconButton
 } from '@mui/material';
 import { styled, alpha } from '@mui/material/styles';
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
@@ -273,6 +272,7 @@ function ActiveProjects() {
          <PublishProjectForm data={projects} setData={setProjects} />
          <Box sx={{ml:1.5}} ></Box>
         </Toolbar>
+<<<<<<< HEAD
         <TableContainer >
           <Table sx={{ width: '100%' }}>
             <TableHead>
@@ -309,6 +309,37 @@ function ActiveProjects() {
             </TableBody>
           </Table>
         </TableContainer>
+=======
+        <div className='card-container'>
+          {filteredProjects
+          .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+          .map((row, index) => {
+            return (
+              <Card sx={{ width: 250 }}>
+                <CardContent onClick={() => {setSelectedProject(row._id); setPreview(true);}}>
+                  <Typography variant="h5" component="div">
+                    {row.name}
+                  </Typography>
+                  <Typography variant="body2">
+                    Skills: {row.skills}
+                  </Typography>
+                  <Typography variant="body2">
+                    Created On: {getDate(row.createdAt)}
+                  </Typography>
+                  <Typography variant="body2">
+                    Created By: {row.createdBy}
+                  </Typography>
+                </CardContent>
+                <CardActions>
+                  <IconButton color="error" onClick={() => handleClick(row._id)} aria-label="delete">
+                    <Delete />
+                  </IconButton>
+                </CardActions>
+              </Card>
+            );
+          })}
+        </div>
+>>>>>>> 3118537847476a19d4d2379e56f66ecf928e217b
         <TablePagination
           sx = {{marginRight:"1.5rem"}}
           component="div"

@@ -100,6 +100,7 @@ exports.getProjectPdf = async (req, res) => {
         return res.status(200).json(project);
       }
       const filePath = path.resolve(__dirname, "..", "..","uploads", project.fileUrl);
+      console.log(filePath);
       return res.download(filePath);
     } catch (error) {
       console.error(error);
@@ -132,7 +133,11 @@ exports.deleteProject = async (req, res) => {
       }
   
       // Remove the PDF file from the uploads folder
-      fs.unlinkSync(path.resolve(__dirname, '..', '..', 'uploads', project.fileUrl));
+      try {
+        fs.unlinkSync(path.resolve(__dirname, '..', '..', 'uploads', project.fileUrl));
+      } catch(ex) {
+        //The file may be missing
+      }
   
       // Delete the project from the database
       await Project.findByIdAndDelete(projectId);

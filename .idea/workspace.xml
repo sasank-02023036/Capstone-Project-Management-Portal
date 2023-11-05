@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="5013bcb9-ebf6-4118-be2f-655c8982a18f" name="Default Changelist" comment="">
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/client_side/build/asset-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/client_side/build/asset-manifest.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client_side/build/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/client_side/build/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client_side/src/components/Header/navbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/client_side/src/components/Header/navbar.js" afterDir="false" />
@@ -14,6 +18,20 @@
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server_side/controllers/projectController.js" beforeDir="false" afterPath="$PROJECT_DIR$/server_side/controllers/projectController.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server_side/models/projects.js" beforeDir="false" afterPath="$PROJECT_DIR$/server_side/models/projects.js" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client_side/build/asset-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/client_side/build/asset-manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client_side/build/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/client_side/build/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client_side/src/components/project/ProjectPreview.js" beforeDir="false" afterPath="$PROJECT_DIR$/client_side/src/components/project/ProjectPreview.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server_side/controllers/projectController.js" beforeDir="false" afterPath="$PROJECT_DIR$/server_side/controllers/projectController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uploads/206a8f4f-ab57-4cc2-87a5-5d1985b178ba.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uploads/3245d0e3-ec46-4819-8690-a20f945c2711.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uploads/613a85ba-9836-48f7-9b6e-e7a399927e07.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uploads/7db77ca6-1cf9-422d-bef8-0d24d0f971d3.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uploads/aff2767e-2c17-4605-918c-8d2230323a89.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uploads/c0bdfe5a-038a-4887-bce7-d35704d5b7cc.pdf" beforeDir="false" />
+>>>>>>> 3118537847476a19d4d2379e56f66ecf928e217b
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,6 +41,12 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 7
+}]]></component>
   <component name="ProjectId" id="2W8m7P3t7TlMWbNrzRVAgB1bHjT" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="1" id="Add" />
@@ -31,6 +55,7 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
+<<<<<<< HEAD
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
@@ -40,6 +65,22 @@
     <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
   </component>
+=======
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "main",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+>>>>>>> 3118537847476a19d4d2379e56f66ecf928e217b
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\N.VIDHYA SREE\Capstone-Project-Management-Portal\client_side\src\assets" />
@@ -55,8 +96,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1696122412913</updated>
+      <workItem from="1698903373417" duration="991000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -68,6 +113,5 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>
