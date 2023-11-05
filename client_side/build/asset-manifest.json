@@ -1,35 +1,16 @@
 {
   "files": {
-<<<<<<< HEAD
-    "main.css": "/static/css/main.d1b75c0d.css",
-    "main.js": "/static/js/main.782a89a2.js",
+    "main.css": "/static/css/main.5c4f4a46.css",
+    "main.js": "/static/js/main.2e655ca5.js",
     "static/media/cams-low-resolution-color-logo.png": "/static/media/cams-low-resolution-color-logo.f61e2a35a58b94877a46.png",
     "static/media/SecondaryNav.svg": "/static/media/SecondaryNav.28e98b55067821cb3e7b.svg",
     "index.html": "/index.html",
     "static/media/calendar.svg": "/static/media/calendar.4aa0718afc3279c200f0.svg",
-    "main.d1b75c0d.css.map": "/static/css/main.d1b75c0d.css.map",
-    "main.782a89a2.js.map": "/static/js/main.782a89a2.js.map"
+    "main.5c4f4a46.css.map": "/static/css/main.5c4f4a46.css.map",
+    "main.2e655ca5.js.map": "/static/js/main.2e655ca5.js.map"
   },
   "entrypoints": [
-    "static/css/main.d1b75c0d.css",
-    "static/js/main.782a89a2.js"
-=======
-    "main.css": "/static/css/main.1137e990.css",
-    "main.js": "/static/js/main.51858e8d.js",
-    "static/media/background-bg.png": "/static/media/background-bg.ecda8866d5b388503c23.png",
-    "static/media/SecondaryNav.svg": "/static/media/SecondaryNav.28e98b55067821cb3e7b.svg",
-    "index.html": "/index.html",
-    "static/media/calendar.svg": "/static/media/calendar.4aa0718afc3279c200f0.svg",
-    "main.1137e990.css.map": "/static/css/main.1137e990.css.map",
-    "main.51858e8d.js.map": "/static/js/main.51858e8d.js.map"
-  },
-  "entrypoints": [
-    "static/css/main.1137e990.css",
-<<<<<<< HEAD
-    "static/js/main.b4aed49b.js"
->>>>>>> 300ac5609cffcc71f6693d7c991720f60b5ee5a1
-=======
-    "static/js/main.51858e8d.js"
->>>>>>> 6b96b62dbc7ccc7faa810878bfa181509c5ff041
+    "static/css/main.5c4f4a46.css",
+    "static/js/main.2e655ca5.js"
   ]
 }

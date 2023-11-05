@@ -56,7 +56,7 @@
 
 /* Logo Div */
 
-.navbar-logo {
+.navbar-home-logo {
     position: relative;
     z-index: 16;
     display: flex;
@@ -71,8 +71,8 @@
 
 /* Logo Main Wrapper */
 
-.navbar-camsLogo{
-    padding: 10px 40px 06px 40px;
+.navbar-home-camsLogo{
+    padding: 10px 12px 06px 12px;
     width:30%;
     border-radius: 10px;
     border: 2.5px solid var(--cams-grey);
@@ -81,14 +81,14 @@
 
 /* Logo */
 
-.navbar-camsLogo img {
-    height: 60px;
+.navbar-home-camsLogo img {
+    height: 40px;
     width:100%
 } 
 
 /* Logo Hover Effect */
 
-.navbar-camsLogo:hover {
+.navbar-home-camsLogo:hover {
     padding: 10px 12px 06px 12px;
     border-radius: 10px;
     transition:  0.1s ease-in-out;

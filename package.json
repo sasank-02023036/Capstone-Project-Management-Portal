@@ -35,11 +35,8 @@
     "react-redux": "^8.1.3",
     "react-router-dom": "^6.16.0",
     "react-scripts": "^5.0.1",
-<<<<<<< HEAD
     "tw-elements-react": "^1.0.0-alpha1",
-=======
     "reactjs-popup": "^2.0.6",
->>>>>>> 300ac5609cffcc71f6693d7c991720f60b5ee5a1
     "uuid": "^9.0.0"
   },
   "devDependencies": {

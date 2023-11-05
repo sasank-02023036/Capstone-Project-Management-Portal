@@ -31,6 +31,7 @@ exports.createProject = async (req, res, next) => {
         description,
         administrators,
         deadline,
+        course,
         skills,
         resources,
       } = req.body;
@@ -44,6 +45,7 @@ exports.createProject = async (req, res, next) => {
         fileUrl: req.file.filename,
         administrators,
         deadline,
+        course,
         skills,
         resources,
         createdBy,

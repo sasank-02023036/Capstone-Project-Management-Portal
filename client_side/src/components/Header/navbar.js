@@ -199,8 +199,15 @@ const Navbar = () => {
           </div>
 
           {/* Help icon goes here */}
-          <div className="navbar-help">
-            <div className="question" onClick={handleToggleHelp}>
+          <div className="navbar-help"
+           ref={anchorRefHelp}
+           id="composition-help-button"
+           aria-controls={openHelp ? 'composition-help-menu' : undefined}
+           aria-expanded={openHelp ? 'true' : undefined}
+           aria-haspopup="true"
+           onClick={handleToggleHelp}
+           >
+            <div className="question">
               <svg
                 className="qSvg"
                 xmlns="http://www.w3.org/2000/svg"
