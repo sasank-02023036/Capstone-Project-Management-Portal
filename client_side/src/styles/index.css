@@ -61,6 +61,8 @@ html, body {
   letter-spacing: normal;
   color: #fff;
   margin-right: 50px;
+  border: 2.5px solid var(--primary-color);
+  border-radius: 10px;
 }
 
 .active-projects:hover{

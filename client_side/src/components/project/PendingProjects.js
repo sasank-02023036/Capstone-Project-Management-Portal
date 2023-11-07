@@ -79,7 +79,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 const StyledPaper = styled(Paper)(({ theme }) => ({
   marginLeft: theme.spacing(7),
-  background: "whitesmoke" ,
+  background: "white" ,
   borderRadius: "10px",
   marginRight : theme.spacing(7),
   marginTop: theme.spacing(7),
@@ -302,19 +302,19 @@ function PendingProjects() {
           .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
           .map((row, index) => {
             return (
-              <Card sx={{ width: 250 }}>
+              <Card sx={{ width: 250,border: '1.5px solid var(--primary-color)',borderRadius: '10px' ,boxShadow: '0 6px 8px rgba(0, 0, 0, 0.3)', }}>
                 <CardContent onClick={() => {setSelectedProject(row._id); setPreview(true);}}>
-                  <Typography variant="h5" component="div">
+                  <Typography variant="h5" component="div"  sx={{ marginBottom: 4}}>
                     {row.name}
                   </Typography>
                   <Typography variant="body2">
-                    Skills: {row.skills}
+                    <span style={{ fontWeight: 'bold' }}>Skills: </span>{row.skills}
                   </Typography>
                   <Typography variant="body2">
-                    Created On: {getDate(row.createdAt)}
+                    <span style={{ fontWeight: 'bold' }}>Created On:</span> {getDate(row.createdAt)}
                   </Typography>
                   <Typography variant="body2">
-                    Created By: {row.createdBy}
+                    <span style={{ fontWeight: 'bold' }}>Created By:</span> {row.createdBy}
                   </Typography>
                 </CardContent>
                 <CardActions>

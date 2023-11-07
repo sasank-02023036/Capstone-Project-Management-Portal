@@ -80,7 +80,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 const StyledPaper = styled(Paper)(({ theme }) => ({
   marginLeft: theme.spacing(7),
-  background: "whitesmoke" ,
+  background: "white" ,
   borderRadius: "10px",
   marginRight : theme.spacing(7),
   marginTop: theme.spacing(7),
@@ -236,16 +236,16 @@ return (
           .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
           .map((row, index) => {
             return (
-              <Card sx={{ width: 250 }}>
+              <Card sx={{ width: 250 ,border: '1.5px solid var(--primary-color)',borderRadius: '10px' ,boxShadow: '0 6px 8px rgba(0, 0, 0, 0.3)',}}>
                 <CardContent onClick={() => {handleCourseNameClick(row.name);}}>
-                  <Typography variant="h5" component="div">
+                  <Typography variant="h5" component="div" sx={{ marginBottom: 4}}>
                     {row.name}
                   </Typography>
                   <Typography variant="body2">
-                    Description: {row.description}
+                    <span style={{ fontWeight: 'bold' }}>Description: </span>{row.description}
                   </Typography>
                   <Typography variant="body2">
-                    Created On: {getDate(row.createdAt)}
+                    <span style={{ fontWeight: 'bold' }}>Created On:</span> {getDate(row.createdAt)}
                   </Typography>
                 </CardContent>
               </Card>
