@@ -1,6 +1,5 @@
 import React from "react";
 import Navbar from "components/Header/navbar";
-import { Header, Card } from 'semantic-ui-react'
 import Cookies from "js-cookie";
 import { useNavigate } from "react-router-dom";
 import jwt_decode from "jwt-decode";
