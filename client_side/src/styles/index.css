@@ -61,6 +61,8 @@ html, body {
   letter-spacing: normal;
   color: #fff;
   margin-right: 50px;
+  border: 2.5px solid var(--primary-color);
+  border-radius: 10px;
 }
 
 .active-projects:hover{
@@ -417,4 +419,21 @@ html, body {
   color: #fff;
   background-color:  var(--cams-blue);
   border: 1.5px solid transparent;
+}
+
+.card-container {
+  margin: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-end;
+  column-gap: 1.5rem;
+  row-gap: 1.5rem;
+  justify-content: center;
+  .MuiCard-root{
+    display: flex;
+    flex-direction: column;
+  }
+  .MuiCardActions-root{
+     margin-top: auto;
+  }
 }

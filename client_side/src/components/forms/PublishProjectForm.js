@@ -10,6 +10,7 @@ const PublishProjectForm = ({data, setData}) => {
   const [projectTitle, setProjectTitle] = useState("");
   const [projectDeadline, setProjectDeadline] = useState("");
   const [projectAdmins, setProjectAdmins] = useState("");
+  const [projectCourse, setProjectCourse] = useState("");
   const [projectDescription, setProjectDescription] = useState("");
   const [projectSkills, setProjectSkills] = useState("");
   const [projectResources, setProjectResources] = useState("");
@@ -22,6 +23,9 @@ const PublishProjectForm = ({data, setData}) => {
 
     const [studentIDFocused, setStudentIDFocused] = useState(false);
     const [studentIDHasValue, setstudentIDHasValue] = useState(false);
+
+    const [courseFocused, setCourseFocused] = useState(false);
+    const [courseHasValue, setCourseHasValue] = useState(false);
 
     const [passwordFocused, setPasswordFocused] = useState(false);
     const [passwordHasValue, setPasswordHasValue] = useState(false);
@@ -63,6 +67,10 @@ const PublishProjectForm = ({data, setData}) => {
     setProjectAdmins(event.target.value);
   };
 
+  const handleProjectCourseChange = (event) => {
+      setProjectCourse(event.target.value);
+    };
+
   const handleProjectDescriptionChange = (event) => {
     setProjectDescription(event.target.value);
   };
@@ -100,6 +108,7 @@ const PublishProjectForm = ({data, setData}) => {
       projectTitle &&
       projectDeadline &&
       projectAdmins &&
+      projectCourse &&
       projectDescription &&
       projectSkills &&
       projectResources &&
@@ -108,6 +117,7 @@ const PublishProjectForm = ({data, setData}) => {
       const formData = new FormData();
       formData.set('name', projectTitle);
       formData.set('administrators', projectAdmins);
+      formData.set('course',projectCourse);
       formData.set('description', projectDescription);
       formData.set('skills', projectSkills);
       formData.set('resources', projectResources);
@@ -233,7 +243,7 @@ const PublishProjectForm = ({data, setData}) => {
           </div>
 
 
-          <div className='formProject-p1-date'> 
+          <div className='formProject-p1-date'>
 
             <label htmlFor="projectDeadline" className={`formProject-p1-date-label ${isFocused || hasValue ? 'focused' : ''}`}>Expected Project Deadline</label>
             <input
@@ -250,7 +260,7 @@ const PublishProjectForm = ({data, setData}) => {
 
           </div>
 
-          <div className='formProject01-Admins'>      
+            <div className='formProject01-Admins'>
 
               <label htmlFor="projectAdmins" className={`formProject01-Admins-label ${studentIDFocused  || studentIDHasValue ? 'focused' : ''}`}>Project Administrators</label>
               
@@ -268,7 +278,30 @@ const PublishProjectForm = ({data, setData}) => {
                     setstudentIDHasValue(e.target.value !== '');
                 }}
               />
-          </div>
+            </div>
+
+
+                <div className='formProject01-Course'>
+
+                        <label htmlFor="projectCourse" className={`formProject01-Course-label ${courseFocused  || courseHasValue ? 'focused' : ''}`}>Course </label>
+
+                        <input
+                          type="text"
+                          id="projectCourse"
+                          name="projectCourse"
+                          value={projectCourse}
+                          onChange={handleProjectCourseChange}
+                          required
+                          className="formProject01-Course-input"
+                          onFocus={() => setCourseFocused(true)}
+                          onBlur={(e) => {
+                              setCourseFocused(false);
+                              setCourseHasValue(e.target.value !== '');
+                          }}
+                        />
+                </div>
+
+
 
             <div className='formProject01-message'>
 

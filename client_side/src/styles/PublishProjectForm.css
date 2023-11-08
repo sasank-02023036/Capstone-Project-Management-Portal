@@ -368,7 +368,7 @@ height: 20px;
 
 .formProject01-message .formProject01-message-input{
   width:100%;
-  height: 250px;
+  height: 150px;
   font-family: Poppins;
   font-size: 16px;
   font-weight: 400;
@@ -461,6 +461,52 @@ height: 20px;
 
 
 
+.formProject01-Course{
+  display: flex;
+  margin-top: 20px;
+}
+
+.formProject01-Course .formProject01-Course-input{
+  width:100%;
+  height: 30px;
+  font-family: Poppins;
+  font-size: 16px;
+  font-weight: 400;
+  border: 2px solid #E9E9E9;
+  background-color: transparent;
+  border-radius: 6px;
+  padding-left: 18px;
+  box-shadow: none;
+}
+
+.formProject01-Course .formProject01-Course-input:focus {
+  outline: none;
+  border: 2px solid var(--cams-blue);
+}
+
+.formProject01-Course .formProject01-Course-label {
+  position: absolute;
+  width:170px;
+  pointer-events: none;
+  margin-top: 14px;
+  left: 60px;
+  font-size: 15px;
+  font-family: Poppins;
+  font-weight: 400;
+  color: #9F9F9F;
+  transition: all 0.2s ease;
+  background-color: transparent;
+  border-radius: 2px;
+  padding-left: 5px;
+}
+
+.formProject01-Course .formProject01-Course-input.focused ~ .formProject01-Course-label,
+.formProject01-Course .formProject01-Course-label.focused {
+  padding-left: 5px;
+  margin-top: -10px;
+  color: var(--cams-blue);
+  background-color: white;
+}
 
 
 

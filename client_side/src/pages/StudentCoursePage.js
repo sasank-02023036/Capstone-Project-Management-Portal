@@ -3,23 +3,23 @@ import { useEffect } from "react";
 import ProjectPreview from "components/project/ProjectPreview";
 import axios from 'axios';
 
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableContainer,
-  TableHead,
-  TableRow,
-  TablePagination,
-  Paper,
-  Toolbar,
-  Typography,
-  IconButton,
-} from "@mui/material";
-import { styled, alpha } from "@mui/material/styles";
-import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
-import Box from "@mui/material/Box";
-import InputBase from "@mui/material/InputBase";
+import { 
+  TableCell, 
+  TableRow, 
+  TablePagination, 
+  Paper, 
+  Toolbar, 
+  Typography, 
+  Card,
+  CardContent,
+  CardActions,
+  IconButton
+} from '@mui/material';
+import { styled, alpha } from '@mui/material/styles';
+import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
+import Box from '@mui/material/Box';
+import InputBase from '@mui/material/InputBase';
+import { Delete } from '@mui/icons-material';
 import PreferenceForm from "components/forms/PreferenceForm";
 
 const Search = styled("div")(({ theme }) => ({
@@ -75,7 +75,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 const StyledPaper = styled(Paper)(({ theme }) => ({
   marginLeft: theme.spacing(7),
-  background: "whitesmoke",
+  background: "white",
   borderRadius: "10px",
   marginRight: theme.spacing(7),
   marginTop: theme.spacing(7),
@@ -217,57 +217,30 @@ function StudentCoursesPage({ data }) {
           <PreferenceForm course={data} />
           <Box sx={{ ml: 1.5 }}></Box>
         </Toolbar>
-        <TableContainer>
-          <Table sx={{ width: "100%" }}>
-            <TableHead>
-              <TableRow sx={{ height: "30px" }}>
-                <HeaderTableCell sx={{ width: "5%", paddingLeft: "25px" }}>
-                  S.No
-                </HeaderTableCell>
-                <HeaderTableCell sx={{ width: "30%" }}>
-                  Project Name
-                </HeaderTableCell>
-                <HeaderTableCell sx={{ width: "30%" }}>Skills</HeaderTableCell>
-                <HeaderTableCell sx={{ width: "15%" }}>
-                  Administrators
-                </HeaderTableCell>
-                <HeaderTableCell sx={{ width: "10%", paddingRight: "42px" }}>
-                  Created By
-                </HeaderTableCell>
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              {filteredProjects
-                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                .map((row, index) => {
-                  return (
-                    <HoverTableRow
-                      key={row._id}
-                      onClick={() => handleClick(row._id)}
-                    >
-                      <StyledTableCell
-                        sx={{ width: "5%", paddingLeft: "25px" }}
-                      >
-                        {index + 1 + page * rowsPerPage}
-                      </StyledTableCell>
-                      <StyledTableCell sx={{ width: "30%" }}>
-                        {row.name}
-                      </StyledTableCell>
-                      <StyledTableCell sx={{ width: "25%" }}>
-                        {row.skills}
-                      </StyledTableCell>
-                      <StyledTableCell sx={{ width: "15%" }}>
-                        {row.administrators}
-                      </StyledTableCell>
-                      <StyledTableCell sx={{ width: "15%" }}>
-                        {row.createdBy}
-                      </StyledTableCell>
-                    </HoverTableRow>
-                  );
-                })}
-            </TableBody>
-          </Table>
-        </TableContainer>
+        <div className='card-container'>
+          {filteredProjects
+          .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+          .map((row, index) => {
+            return (
+              <Card sx={{ width: 250 ,border: '1.5px solid var(--primary-color)',borderRadius: '10px' ,boxShadow: '0 6px 8px rgba(0, 0, 0, 0.3)',}}>
+                <CardContent onClick={() => {handleClick(row._id);}}>
+                  <Typography variant="h5" component="div" sx={{ marginBottom: 4}}>
+                    {row.name}
+                  </Typography>
+                  <Typography variant="body2">
+                    <span style={{ fontWeight: 'bold' }}>Skills:</span> {row.skills}
+                  </Typography>
+                  <Typography variant="body2">
+                    <span style={{ fontWeight: 'bold' }}>Administrators:</span> {row.administrators}
+                  </Typography>
+                  <Typography variant="body2">
+                    <span style={{ fontWeight: 'bold' }}>Created By:</span> {row.createdBy}
+                  </Typography>
+                </CardContent>
+              </Card>
+            );
+          })}
+        </div>
         <TablePagination
           sx={{ marginRight: "1.5rem" }}
           component="div"

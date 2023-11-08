@@ -1,21 +1,23 @@
 .sign-in-page{
     display: flex;
+    top:50px;
     justify-content: center;
-    align-items: center;
-    height: 96.5vh; 
+    align-items: top;
+    height: 100vh;
     background-color: white;
     position: relative;
 }
 
 
 .formSignIn-container{
+    margin-top: 5px;
     flex-direction: column;
     position: absolute;
     display: flex;
     align-items: center;
     justify-content: center;
     width: 425px;
-    height: 589px;
+    min-height: 519px;
     z-index: 10;
     border-radius: 20px;
     border: 2.25px solid var(--cams-blue);
@@ -26,7 +28,7 @@
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    margin-top: 52.5px;
+    margin-top: 0px;
     margin-bottom: 25px;
 }
 
@@ -35,7 +37,7 @@
     display: flex;
     align-items: center;
     margin-left: 52.5px;
-    margin-top: 32.5px;
+    margin-top: 10px;
   }
 
 .formSignIn-help { 
@@ -48,7 +50,7 @@
     border-radius: 50px;
     display: flex;
     margin-right: 50.5px;
-    margin-top: 32.5px;
+    margin-top: 10px;
 }
 
 .formSignIn-help:hover {
@@ -75,12 +77,15 @@
     letter-spacing: normal;
     color: var(--cams-dark);
     margin-right: 120.5px;
-    margin-bottom: 25px;
+    margin-top:5px;
+    margin-bottom: 5px;
 }
 
 .formSignIn-form{
     display: flex;
     flex-direction: column;
+    margin-top:5px;
+    margin-bottom: 5px;
 }
 
 .formSignIn-inputfields{
@@ -200,8 +205,9 @@
 .form-buttons{
     display: flex;
     flex-direction: column;
-    height: 200px;
+    height: 50px;
     margin-top: 25px;
+    margin-bottom:5px;
 }
 
 .form-buttons .LoginForm-continue {
@@ -225,7 +231,7 @@
  }
 
  .form-buttons .LoginFrom-homepage {
-    margin-top:25px;
+    margin-top:5px;
     width:310px;
     height: 46px;
     border-radius: 5px;

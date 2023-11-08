@@ -9,17 +9,16 @@ import ProjectPreview from './ProjectPreview';
 
 // Import Material-UI components
 import { 
-  Table, 
-  TableBody, 
   TableCell, 
-  TableContainer, 
-  TableHead, 
   TableRow, 
   TablePagination, 
   Paper, 
   Toolbar, 
   Typography, 
-  IconButton, 
+  Card,
+  CardContent,
+  CardActions,
+  IconButton
 } from '@mui/material';
 import { styled, alpha } from '@mui/material/styles';
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
@@ -84,7 +83,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 const StyledPaper = styled(Paper)(({ theme }) => ({
   marginLeft: theme.spacing(7),
-  background: "whitesmoke" ,
+  background: "white" ,
   borderRadius: "10px",
   marginRight : theme.spacing(7),
   marginTop: theme.spacing(7),
@@ -241,10 +240,10 @@ function ActiveProjects() {
     <>
       {popup && <ConfirmationPopup message="Are you sure you want to delete this item ?"  onNo={handleNo} onYes={handleYes}/>}
       {preview && <ProjectPreview projectId={selectedProject}  handleClose={handleClose} />}
-      
+
       <StyledPaper>
         <Toolbar sx={{height:"100px"}}>
-         
+
          <Typography
            variant="h5"
            noWrap
@@ -269,44 +268,39 @@ function ActiveProjects() {
          </Search>
 
          {/*till here */}
-         
+
          <PublishProjectForm data={projects} setData={setProjects} />
          <Box sx={{ml:1.5}} ></Box>
         </Toolbar>
-        <TableContainer >
-          <Table sx={{ width: '100%' }}>
-            <TableHead>
-              <TableRow sx={{height:"30px" }}>
-                <HeaderTableCell sx={{width:"5%", paddingLeft:"25px"}} >S.No</HeaderTableCell>
-                <HeaderTableCell sx={{width:"30%"}} >Project Name</HeaderTableCell>
-                <HeaderTableCell sx={{width:"30%"}} >Skills</HeaderTableCell>
-                <HeaderTableCell sx={{width:"10%"}} >Created On</HeaderTableCell>
-                <HeaderTableCell sx={{width:"20%"}} >Created By</HeaderTableCell>
-                <HeaderTableCell sx={{width:"5%", paddingRight:"42px" }} >Actions</HeaderTableCell>
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              {filteredProjects
-                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                .map((row, index) => {
-                  return (
-                    <HoverTableRow key={row._id}>
-                      <StyledTableCell sx={{ width:"5%", paddingLeft:"25px"}} onClick={() => {setSelectedProject(row._id); setPreview(true);}} >{index + 1 + page * rowsPerPage}</StyledTableCell>
-                      <StyledTableCell sx={{width:"30%"}} onClick={() => {setSelectedProject(row._id); setPreview(true);}} >{row.name}</StyledTableCell>
-                      <StyledTableCell sx={{width:"30%"}} onClick={() => {setSelectedProject(row._id); setPreview(true);}} >{row.skills}</StyledTableCell>
-                      <StyledTableCell sx={{width:"10%"}} onClick={() => {setSelectedProject(row._id); setPreview(true);}} >{getDate(row.createdAt)}</StyledTableCell>
-                      <StyledTableCell sx={{width:"20%"}} onClick={() => {setSelectedProject(row._id); setPreview(true);}} >{row.createdBy}</StyledTableCell>
-                      <StyledTableCell sx={{width:"5%", paddingRight:"42px"}} align="center">
-                        <IconButton onClick={() => handleClick(row._id)} color="error">
-                          <Delete />
-                        </IconButton>
-                      </StyledTableCell>
-                    </HoverTableRow>
-                  );
-                })}
-            </TableBody>
-          </Table>
-        </TableContainer>
+        <div className='card-container'>
+          {filteredProjects
+          .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+          .map((row, index) => {
+            return (
+              <Card className='cards' sx={{ width: 250, border: '1.5px solid var(--primary-color)',borderRadius: '10px' ,boxShadow: '0 6px 8px rgba(0, 0, 0, 0.3)', }}>
+                <CardContent onClick={() => {setSelectedProject(row._id); setPreview(true);}}>
+                  <Typography variant="h5" component="div" sx={{ marginBottom: 4}}>
+                    {row.name}
+                  </Typography>
+                  <Typography variant="body2">
+                    <span style={{ fontWeight: 'bold' }}>Course:</span> {row.course ? row.course : 'N/A'}
+                  </Typography>
+                  <Typography variant="body2">
+                    <span style={{ fontWeight: 'bold' }}>Created On:</span> {getDate(row.createdAt)}
+                  </Typography>
+                  <Typography variant="body2">
+                    <span style={{ fontWeight: 'bold' }}>Created By:</span> {row.createdBy}
+                  </Typography>
+                </CardContent>
+                <CardActions>
+                  <IconButton color="error" onClick={() => handleClick(row._id)} aria-label="delete">
+                    <Delete />
+                  </IconButton>
+                </CardActions>
+              </Card>
+            );
+          })}
+        </div>
         <TablePagination
           sx = {{marginRight:"1.5rem"}}
           component="div"

@@ -21,6 +21,10 @@ const projectSchema = new mongoose.Schema({
     type: Date, 
     required: true
   },
+  course: {
+    type: String,
+    required: true
+  } ,
   skills: {
     type: String, 
     required: true

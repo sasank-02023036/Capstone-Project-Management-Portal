@@ -82,7 +82,7 @@ const Navbar = () => {
         {/* logo goes here */}
         <div className="navbar-logo">
           <div class="navbar-camsLogo">
-            {" "} 
+            {" "}
             <img src={camsLogo} alt="CAMS Logo" />{" "}
           </div>
         </div>
@@ -97,7 +97,7 @@ const Navbar = () => {
               {payload.role === "STUDENT"? "Your Courses" : "Courses"}
             </p>
           )}
-          
+
           {payload.role === "ADMIN" && (
             <p
               className="projects"

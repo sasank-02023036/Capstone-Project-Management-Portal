@@ -31,6 +31,7 @@ exports.createProject = async (req, res, next) => {
         description,
         administrators,
         deadline,
+        course,
         skills,
         resources,
       } = req.body;
@@ -44,6 +45,7 @@ exports.createProject = async (req, res, next) => {
         fileUrl: req.file.filename,
         administrators,
         deadline,
+        course,
         skills,
         resources,
         createdBy,
@@ -131,7 +133,11 @@ exports.deleteProject = async (req, res) => {
       }
   
       // Remove the PDF file from the uploads folder
-      fs.unlinkSync(path.resolve(__dirname, '..', '..', 'uploads', project.fileUrl));
+      try {
+        fs.unlinkSync(path.resolve(__dirname, '..', '..', 'uploads', project.fileUrl));
+      } catch(ex) {
+        //The file may be missing
+      }
   
       // Delete the project from the database
       await Project.findByIdAndDelete(projectId);

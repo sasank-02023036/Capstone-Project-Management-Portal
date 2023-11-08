@@ -17,18 +17,19 @@
     justify-content: center;
     width: 100%;
     height: 100px;
-    background: url('../assets/background-bg.png') no-repeat center center/cover;
+    background: white;
     box-shadow: 0 2px 50px 0 rgba(0, 0, 0, 0.15);
 }
 
 .content{
     position: relative;
     display: flex;
-    align-items: center;
+    top: 0;
+    align-items: top;
     justify-content: center;
     width: 100%;
     height: 950px;
-    background-color: var(--cams-dark) ;
+    background-color: white ;
 }
 
 .image{
@@ -55,13 +56,13 @@
 
 /* Logo Div */
 
-.navbar-logo {
+.navbar-home-logo {
     position: relative;
     z-index: 16;
     display: flex;
-    color: #000000;
+    color:  var(--cams-blue);
     margin-left: 3rem;
-    width: 50%;
+    width: 40%;
     align-items: center;
     justify-content: flex-start;
 
@@ -70,21 +71,24 @@
 
 /* Logo Main Wrapper */
 
-.navbar-camsLogo{
+.navbar-home-camsLogo{
     padding: 10px 12px 06px 12px;
+    width:30%;
     border-radius: 10px;
     border: 2.5px solid var(--cams-grey);
+    color:  var(--cams-blue);
 } 
 
 /* Logo */
 
-.navbar-camsLogo img {
-    height: 30px;
+.navbar-home-camsLogo img {
+    height: 40px;
+    width:100%
 } 
 
 /* Logo Hover Effect */
 
-.navbar-camsLogo:hover {
+.navbar-home-camsLogo:hover {
     padding: 10px 12px 06px 12px;
     border-radius: 10px;
     transition:  0.1s ease-in-out;
@@ -119,7 +123,7 @@
     line-height: normal;
     letter-spacing: normal;
     text-align: left;
-    color: #fff;
+    color:  var(--cams-blue);
     margin: 1rem;
     padding: 8px 16px;
     border-radius: 6px;
@@ -133,7 +137,7 @@
       border-radius: 6px;
       /*color: var(--primary-color);*/
       cursor: pointer;
-      background: rgba(255, 255, 255, 0.25);
+      background: #0099eb1d;
    }
   
    /* Contact Icon */
@@ -148,7 +152,7 @@
     line-height: normal;
     letter-spacing: normal;
     text-align: left;
-    color: #fff;
+    color:  var(--cams-blue);
     margin: 1rem;
     padding: 8px 16px;
     border-radius: 6px;
@@ -162,9 +166,41 @@
       border-radius: 6px;
       /*color: var(--primary-color);*/
       cursor: pointer;
-      background: rgba(255, 255, 255, 0.25);
+      background: #0099eb1d;
    }
-  
+
+   .contact-popup{
+     position: absolute;
+     top: 80px;
+     left: 1300px;
+     background-color: #fff;
+     border: 1px solid #ccc;
+     padding: 10px;
+     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+     max-width: 500px; /* Set the desired width */
+     z-index: 1000;
+   }
+
+   .popup-header {
+     display: flex;
+     justify-content: 150px;
+     align-items: center;
+   }
+
+  .close-button {
+    position: absolute;
+    top: 5px; /* Adjust the top value to control the vertical position */
+    left: 180px; /* Adjust the right value to control the horizontal position */
+    background-color: #ff0000;
+    color: black;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+  }
+
+  .close-button:hover {
+    background-color: #cc0000;
+  }
     /* Sing In Button Container */
   
   .sign-in{
@@ -214,6 +250,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    color: var(--cams-blue);
 }
 
 /* Help Hover */
@@ -224,5 +261,10 @@
     border-radius: 50px;
     /*color: var(--primary-color);*/
     cursor: pointer;
-    background: rgba(255, 255, 255, 0.25);
+    background: #0099eb1d;
 }
+
+.help .qSvg path{
+    fill: var(--cams-blue);
+}
+

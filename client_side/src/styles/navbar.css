@@ -40,13 +40,13 @@
     padding: 10px 12px 06px 12px;
     border-radius: 10px;
     border: 2.5px solid var(--cams-grey);
-} 
+}
 
 /* Logo */
 
 .navbar-camsLogo img {
     height: 30px;
-} 
+}
 
 /* Logo Hover Effect */
 
@@ -144,10 +144,10 @@
   .navbar-sign-out-btn .soSvg path {
     fill: var(--cams-dark-grey);
 }
-  
+
 
   /* Sing Out Button Hover */
-  
+
   .navbar-sign-out-btn:hover{
      transition:  0.1s ease;
      cursor: pointer;
@@ -178,9 +178,9 @@
     border-radius: 6px;
     margin-right: 50px;
   }
-  
+
   /* Admin Courses Icon Hover */
-  
+
 .navbar-links  .courses:hover{
      transition:  0.25s ease-in-out;
      border-radius: 6px;
@@ -205,9 +205,9 @@
     border-radius: 6px;
     margin-right: 50px;
   }
-  
+
   /* Admin Projects Icon Hover */
-  
+
 .navbar-links .projects:hover{
      transition:  0.25s ease-in-out;
      border-radius: 6px;
@@ -231,9 +231,9 @@
     color: #bfbfbf;
     border-radius: 6px;
   }
-  
+
   /* Admin Dashboard Icon Hover */
-  
+
   .navbar-links .dashboard:hover{
      transition:  0.25s ease-in-out;
      border-radius: 6px;

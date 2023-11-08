@@ -5,6 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5013bcb9-ebf6-4118-be2f-655c8982a18f" name="Default Changelist" comment="">
+<<<<<<< HEAD
+      <change beforePath="$PROJECT_DIR$/client_side/build/asset-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/client_side/build/asset-manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client_side/build/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/client_side/build/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client_side/src/components/Header/navbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/client_side/src/components/Header/navbar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client_side/src/components/forms/PublishProjectForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/client_side/src/components/forms/PublishProjectForm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client_side/src/components/project/ActiveProjects.js" beforeDir="false" afterPath="$PROJECT_DIR$/client_side/src/components/project/ActiveProjects.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client_side/src/pages/HomePage.js" beforeDir="false" afterPath="$PROJECT_DIR$/client_side/src/pages/HomePage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client_side/src/styles/PublishProjectForm.css" beforeDir="false" afterPath="$PROJECT_DIR$/client_side/src/styles/PublishProjectForm.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client_side/src/styles/home-navbar.css" beforeDir="false" afterPath="$PROJECT_DIR$/client_side/src/styles/home-navbar.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client_side/src/styles/navbar.css" beforeDir="false" afterPath="$PROJECT_DIR$/client_side/src/styles/navbar.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server_side/controllers/projectController.js" beforeDir="false" afterPath="$PROJECT_DIR$/server_side/controllers/projectController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server_side/models/projects.js" beforeDir="false" afterPath="$PROJECT_DIR$/server_side/models/projects.js" afterDir="false" />
+=======
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client_side/build/asset-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/client_side/build/asset-manifest.json" afterDir="false" />
@@ -17,6 +31,7 @@
       <change beforePath="$PROJECT_DIR$/uploads/7db77ca6-1cf9-422d-bef8-0d24d0f971d3.pdf" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/uploads/aff2767e-2c17-4605-918c-8d2230323a89.pdf" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/uploads/c0bdfe5a-038a-4887-bce7-d35704d5b7cc.pdf" beforeDir="false" />
+>>>>>>> 3118537847476a19d4d2379e56f66ecf928e217b
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,6 +55,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
+<<<<<<< HEAD
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
+  </component>
+=======
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
@@ -54,8 +80,10 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+>>>>>>> 3118537847476a19d4d2379e56f66ecf928e217b
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\N.VIDHYA SREE\Capstone-Project-Management-Portal\client_side\src\assets" />
       <recent name="C:\Users\N.VIDHYA SREE\Capstone-Project-Management-Portal\bugs" />
       <recent name="C:\Users\N.VIDHYA SREE\Capstone-Project-Management-Portal" />
     </key>
