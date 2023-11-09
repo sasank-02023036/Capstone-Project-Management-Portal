@@ -26,6 +26,7 @@ import {
   TableContainer, 
   TableHead, 
   TableRow, 
+  CardActions,
   TablePagination, 
   CssBaseline,
   Paper, 
@@ -160,6 +161,10 @@ export default function ClientDashBoard() {
   const [experienceText, setExperienceText] = useState('');
   const [skillsText, setSkillsText] = useState('');
   
+  const handleClick = (id) => {
+    setPopup(true);
+    setSelectedProject(id);
+}
 
   const handleOpenForm = () => {
     setFormOpen(true);
@@ -364,12 +369,11 @@ export default function ClientDashBoard() {
               <CircularProgress variant="determinate" value={70} />
             </Box>
             </CardContent>
-            {/* You can uncomment and use CardActions if you want to add action buttons */}
-            {/* <CardActions>
-              <IconButton color="error" onClick={() => handleApprove(project._id)} aria-label="delete">
+            <CardActions sx={{ justifyContent: 'flex-end' }}>
+              <IconButton color="error" onClick={() => handleClick(project._id)} aria-label="delete">
                 <Delete />
               </IconButton>
-            </CardActions>  */}
+            </CardActions>  
             
              </Card>
             </Grid>
