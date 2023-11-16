@@ -326,8 +326,92 @@ export default function ClientDashBoard() {
     </Card>
   </Grid>
   {/* The third <Grid item> has been removed, and the rest of the code remains unchanged */}
-</Grid>
+  <React.Fragment>
+      <Grid container spacing={2} justifyContent="center">
+        {/* Other Grid items */}
+        <Grid item xs={12} sm={4} md={4}>
+        <Card style={{ backgroundColor: 'white', border: '1px solid #e0e0e0', boxShadow: '0 2px 4px 0 rgba(0,0,0,0.1)' }}>
+            <CardContent style={{ padding: 16 }}>
+              <Button 
+                variant="contained"
+                color="primary"
+                onClick={handleInviteStudents}
+                startIcon={<AddIcon />}
+                style={{
+                  width: '100%', 
+                  backgroundColor: '#4caf50',
+                  color: 'white', 
+                  textTransform: 'none', 
+                  borderRadius: 0, 
+                }}
+              >
+                Invite Learners
+              </Button>
+            </CardContent>
+          </Card>
+        </Grid>
+      </Grid>
 
+      {/* Invite Students Dialog */}
+      <Dialog open={inviteDialogOpen} onClose={handleCloseInviteDialog}>
+        <DialogTitle>Invite Learners</DialogTitle>
+        <DialogContent>
+          <DialogContentText>
+            Enter the email addresses of the students you wish to invite.
+          </DialogContentText>
+          <TextField
+            autoFocus
+            margin="dense"
+            id="name"
+            label="Email Addresses"
+            type="email"
+            fullWidth
+            variant="outlined"
+          />
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleCloseInviteDialog} color="primary">
+            Cancel
+          </Button>
+          <Button onClick={sendInvites} color="primary" variant="contained">
+            Send Invites
+          </Button>
+        </DialogActions>
+      </Dialog>
+    </React.Fragment>
+</Grid>
+<Typography
+  variant="h5"
+  component="div"
+  sx={{ flexGrow: 1, color: "#0097EB", fontFamily: "Poppins", mt: 4, mb: 2 }}
+>
+  My experiences
+</Typography>
+
+{/* Align items to the start (left) */}
+<Grid container spacing={2} alignItems="flex-start">
+  <Grid item xs={12} sm={6} md={4} lg={3}>
+    <Card sx={{ maxWidth: 345, mb: 4 }}>
+      <CardContent>
+        <Typography variant="h5" component="div">
+          Technical Skills
+        </Typography>
+        <Typography variant="body2" color="textSecondary">
+          MongoDB
+        </Typography>
+        <Typography variant="body2" color="textSecondary">
+          Express
+        </Typography>
+        <Typography variant="body2" color="textSecondary">
+          React
+        </Typography>
+        <Typography variant="body2" color="textSecondary">
+          Node.js
+        </Typography>
+      </CardContent>
+    </Card>
+  </Grid>
+</Grid>
 
     <StyledPaper>
         <Toolbar sx={{height:"100px"}}>
@@ -350,7 +434,7 @@ export default function ClientDashBoard() {
                .map((project, index) => (
 
                 
-        <Grid item xs={12} sm={6} md={4} lg={3} key={project._id}> {/* Adjust the grid breakpoints as required */}
+        <Grid item xs={12} sm={4} md={4} lg={3} key={project._id}> {/* Adjust the grid breakpoints as required */}
           <Card sx={{ maxWidth: 345 }}> {/* You can adjust width as necessary */}
             <CardContent onClick={() => { setSelectedProject(project._id); setPreview(true); }}>
               <Typography variant="h5" component="div">
@@ -365,18 +449,42 @@ export default function ClientDashBoard() {
               <Typography variant="body2">
                 Created By: {project.createdBy}
               </Typography>
+            </CardContent>
+            <CardActions disableSpacing>
+            <IconButton aria-label="add to favorites">
+          <FavoriteIcon />
+           </IconButton>
+           <IconButton aria-label="share">
+              <ShareIcon />
+            </IconButton>
+            <IconButton
+              onClick={() => handleExpandClick(project._id)}
+              aria-expanded={expanded[project._id] || false}
+              aria-label="show more"
+            >
+              <ExpandMoreIcon />
+            </IconButton>
+          </CardActions>
+          <Collapse in={expanded[project._id] || false} timeout="auto" unmountOnExit>
+            <CardContent>
+              <Box sx={{ display: 'flex', justifyContent: 'center', mt: 2 }}>
+                <CircularProgress variant="determinate" value={project.progress || 0} />
+              </Box>
               <Box sx={{ display: 'flex', justifyContent: 'center', mt: 2 }}>
               <CircularProgress variant="determinate" value={70} />
             </Box>
+            <Typography variant="caption" display="block" gutterBottom>
+                Assigned To: {project.assignedTo || 'v.parushaboyena001@umb.edu'}
+              </Typography>
+              <CardActions sx={{ justifyContent: 'flex-end' }}>
+                <IconButton color="error" onClick={() => handleClick(project._id)} aria-label="delete">
+                  <Delete />
+                </IconButton>
+              </CardActions>
             </CardContent>
-            <CardActions sx={{ justifyContent: 'flex-end' }}>
-              <IconButton color="error" onClick={() => handleClick(project._id)} aria-label="delete">
-                <Delete />
-              </IconButton>
-            </CardActions>  
-            
-             </Card>
-            </Grid>
+          </Collapse>
+        </Card>
+      </Grid>
          ))
         }
        </Grid>
