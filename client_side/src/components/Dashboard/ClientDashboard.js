@@ -4,24 +4,48 @@ import { useNavigate } from "react-router-dom";
 import PublishProjectForm from "components/forms/PublishProjectForm";
 import ProjectPreview from "../project/ProjectPreview";
 import Navbar from "components/Header/navbar";
+import Grid from '@mui/material/Grid';
+import AddIcon from '@mui/icons-material/Add';
+import Button from '@mui/material/Button';
+import IconButton from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
+import Dialog from '@mui/material/Dialog';
+import DialogContent from '@mui/material/DialogContent';
+import CircularProgress from '@mui/material/CircularProgress';
+import Delete from '@mui/icons-material/Delete';
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import ShareIcon from '@mui/icons-material/Share';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import Collapse from '@mui/material/Collapse';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
+import DialogActions from '@mui/material/DialogActions';
+
 
 import { 
+  Table, 
+  TableBody, 
   TableCell, 
+  TableContainer, 
+  TableHead, 
   TableRow, 
+  CardActions,
   TablePagination, 
+  CssBaseline,
   Paper, 
   Toolbar, 
-  Typography, 
-  Card,
-  CardContent,
-  CardActions,
-  IconButton
+  Typography,
+  CardContent, 
 } from '@mui/material';
 import { styled, alpha } from '@mui/material/styles';
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 import Box from '@mui/material/Box';
 import InputBase from '@mui/material/InputBase';
-import { Delete } from '@mui/icons-material';
+import { Card } from '@mui/material';
+import { Container } from '@mui/material';
+
+
 
 // take these for search button
 const Search = styled('div')(({ theme }) => ({
@@ -45,6 +69,7 @@ const Search = styled('div')(({ theme }) => ({
   },
 }));
 
+
 const SearchIconWrapper = styled('div')(({ theme }) => ({
   padding: theme.spacing(0, 2),
   height: '100%',
@@ -55,6 +80,7 @@ const SearchIconWrapper = styled('div')(({ theme }) => ({
   justifyContent: 'center',
   boxShadow: "none",
 }));
+ 
 
 const StyledInputBase = styled(InputBase)(({ theme }) => ({
   color: 'inherit',
@@ -80,7 +106,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 const StyledPaper = styled(Paper)(({ theme }) => ({
   marginLeft: theme.spacing(7),
-  background: "white" ,
+  background: "whitesmoke" ,
   borderRadius: "10px",
   marginRight : theme.spacing(7),
   marginTop: theme.spacing(7),
@@ -124,9 +150,6 @@ const getDate = (dateString) => {
 
 
 
-
-
-
 export default function ClientDashBoard() {
 
   const navigate = useNavigate();
@@ -134,11 +157,39 @@ export default function ClientDashBoard() {
   const [popup, setPopup] = useState(false);
   const [selectedProject, setSelectedProject] = useState("");
   const [preview ,setPreview] = useState(false);
-
   const [page, setPage] = useState(0);
-  const [rowsPerPage, setRowsPerPage] = useState(10);
+  const [rowsPerPage, setRowsPerPage] = useState(4);
   const [searchName, setSearchName] = useState("");
   const [filteredProjects, setFilteredProjects] = useState([]);
+  const [formOpen, setFormOpen] = useState(false);
+  const [experienceText, setExperienceText] = useState('');
+  const [skillsText, setSkillsText] = useState('');
+  
+  const handleClick = (id) => {
+    setPopup(true);
+    setSelectedProject(id);
+}
+
+  const handleOpenForm = () => {
+    setFormOpen(true);
+  }
+
+  const handleCloseForm = () => {
+    setFormOpen(false);
+  }
+
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    // Here, you can send the `experienceText` and `skillsText` to your server or storage service for storage.
+    // Example: You can use fetch or Axios to send a POST request to your backend.
+    // Remember to replace this with your actual data storage logic.
+    console.log('Experience Text:', experienceText);
+    console.log('Skills/Technologies:', skillsText);
+    // You can clear the form and close it after submission.
+    setExperienceText('');
+    setSkillsText('');
+    handleCloseForm();
+  }
 
 
   useEffect(() => {
@@ -188,11 +239,185 @@ export default function ClientDashBoard() {
 
 
   return (
-    <div>
-      <Navbar />
+    <>
+            <Navbar position="relative">
+            </Navbar>
+      <main>
       {preview && <ProjectPreview projectId={selectedProject}  handleClose={handleClose} />}
       
-      <StyledPaper>
+
+          
+      <Grid container spacing={2} justifyContent="center">
+  <Grid item xs={12} sm={6} md={6}> {/* Half the width on sm and md screens */}
+    <Card style={{ backgroundColor: 'white', border: '1px solid black' }}>
+      <CardContent style={{ padding: 0 }}>
+        {formOpen ? (
+          <form>
+            {/* Add your form fields here */}
+            <Button variant="contained" color="primary" type="submit">
+              Submit
+            </Button>
+          </form>
+        ) : (
+          <div>
+            <Button 
+              variant="contained"
+              color="primary"
+              onClick={handleOpenForm}
+              startIcon={<AddIcon />}
+              style={{
+                width: '100%', 
+                backgroundColor: '#4caf50', 
+                color: 'white', 
+                textTransform: 'none', 
+                borderRadius: 0, 
+              }}
+            > 
+              <Typography variant='h6'>
+                Add experience
+              </Typography>
+            </Button>
+          </div>
+        )}
+      </CardContent>
+    </Card>
+    {/* The Dialog component for formOpen would be here */}
+    <Dialog open={formOpen} onClose={handleCloseForm} fullScreen>
+        <DialogContent>
+          <TextField
+            label="Tag your experience to help companies/students find it in the marketplace"
+            variant="outlined"
+            fullWidth
+            value={experienceText}
+            onChange={(e) => setExperienceText(e.target.value)}
+          />
+        </DialogContent>
+        <DialogContent>
+          <TextField
+            label="Skills/Technologies"
+            variant="outlined"
+            fullWidth
+            value={skillsText}
+            onChange={(e) => setSkillsText(e.target.value)}
+          />
+        </DialogContent>
+        <DialogActions>
+          <Button variant="contained" color="primary" onClick={handleCloseForm}>
+            Close
+          </Button>
+          <Button variant="contained" color="primary" type="submit">
+            Submit
+          </Button>
+        </DialogActions>
+      </Dialog>
+  </Grid>
+  <Grid item xs={12} sm={6} md={6}> {/* Also half the width on sm and md screens */}
+    <Card style={{ width: '100%', backgroundColor: 'white', border: '1px solid black' }}>
+      <CardContent style={{ padding: 0 }}>
+        <Search style={{ width: '100%', margin: '0 auto', display: 'flex' }}> {/* Search component takes the full width */}
+          <SearchIconWrapper style={{ paddingLeft: '16px' }}>
+            <SearchOutlinedIcon />
+          </SearchIconWrapper>
+          <StyledInputBase
+            style={{ width: 'calc(100% - 32px)', paddingLeft: '16px' }} // Input takes remaining width minus padding and icon
+            placeholder="Search by Project Name"
+            inputProps={{ 'aria-label': 'search' }}
+            value={searchName}
+            onChange={handleSearchNameChange}
+          />
+        </Search>
+      </CardContent>
+    </Card>
+  </Grid>
+  {/* The third <Grid item> has been removed, and the rest of the code remains unchanged */}
+  <React.Fragment>
+      <Grid container spacing={2} justifyContent="center">
+        {/* Other Grid items */}
+        <Grid item xs={12} sm={4} md={4}>
+        <Card style={{ backgroundColor: 'white', border: '1px solid #e0e0e0', boxShadow: '0 2px 4px 0 rgba(0,0,0,0.1)' }}>
+            <CardContent style={{ padding: 16 }}>
+              <Button 
+                variant="contained"
+                color="primary"
+                onClick={handleInviteStudents}
+                startIcon={<AddIcon />}
+                style={{
+                  width: '100%', 
+                  backgroundColor: '#4caf50',
+                  color: 'white', 
+                  textTransform: 'none', 
+                  borderRadius: 0, 
+                }}
+              >
+                Invite Learners
+              </Button>
+            </CardContent>
+          </Card>
+        </Grid>
+      </Grid>
+
+      {/* Invite Students Dialog */}
+      <Dialog open={inviteDialogOpen} onClose={handleCloseInviteDialog}>
+        <DialogTitle>Invite Learners</DialogTitle>
+        <DialogContent>
+          <DialogContentText>
+            Enter the email addresses of the students you wish to invite.
+          </DialogContentText>
+          <TextField
+            autoFocus
+            margin="dense"
+            id="name"
+            label="Email Addresses"
+            type="email"
+            fullWidth
+            variant="outlined"
+          />
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleCloseInviteDialog} color="primary">
+            Cancel
+          </Button>
+          <Button onClick={sendInvites} color="primary" variant="contained">
+            Send Invites
+          </Button>
+        </DialogActions>
+      </Dialog>
+    </React.Fragment>
+</Grid>
+<Typography
+  variant="h5"
+  component="div"
+  sx={{ flexGrow: 1, color: "#0097EB", fontFamily: "Poppins", mt: 4, mb: 2 }}
+>
+  My experiences
+</Typography>
+
+{/* Align items to the start (left) */}
+<Grid container spacing={2} alignItems="flex-start">
+  <Grid item xs={12} sm={6} md={4} lg={3}>
+    <Card sx={{ maxWidth: 345, mb: 4 }}>
+      <CardContent>
+        <Typography variant="h5" component="div">
+          Technical Skills
+        </Typography>
+        <Typography variant="body2" color="textSecondary">
+          MongoDB
+        </Typography>
+        <Typography variant="body2" color="textSecondary">
+          Express
+        </Typography>
+        <Typography variant="body2" color="textSecondary">
+          React
+        </Typography>
+        <Typography variant="body2" color="textSecondary">
+          Node.js
+        </Typography>
+      </CardContent>
+    </Card>
+  </Grid>
+</Grid>
+
+    <StyledPaper>
         <Toolbar sx={{height:"100px"}}>
          
          <Typography
@@ -203,65 +428,83 @@ export default function ClientDashBoard() {
          >
            Your Projects
          </Typography>
-
-
-          {/*take this */}
-         <Search >
-           <SearchIconWrapper>
-             <SearchOutlinedIcon sx={{color: "#9F9F9F"}} />
-           </SearchIconWrapper>
-           <StyledInputBase
-             placeholder="Search by Project Name"
-             inputProps={{ 'Poppins': 'search' }}
-             value={searchName}
-             onChange={handleSearchNameChange}
-           />
-         </Search>
-
-         {/*till here */}
-         
          <PublishProjectForm data={projects} setData={setProjects} />
          <Box sx={{ml:1.5}} ></Box>
         </Toolbar>
-        <div className='card-container'>
-          {filteredProjects
-          .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-          .map((row, index) => {
-            return (
-              <Card sx={{ width: 250,border: '1.5px solid var(--primary-color)',borderRadius: '10px' ,boxShadow: '0 6px 8px rgba(0, 0, 0, 0.3)', }}>
-                <CardContent onClick={() => {setSelectedProject(row._id); setPreview(true);}}>
-                  <Typography variant="h5" component="div" sx={{ marginBottom: 4}}>
-                    {row.name}
-                  </Typography>
-                  <Typography variant="body2">
-                    <span style={{ fontWeight: 'bold' }}>Skills:</span> {row.skills}
-                  </Typography>
-                  <Typography variant="body2">
-                    <span style={{ fontWeight: 'bold' }}>Created On:</span> {getDate(row.createdAt)}
-                  </Typography>
-                  <Typography variant="body2">
-                    <span style={{ fontWeight: 'bold' }}>Created By:</span> {row.createdBy}
-                  </Typography>
-                </CardContent>
-                {/* <CardActions>
-                  <IconButton color="error" onClick={() => handleApprove(row._id)} aria-label="delete">
-                    <Delete />
-                  </IconButton>
-                </CardActions> */}
-              </Card>
-            );
-          })}
-        </div>
+
+        <Grid container spacing={2}> 
+               {filteredProjects
+               .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+               .map((project, index) => (
+
+                
+        <Grid item xs={12} sm={4} md={4} lg={3} key={project._id}> {/* Adjust the grid breakpoints as required */}
+          <Card sx={{ maxWidth: 345 }}> {/* You can adjust width as necessary */}
+            <CardContent onClick={() => { setSelectedProject(project._id); setPreview(true); }}>
+              <Typography variant="h5" component="div">
+                {project.name}
+              </Typography>
+              <Typography variant="body2">
+                Skills: {project.skills}
+              </Typography>
+              <Typography variant="body2">
+                Created On: {getDate(project.createdAt)}
+              </Typography>
+              <Typography variant="body2">
+                Created By: {project.createdBy}
+              </Typography>
+            </CardContent>
+            <CardActions disableSpacing>
+            <IconButton aria-label="add to favorites">
+          <FavoriteIcon />
+           </IconButton>
+           <IconButton aria-label="share">
+              <ShareIcon />
+            </IconButton>
+            <IconButton
+              onClick={() => handleExpandClick(project._id)}
+              aria-expanded={expanded[project._id] || false}
+              aria-label="show more"
+            >
+              <ExpandMoreIcon />
+            </IconButton>
+          </CardActions>
+          <Collapse in={expanded[project._id] || false} timeout="auto" unmountOnExit>
+            <CardContent>
+              <Box sx={{ display: 'flex', justifyContent: 'center', mt: 2 }}>
+                <CircularProgress variant="determinate" value={project.progress || 0} />
+              </Box>
+              <Box sx={{ display: 'flex', justifyContent: 'center', mt: 2 }}>
+              <CircularProgress variant="determinate" value={70} />
+            </Box>
+            <Typography variant="caption" display="block" gutterBottom>
+                Assigned To: {project.assignedTo || 'v.parushaboyena001@umb.edu'}
+              </Typography>
+              <CardActions sx={{ justifyContent: 'flex-end' }}>
+                <IconButton color="error" onClick={() => handleClick(project._id)} aria-label="delete">
+                  <Delete />
+                </IconButton>
+              </CardActions>
+            </CardContent>
+          </Collapse>
+        </Card>
+      </Grid>
+         ))
+        }
+       </Grid>
+        
         <TablePagination
           sx = {{marginRight:"1.5rem"}}
           component="div"
-          count={projects.length}
+          count={filteredProjects.length}
           page={page}
           onPageChange={handleChangePage}
           rowsPerPage={rowsPerPage}
           onRowsPerPageChange={handleChangeRowsPerPage}
         />
       </StyledPaper>
-    </div>
+      </main>      
+
+    </>
   );
 }
