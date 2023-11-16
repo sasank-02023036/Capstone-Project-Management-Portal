@@ -3,17 +3,19 @@ import { useEffect } from "react";
 import ProjectPreview from "components/project/ProjectPreview";
 import axios from 'axios';
 
-import { 
-  TableCell, 
-  TableRow, 
-  TablePagination, 
-  Paper, 
-  Toolbar, 
-  Typography, 
+import {
+  TableCell,
+  TableRow,
+  TablePagination,
+  Paper,
+  Toolbar,
+  Typography,
   Card,
   CardContent,
   CardActions,
-  IconButton
+  IconButton,
+  MenuItem, // Import MenuItem
+    Select, // Import Select
 } from '@mui/material';
 import { styled, alpha } from '@mui/material/styles';
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
@@ -110,14 +112,21 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
 
 
 function StudentCoursesPage({ data }) {
+  const mongoose = require('mongoose');
+
   const [projects, setProjects] = useState([]);
   const [filteredProjects, setFilteredProjects] = useState([]);
   const [preview, setPreview] = useState(false);
+  const [showPreferences, setShowPreferences] = useState(false);
+  const [showSubmitButton, setShowSubmitButton] = useState(false);
 
   const [selected, setSelected] = React.useState("");
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(10);
   const [searchName, setSearchName] = useState("");
+  const [selectedPriorities, setSelectedPriorities] = useState([]);
+  const disabledPriorities = [1, 2, 3, 4].filter((priority) => selectedPriorities.includes(priority));
+
 
   useEffect(() => {
     setProjects(data.projects);
@@ -178,6 +187,67 @@ function StudentCoursesPage({ data }) {
     setPreview(false);
   };
 
+  const handleDropdownChange = (event, projectId) => {
+    const selectedValue = event.target.value;
+
+    // Check if the selected priority is already chosen for another project
+    const isPrioritySelected = selectedPriorities.some(
+      (preference) => preference.priority === selectedValue
+    );
+
+    if (!isPrioritySelected) {
+      setSelectedPriorities((prevPriorities) => {
+        // Check if a preference with the same project ID exists
+        const existingPreferenceIndex = prevPriorities.findIndex(
+          (preference) => preference.project === projectId
+        );
+
+        if (existingPreferenceIndex !== -1) {
+          // If it exists, update the priority
+          prevPriorities[existingPreferenceIndex] = {
+            project: projectId,
+            priority: selectedValue,
+          };
+        } else {
+          // If it doesn't exist, add a new preference
+          prevPriorities.push({
+            project: projectId,
+            priority: selectedValue,
+          });
+        }
+
+        return [...prevPriorities];
+      });
+    }
+  };
+
+    const togglePreferences = () => {
+        setShowPreferences(!showPreferences);
+        setShowSubmitButton(!showSubmitButton);
+      };
+
+  const submitPreferences = async (event) => {
+    try {
+      const response = await axios.post("/api/preference", {
+        course: data._id,
+        projectPreferences: selectedPriorities.map((preference, index) => ({
+          project: new mongoose.Types.ObjectId(preference.project),
+          rank: index + 1,
+        })),
+      });
+      console.log(response.data);
+    } catch (error) {
+      console.error("Error submitting preferences:", error);
+    }
+  };
+
+  const handlePreferencesSubmit = () => {
+    // Call the function to submit preferences
+    submitPreferences();
+    setShowPreferences(!showPreferences);
+    setShowSubmitButton(!showSubmitButton);
+  };
+
   return (
     <div>
 
@@ -214,7 +284,9 @@ function StudentCoursesPage({ data }) {
           </Search>
 
           {/* need to add preferences button */}
-          <PreferenceForm course={data} />
+          <button className="set-preferences" onClick={togglePreferences}>
+                  Set Preferences
+                </button>
           <Box sx={{ ml: 1.5 }}></Box>
         </Toolbar>
         <div className='card-container'>
@@ -237,9 +309,36 @@ function StudentCoursesPage({ data }) {
                     <span style={{ fontWeight: 'bold' }}>Created By:</span> {row.createdBy}
                   </Typography>
                 </CardContent>
+                <CardActions>
+                {showPreferences && (
+                                      <Select
+                                        label="Priority"
+                                        value={selectedPriorities.find((preference) => preference.project === row._id)?.priority || ''}
+                                        onChange={(event) => handleDropdownChange(event, row._id)}
+                                        sx={{ marginLeft: 'auto' }}
+                                      >
+                                        {[null, ...[1, 2, 3, 4].filter((priority) => {
+                                          const isPrioritySelected = selectedPriorities.some(
+                                            (preference) => preference.project !== row._id && preference.priority === priority
+                                          );
+                                          return !isPrioritySelected;
+                                        })].map((availablePriority) => (
+                                          <MenuItem key={availablePriority} value={availablePriority}>
+                                            {availablePriority === null ? 'None' : availablePriority}
+                                          </MenuItem>
+                                        ))}
+                                      </Select>
+
+                                    )}
+                </CardActions>
               </Card>
             );
           })}
+          {showSubmitButton && ( // Display the submit button when showSubmitButton is true
+                      <button className="set-preferences" style={{ marginLeft: 'auto' }} onClick={handlePreferencesSubmit}>
+                        Submit
+                      </button>
+                    )}
         </div>
         <TablePagination
           sx={{ marginRight: "1.5rem" }}

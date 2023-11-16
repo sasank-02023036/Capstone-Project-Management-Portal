@@ -58,3 +58,30 @@ exports.updatePreference = async (req, res) => {
     }
 };
 
+// Create or update a preference for a given course and user
+exports.createOrUpdatePreference = async (req, res) => {
+  const { course, projectPreferences } = req.body;
+  const student = req.user._id;
+
+  try {
+    // Check if the preference already exists
+    const existingPreference = await Preference.findOne({ course, student });
+
+    if (existingPreference) {
+      // Update the existing preference if it exists
+      existingPreference.projectPreferences = projectPreferences;
+      const updatedPreference = await existingPreference.save();
+      res.status(200).json(updatedPreference);
+    } else {
+      // Create a new preference if it doesn't exist
+      const preference = new Preference({ course, student, projectPreferences });
+      const savedPreference = await preference.save();
+      res.status(201).json(savedPreference);
+    }
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: 'Internal server error' });
+  }
+};
+
+

@@ -6,6 +6,7 @@ import "../../../styles/StageOne.css";
 
 import "../../../styles/preference-form.css";
 
+import clipboardCopy from 'clipboard-copy';
 import { styled, alpha } from "@mui/material/styles";
 import {
   Table,
@@ -21,6 +22,7 @@ import {
 } from "@mui/material";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
 import InputBase from "@mui/material/InputBase";
 import AutoAssignForm from "components/forms/AutoAssignForm";
 
@@ -123,6 +125,7 @@ export default function StageTwo({ data, setData }) {
   const [rowsPerPage, setRowsPerPage] = useState(10);
   const [searchName, setSearchName] = useState("");
   const [filteredStudents, setFilteredStudents] = useState([]);
+  const [responses, setResponses] = React.useState(null);
 
   React.useEffect(() => {
     async function getPreferences() {
@@ -304,6 +307,57 @@ export default function StageTwo({ data, setData }) {
     setSelectedStudent(null);
   };
 
+//  const handleResponsesClick = () => {
+//    // Assuming you have the course ID accessible in the 'data' object
+//    const courseId = data._id; // Replace with the actual path to get the course ID
+//    navigate(`/api/preference/${courseId}`);
+//  };
+
+  const handleResponsesClick = async () => {
+    try {
+      // Assuming you have the course ID accessible in the 'data' object
+      const courseId = data._id; // Replace with the actual path to get the course ID
+      const response = await axios.get(`/api/preference/${courseId}`);
+
+      // Extract data from the response as needed
+      const extractedData = response.data;
+
+      // Extract relevant information for display
+          const displayData = extractedData.map((entry) => {
+            const studentName = entry.student.name;
+            const projectPreferences = entry.projectPreferences.map((pref) => ({
+              projectName: pref.project.name,
+              rank: pref.rank,
+            }));
+
+            return { studentName, projectPreferences };
+          });
+
+      setResponses(displayData);
+      // Process the extracted data (e.g., log it to the console)
+      console.log(extractedData);
+
+    } catch (error) {
+      console.error("Error fetching data:", error);
+      // Handle the error as needed
+    }
+  };
+
+const handleCopyResponses = () => {
+    if (responses) {
+      // Convert responses to a JSON string
+      const responsesString = JSON.stringify(responses, null, 2);
+
+      // Copy the responses to the clipboard
+      clipboardCopy(responsesString);
+
+      // Optionally, you can provide feedback to the user
+      // For example, you can use a toast notification library
+      // or update the state to show a message
+      alert('Responses copied to clipboard!');
+    }
+  };
+
   const isAutoAssignEnabled = () => {
     for (let i = 0; i < students.length; i++) {
       const student = students[i];
@@ -344,98 +398,25 @@ export default function StageTwo({ data, setData }) {
             Assign Projects
           </Typography>
 
-            {/*    search button   */}
+            <button className="Auto-Assign-button" onClick={handleResponsesClick}>Responses</button>
+           <Box sx={{ marginLeft: "10px" }} />
 
-          <Search>
-            <SearchIconWrapper>
-              <SearchOutlinedIcon sx={{ color: "#9F9F9F" }} />
-            </SearchIconWrapper>
-            <StyledInputBase
-              placeholder="Search by Student Name"
-              inputProps={{ Poppins: "search" }}
-              value={searchName}
-              onChange={handleSearchNameChange}
-            />
-          </Search>
 
           {/*    action buttons goes here   */}
             <AutoAssignForm data={data} setData={setData} enabled={isAutoAssignEnabled}/>
 
           <Box sx={{ ml: 1.5 }}></Box>
+
+          <button className="Auto-Assign-button" onClick={handleCopyResponses}>Copy Responses</button>
+                     <Box sx={{ marginLeft: "10px" }} />
         </Toolbar>
-        <TableContainer>
-          <Table sx={{ width: "100%" }}>
-            <TableHead>
-              <TableRow sx={{ height: "30px" }}>
-                <HeaderTableCell sx={{ width: "5%", paddingLeft: "25px" }}>
-                  S.No
-                </HeaderTableCell>
-                <HeaderTableCell sx={{ width: "25%" }}>
-                  Student Name
-                </HeaderTableCell>
-                <HeaderTableCell sx={{ width: "25%" }}>
-                  Email
-                </HeaderTableCell>
-                <HeaderTableCell sx={{ width: "10%"}}>
-                  Preferences Set
-                </HeaderTableCell>
-                <HeaderTableCell sx={{ width: "30%", paddingRight: "42px" }}>
-                  Assigned Project
-                </HeaderTableCell>
-                <HeaderTableCell sx={{ width: "5%", paddingRight: "42px" }}>
-                  Actions
-                </HeaderTableCell>
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              {filteredStudents
-                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                .map((row, index) => {
-                  return (
-                    <HoverTableRow key={row._id}>
-                      <StyledTableCell
-                        sx={{ width: "5%", paddingLeft: "25px" }}
-                      >
-                        {index + 1 + page * rowsPerPage}
-                      </StyledTableCell>
-                      <StyledTableCell sx={{ width: "25%" }}>
-                        {row.name}
-                      </StyledTableCell>
-                      <StyledTableCell sx={{ width: "25%" }}>
-                        {row.email}
-                      </StyledTableCell>
-                      <StyledTableCell sx={{ width: "10%" }}>
-                        {isPreferenceSet(row._id)}
-                      </StyledTableCell>
-                      <StyledTableCell sx={{ width: "30%" }}>
-                        {assignedProjectToStudent(row._id)}
-                      </StyledTableCell> 
-                      <StyledTableCell
-                        sx={{ width: "5%", paddingRight: "42px" }}
-                        align="center"
-                      >
-                        <button
-                          onClick={() => handleClick(row._id)}
-                          disabled={!isAssignButtonEnabled(row._id)}
-                        >
-                        Assign
-                        </button>
-                      </StyledTableCell>
-                    </HoverTableRow>
-                  )
-                })}
-            </TableBody>
-          </Table>
-        </TableContainer>
-        <TablePagination
-          sx={{ marginRight: "1.5rem" }}
-          component="div"
-          count={students.length}
-          page={page}
-          onPageChange={handleChangePage}
-          rowsPerPage={rowsPerPage}
-          onRowsPerPageChange={handleChangeRowsPerPage}
-        />
+        {responses && (
+                  <div>
+                    {/* Render responses below the toolbar */}
+                    {/* You can customize the rendering of the responses here */}
+                    <pre>{JSON.stringify(responses, null, 2)}</pre>
+                  </div>
+                )}
       </StyledPaper>
     </div>
   );
