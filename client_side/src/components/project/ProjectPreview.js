@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import "../../styles/ProjectPreview.css";
+import { Typography } from "@mui/material";
 
 export default function ProjectPreview({ projectId, handleClose }) {
     const [project, setProject] = React.useState({});
@@ -83,7 +84,7 @@ export default function ProjectPreview({ projectId, handleClose }) {
                     </div>
 
                     <div className="popup-content-desc">
-                      <p>{project.administrators}</p>
+                      <p><Typography>{project.administrators}</Typography></p>
                     </div>
 
 
