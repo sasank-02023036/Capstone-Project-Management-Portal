@@ -11,6 +11,7 @@ import Students from "../../assets/students.jpg"
 import PublishProjects from "components/project/PublishProjects";
 import PendingProjects from "components/project/PendingProjects";
 import ActiveProjects from "components/project/ActiveProjects";
+import Studentdata from "./studentData";
 
 
 
@@ -99,7 +100,7 @@ export default function AdminDashboard() {
                                 </Typography>
                             </CardContent>
                             <CardActions>
-                                <Button variant="contained" size="small" onClick={() => {navigate("/project", {replace: true}); setTab(3);renderTab();}}>Go To Clients</Button>
+                                <Button variant="contained" size="small" onClick={() => {navigate("/pages", {replace: true}); setTab(3);renderTab();}}>Go To Clients</Button>
                                 <Button variant="contained" size="small" >Projects</Button>
                                 <Button variant="outlined" size="small" >learn more</Button>
                             </CardActions>
@@ -127,7 +128,7 @@ export default function AdminDashboard() {
                                 <Button 
                                     variant="contained" 
                                     size="small"
-                                    onClick={() => toStudents("/courses/", {replace: true})} 
+                                    onClick={() => toStudents("/students", { replace: true })}
                                 >Go To Students</Button>
                                 <Button variant="outlined" size="small" >Learn More</Button>
                             </CardActions>
