@@ -8,6 +8,7 @@ const cookieParser = require('cookie-parser');
 const userRoutes = require("./server_side/routes/userRoutes");
 const projectRoutes = require("./server_side/routes/projectRoutes");
 const courseRoutes = require("./server_side/routes/courseRoutes");
+const preferenceRoutes = require("./server_side/routes/preferenceRoutes")
 const app = express();
 const bodyParser = require('body-parser');
 
@@ -20,10 +21,28 @@ app.use(express.static(path.join(__dirname, 'client_side', 'build')));
 app.use('/api', userRoutes);
 app.use('/api', projectRoutes);
 app.use('/api', courseRoutes);
+app.use('/api', preferenceRoutes);
+// --------------------------deployment------------------------------
+
+const __dirname1 = path.resolve();
+
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname1, "/client_side/build")));
+
+  app.get("*", (req, res) =>
+    res.sendFile(path.resolve(__dirname1, 'client_side', 'build', 'index.html'))
+  );
+} else {
+  app.get("/", (req, res) => {
+    res.send("API is running..");
+  });
+}
+
+// --------------------------deployment------------------------------
 // static files
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'client_side', 'build', 'index.html'));
-});
+// app.get('*', (req, res) => {
+//   res.sendFile(path.join(__dirname, 'client_side', 'build', 'index.html'));
+// });
 // connection to mongodb
 mongoose.connect(uri, {
     useNewUrlParser: true,
