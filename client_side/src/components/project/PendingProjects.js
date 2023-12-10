@@ -5,7 +5,7 @@ import axios from 'axios';
 import InputBase from '@mui/material/InputBase';
 import ConfirmationPopup from 'components/forms/ConfimationPopup';
 import CheckCircleSharpIcon from '@mui/icons-material/CheckCircleSharp';
-
+import Button from "@mui/material/Button";
 import ProjectPreview from './ProjectPreview';
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 
@@ -264,7 +264,29 @@ function PendingProjects() {
     } else {
       setFilteredProjects(projects);
     }
-  }  
+  }
+
+  const StyledApproveButton = styled(Button)(({ theme }) => ({
+    border: `2px solid ${theme.palette.success.main}`, // Green border
+    color: theme.palette.success.main,
+    '&:hover': {
+      backgroundColor: alpha(theme.palette.success.main, 0.1),
+    },
+    height: '30px', // Set the desired height
+    marginTop: 'auto', // Align to the bottom
+    marginBottom: 'auto', // Align to the bottom
+  }));
+
+  const StyledDeclineButton = styled(Button)(({ theme }) => ({
+    border: `2px solid ${theme.palette.error.main}`, // Red border
+    color: theme.palette.error.main,
+    '&:hover': {
+      backgroundColor: alpha(theme.palette.error.main, 0.1),
+    },
+    height: '30px', // Set the desired height
+    marginTop: 'auto', // Align to the bottom
+    marginBottom: 'auto', // Align to the bottom
+  }));
 
 
   return (
@@ -317,10 +339,13 @@ function PendingProjects() {
                     <span style={{ fontWeight: 'bold' }}>Created By:</span> {row.createdBy}
                   </Typography>
                 </CardContent>
-                <CardActions>
-                  <IconButton color="error" onClick={() => handleApprove(row._id)} aria-label="delete">
-                    <Delete />
-                  </IconButton>
+                <CardActions sx={{ justifyContent: 'center', alignItems: 'center', height: '50px' }}>
+                  <StyledApproveButton onClick={() => handleApprove(row._id)}>
+                    Approve
+                  </StyledApproveButton>
+                  <StyledDeclineButton onClick={() => handleDelete(row._id)}>
+                    Decline
+                  </StyledDeclineButton>
                 </CardActions>
               </Card>
             );
