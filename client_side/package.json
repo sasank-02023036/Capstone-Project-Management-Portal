@@ -23,8 +23,10 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "start-flaskapi": "cd flaskapi && flask run --no-debug",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "test-flaskapi": "cd flaskapi && flask test",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -44,5 +46,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "proxy": "http://localhost:5000"
 }
