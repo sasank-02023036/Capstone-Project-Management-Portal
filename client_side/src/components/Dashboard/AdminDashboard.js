@@ -101,7 +101,7 @@ export default function AdminDashboard() {
                             </CardContent>
                             <CardActions>
                                 <Button variant="contained" size="small" onClick={() => {navigate("/pages", {replace: true}); setTab(3);renderTab();}}>Go To Clients</Button>
-                                <Button variant="contained" size="small" >Projects</Button>
+                                <Button variant="contained" size="small" onClick={() => navigate("/project", {replace: true})} >Projects</Button>
                                 <Button variant="outlined" size="small" >learn more</Button>
                             </CardActions>
                         </Card>

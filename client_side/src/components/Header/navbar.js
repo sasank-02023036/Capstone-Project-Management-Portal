@@ -74,13 +74,16 @@ const Navbar = () => {
       setOpenHelp(false);
     }
   }
+  function handleLogoClick(){
+    navigate("/dashboard", { replace: true });
+  }
 
 
   return (
     <div className="navbar">
       <div className="navbar-container">
         {/* logo goes here */}
-        <div className="navbar-logo">
+        <div className="navbar-logo" onClick={handleLogoClick}>
           <div class="navbar-camsLogo">
             {" "}
             <img src={camsLogo} alt="CAMS Logo" />{" "}

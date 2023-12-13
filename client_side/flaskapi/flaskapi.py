@@ -1,7 +1,85 @@
 from flask import Flask
+from pymongo import MongoClient
 import networkx as nx
 
+
 app = Flask(__name__)
+client = MongoClient('mongodb+srv://rakshith:12345@cpms.bmohl6t.mongodb.net/?retryWrites=true&w=majority')
+preferences = client.test["preferences"]
+users = client.test["users"]
+projects = client.test["projects"]
+
+preferences = preferences.find()
+users = users.find()
+projects = projects.find()
+
+
+
+pref_list = [pref for pref in preferences]
+user_list = [user for user in users]
+project_list = [project for project in projects]
+
+capacities = dict()
+
+
+
+# print(capacities)
+
+final_pref_list = dict()
+
+# print(pref_list)
+# print()
+# print(user_list)
+# print()
+# print(project_list)
+
+for preference in pref_list:
+    
+    ordered_projectNames = list()
+    sorted_projectPreferences = sorted(preference['projectPreferences'], key=lambda x:x['rank'])
+    # print(sorted_projectPreferences)
+    for sorted_projectPreference in sorted_projectPreferences:
+        for project in project_list:
+            # print(project)
+            if sorted_projectPreference['project']==project['_id']:
+                ordered_projectNames.append(project['name'])
+        # print(ordered_projectNames)
+                
+        for user in user_list:
+            if preference['student'] == user['_id']:
+                final_pref_list[user['name']]= ordered_projectNames
+    
+
+selected_projects = list()
+ 
+for pref in final_pref_list:
+    for proj in final_pref_list[pref]:
+        if proj not in selected_projects:
+            selected_projects.append(proj)
+
+count = 0
+
+for project in selected_projects:
+    
+    if count >= 8:
+        capacities[project] = 8
+        count += 1
+    else:
+        capacities[project] = 3
+        count += 1
+        
+print(selected_projects)
+print(len(selected_projects))
+            
+print(len(final_pref_list))
+print(capacities)
+
+# print()
+
+# print(len(project_list))
+
+
+
 
 prefs={'Atharva sachin khadgi':['Project4', 'Project10', 'Project2', 'Project7'],
 'Vivek Kamisetty':['Project9', 'Project11', 'Project5', 'Project4'], #'Project8'
@@ -40,13 +118,32 @@ prefs={'Atharva sachin khadgi':['Project4', 'Project10', 'Project2', 'Project7']
 'Sarthak Pansuria':['Project7', 'Project10', 'Project6', 'Project13']}
 
 @app.route('/preferences')
-def project_preferences(prefs):
+def project_preferences(prefs, capacities):
     
     G=nx.DiGraph()
     
-    capacities={'Project1':3,'Project2':3,'Project3':3,'Project4':3,'Project5':3,'Project6':9,'Project7':3,'Project8':3,'Project9':3,'Project10':9,'Project11':3,'Project12':3,'Project13':3}
+    # capacities={'Project1':3,'Project2':3,'Project3':3,'Project4':3,'Project5':3,'Project6':9,'Project7':3,'Project8':3,'Project9':3,'Project10':9,'Project11':3,'Project12':3,'Project13':3}
 
+    for pref in prefs:
+        if len(prefs[pref]) == 0:
+            prefs[pref] = ['dummy1', 'dummy2', 'dummy3', 'dummy4']
+        elif len(prefs[pref]) == 1:
+            prefs[pref] = prefs[pref] + ['dummy1', 'dummy2', 'dummy3']
+        elif len(prefs[pref]) == 2:
+            prefs[pref] = prefs[pref] + ['dummy1', 'dummy2']
+        elif len(prefs[pref]) == 3:
+            prefs[pref] = prefs[pref] + ['dummy1']
+    
+    print(prefs)
     num_persons=len(prefs)
+    print(num_persons)
+    print(capacities)
+    total_capacity = sum(capacities.values())
+    print(total_capacity)
+    
+    if num_persons != total_capacity:
+        raise ValueError("Total demand does not equal total supply.")
+    
     G.add_node('dest',demand=num_persons)
     A=[]
     for person,projectlist in prefs.items():
@@ -71,5 +168,5 @@ def project_preferences(prefs):
             if flow:
                 print (person,'joins',project)
                 
-project_preferences(prefs)
+project_preferences(final_pref_list, capacities)
     
