@@ -40,11 +40,16 @@ const Footer = () => {
 
             </div>
 
-            <div className="footer-bottom-container">
+            <div className="footer-bottom-container" style={{ display: "flex",
+                                                              justifyContent: "space-between", 
+                                                              alignItems: "center", 
+                                                              padding: "10px",
+                                                              flexDirection: window.innerWidth <= 768 ? "column" : "row",
+                                                              textAlign: window.innerWidth <= 768 ? "center" : "left",}}>
 
-               <div className='left-text'>© 2023 Kenneth K. Fletcher - University of Massachusetts Boston</div>
+               <div className='left-text' style={{ marginBottom: window.innerWidth <= 768 ? "10px" : "0", }}>© 2023 Kenneth K. Fletcher - University of Massachusetts Boston</div>
 
-               <div className='right-text'>M-3-201-21, Mc Cormack Building | Phone: 617.287.3832 | Email: kenneth.fletcher@umb.edu</div>
+               <div className='right-text' style={{ marginBottom: window.innerWidth <= 768 ? "10px" : "0", }}>M-3-201-21, Mc Cormack Building | Phone: 617.287.3832 | Email: kenneth.fletcher@umb.edu</div>
 
 
             </div>

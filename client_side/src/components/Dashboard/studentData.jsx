@@ -227,8 +227,10 @@ export default function Studentdata() {
         />
       </StyledPaper>
     </div>
-    <Footer />
-    <FooterPlain />
+    <div className="bottom">
+        <Footer />
+        <FooterPlain />
+    </div>
     </>
   );
 }

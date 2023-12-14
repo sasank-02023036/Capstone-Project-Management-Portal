@@ -14,7 +14,7 @@ import ActiveProjects from "components/project/ActiveProjects";
 import Footer  from "components/Footer/footer";
 import FooterPlain from "components/Footer/footerPlain";
 import Studentdata from "./studentData";
-
+import LearnMore from "./learnMore"
 
 
 export default function AdminDashboard() {
@@ -29,6 +29,13 @@ export default function AdminDashboard() {
     Cookies.remove("token");
     navigate("/", { replace: true });
     toStudents("/courses/", {replace: true});
+  };
+  const handleLearnMoreClick = () => {
+    navigate("/learn-more");
+  };
+
+  const handleLearnMoreClientsAndProjectsClick = () => {
+    navigate("/learn-more-about-clients-and-projects");
   };
 
   const [tab, setTab] = useState(1);
@@ -51,103 +58,213 @@ export default function AdminDashboard() {
  
   
     return(
-        <>
-            <Navbar/>
-            
-            <Grid container spacing={2} justifyContent="center" alignItems="center">
-                <Grid item spacing={2} xs={12} md={4} lg={4} xl={4}>
-                    <Box>
-                        <Card>
-                            <CardMedia 
-                                component='img'
-                                height='140'
-                                image={Books}
-                                alt="unsplash img"
-                            />
-                            <CardContent>
-                                <Typography gutterBottom variant='h5' component='div'>
-                                    Courses
-                                </Typography>
-                                <Typography variant="body2" color='text.secondary'>
-                                    All the courses offered at UMass Boston
-                                </Typography>
-                            </CardContent>
-                            <CardActions>
-                                { payload.role !== "CLIENT" && ( <Button 
-                                                                    variant="contained" 
-                                                                    size="small" 
-                                                                    onClick={() => navigate("/courses", {replace: true})}    
-                                                                >{payload.role === "STUDENT"? "Your Courses" : "Go to Courses"}</Button> )}
-                                <Button variant="outlined" size="small" >learn more</Button>
-                            </CardActions>
-                        </Card>
-                    </Box>
-                </Grid>
+        // <div className="container">
+        //     <Navbar/>
+        //     <div className="Sections">
+        //         <Grid container spacing={2} justifyContent="center" alignItems="center">
+        //             <Grid item spacing={2} xs={12} md={4} lg={4} xl={4}>
+        //                 <Box>
+        //                     <Card>
+        //                         <CardMedia 
+        //                             component='img'
+        //                             height='140'
+        //                             image={Books}
+        //                             alt="unsplash img"
+        //                         />
+        //                         <CardContent>
+        //                             <Typography gutterBottom variant='h5' component='div'>
+        //                                 Courses
+        //                             </Typography>
+        //                             <Typography variant="body2" color='text.secondary'>
+        //                                 All the courses offered at UMass Boston
+        //                             </Typography>
+        //                         </CardContent>
+        //                         <CardActions>
+        //                             { payload.role !== "CLIENT" && ( <Button 
+        //                                                                 variant="contained" 
+        //                                                                 size="small" 
+        //                                                                 onClick={() => navigate("/courses", {replace: true})}    
+        //                                                             >{payload.role === "STUDENT"? "Your Courses" : "Go to Courses"}</Button> )}
+        //                             <Button variant="outlined" size="small" >learn more</Button>
+        //                         </CardActions>
+        //                     </Card>
+        //                 </Box>
+        //             </Grid>
 
-                <Grid item spacing={2} xs={12} md={4} lg={4} xl={4}>
-                    <Box>
-                        <Card>
-                            <CardMedia 
-                                component='img'
-                                height='140'
-                                image={Clients}
-                                alt="unsplash img"
-                            />
-                            <CardContent>
-                                <Typography gutterBottom variant='h5' component='div'>
-                                    Clients
-                                </Typography>
-                                <Typography variant="body2" color='text.secondary'>
-                                    Clients for this semester at UMass Boston
-                                </Typography>
-                            </CardContent>
-                            <CardActions>
-                                <Button variant="contained" size="small" onClick={() => {navigate("/pages", {replace: true}); setTab(3);renderTab();}}>Go To Clients</Button>
-                                <Button variant="contained" size="small" onClick={() => navigate("/project", {replace: true})} >Projects</Button>
-                                <Button variant="outlined" size="small" >learn more</Button>
-                            </CardActions>
-                        </Card>
-                    </Box>
-                </Grid>
-                <Grid item spacing={2} xs={12} md={4} lg={4} xl={4}>
-                    <Box >
-                        <Card>
-                            <CardMedia 
-                                component='img'
-                                height='140'
-                                image={Students}
-                                alt="unsplash img"
-                            />
-                            <CardContent>
-                                <Typography gutterBottom variant='h5' component='div'>
-                                    Students
-                                </Typography>
-                                <Typography variant="body2" color='text.secondary'>
-                                    All the Students enrolled in the courses listed in the site
-                                </Typography>
-                            </CardContent>
-                            <CardActions>
-                                <Button 
-                                    variant="contained" 
-                                    size="small"
-                                    onClick={() => toStudents("/students", { replace: true })}
-                                >Go To Students</Button>
-                                <Button variant="outlined" size="small" >Learn More</Button>
-                            </CardActions>
-                        </Card>
-                    </Box>
-                </Grid>
-                
+        //             <Grid item spacing={2} xs={12} md={4} lg={4} xl={4}>
+        //                 <Box>
+        //                     <Card>
+        //                         <CardMedia 
+        //                             component='img'
+        //                             height='140'
+        //                             image={Clients}
+        //                             alt="unsplash img"
+        //                         />
+        //                         <CardContent>
+        //                             <Typography gutterBottom variant='h5' component='div'>
+        //                                 Clients
+        //                             </Typography>
+        //                             <Typography variant="body2" color='text.secondary'>
+        //                                 Clients for this semester at UMass Boston
+        //                             </Typography>
+        //                         </CardContent>
+        //                         <CardActions>
+        //                             <Button variant="contained" size="small" onClick={() => {navigate("/pages", {replace: true}); setTab(3);renderTab();}}>Go To Clients</Button>
+        //                             <Button variant="contained" size="small" onClick={() => navigate("/project", {replace: true})} >Projects</Button>
+        //                             <Button variant="outlined" size="small" >learn more</Button>
+        //                         </CardActions>
+        //                     </Card>
+        //                 </Box>
+        //             </Grid>
+        //             <Grid item spacing={2} xs={12} md={4} lg={4} xl={4}>
+        //                 <Box >
+        //                     <Card>
+        //                         <CardMedia 
+        //                             component='img'
+        //                             height='140'
+        //                             image={Students}
+        //                             alt="unsplash img"
+        //                         />
+        //                         <CardContent>
+        //                             <Typography gutterBottom variant='h5' component='div'>
+        //                                 Students
+        //                             </Typography>
+        //                             <Typography variant="body2" color='text.secondary'>
+        //                                 All the Students enrolled in the courses listed in the site
+        //                             </Typography>
+        //                         </CardContent>
+        //                         <CardActions>
+        //                             <Button 
+        //                                 variant="contained" 
+        //                                 size="small"
+        //                                 onClick={() => toStudents("/students", { replace: true })}
+        //                             >Go To Students</Button>
+        //                             <Button variant="outlined" size="small" >Learn More</Button>
+        //                         </CardActions>
+        //                     </Card>
+        //                 </Box>
+        //             </Grid>
+                    
 
-                
-                
-                
-            </Grid>
+                    
+                    
+                    
+        //         </Grid>
+        //     </div>
             
+        //     <div className="bottom" height="100" alignItems="bottom">
+        //         <Footer />
+        //         <FooterPlain />
+        //     </div>
 
             
             
-        </>
-    )
+        // </div>
+
+
+        <div className="container" style={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}>
+            <Navbar />
+                <div className="Sections">
+                    <Grid container spacing={2} justifyContent="center" alignItems="center">
+                        <Grid item spacing={2} xs={12} md={4} lg={4} xl={4}>
+                            <Box>
+                                <Card>
+                                    <CardMedia 
+                                        component='img'
+                                        height='140'
+                                        image={Books}
+                                        alt="unsplash img"
+                                    />
+                                    <CardContent>
+                                        <Typography gutterBottom variant='h5' component='div'>
+                                            Courses
+                                        </Typography>
+                                        <Typography variant="body2" color='text.secondary'>
+                                            All the courses offered at UMass Boston
+                                        </Typography>
+                                    </CardContent>
+                                    <CardActions>
+                                        { payload.role !== "CLIENT" && ( <Button 
+                                                                            variant="contained" 
+                                                                            size="small" 
+                                                                            onClick={() => navigate("/courses", {replace: true})}    
+                                                                        >{payload.role === "STUDENT"? "Your Courses" : "Go to Courses"}</Button> )}
+                                        <Button variant="outlined" size="small" onClick={handleLearnMoreClick} >learn more</Button>
+                                    </CardActions>
+                                </Card>
+                            </Box>
+                        </Grid>
+
+                        <Grid item spacing={2} xs={12} md={4} lg={4} xl={4}>
+                            <Box>
+                                <Card>
+                                    <CardMedia 
+                                        component='img'
+                                        height='140'
+                                        image={Clients}
+                                        alt="unsplash img"
+                                    />
+                                    <CardContent>
+                                        <Typography gutterBottom variant='h5' component='div'>
+                                            Clients
+                                        </Typography>
+                                        <Typography variant="body2" color='text.secondary'>
+                                            Clients for this semester at UMass Boston
+                                        </Typography>
+                                    </CardContent>
+                                    <CardActions>
+                                        <Button variant="contained" size="small" onClick={() => {navigate("/pages", {replace: true}); setTab(3);renderTab();}}>Go To Clients</Button>
+                                        <Button variant="contained" size="small" onClick={() => navigate("/project", {replace: true})} >Projects</Button>
+                                        <Button variant="outlined" size="small" onClick={handleLearnMoreClientsAndProjectsClick} >learn more</Button>
+                                    </CardActions>
+                                </Card>
+                            </Box>
+                        </Grid>
+                        <Grid item spacing={2} xs={12} md={4} lg={4} xl={4}>
+                            <Box >
+                                <Card>
+                                    <CardMedia 
+                                        component='img'
+                                        height='140'
+                                        image={Students}
+                                        alt="unsplash img"
+                                    />
+                                    <CardContent>
+                                        <Typography gutterBottom variant='h5' component='div'>
+                                            Students
+                                        </Typography>
+                                        <Typography variant="body2" color='text.secondary'>
+                                            All the Students enrolled in the courses listed in the site
+                                        </Typography>
+                                    </CardContent>
+                                    <CardActions>
+                                        <Button 
+                                            variant="contained" 
+                                            size="small"
+                                            onClick={() => toStudents("/students", { replace: true })}
+                                        >Go To Students</Button>
+                                        <Button variant="outlined" size="small" onClick={handleLearnMoreClick} >Learn More</Button>
+                                    </CardActions>
+                                </Card>
+                            </Box>
+                        </Grid>
+                        
+
+                        
+                        
+                        
+                    </Grid>
+                </div>
+
+                <div className="flex-grow" style={{ flex: 1, height:200 }}>
+                {/* Content of your component goes here */}
+                </div>
+
+                <div className="bottom">
+                    <Footer />
+                    <FooterPlain />
+                </div>
+        </div>
+    )   
 }
 

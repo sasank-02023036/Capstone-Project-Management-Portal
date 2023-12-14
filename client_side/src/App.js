@@ -15,6 +15,8 @@ import PreferenceForm from 'components/forms/PreferenceForm';
 import Privacy_PolicyPage from 'pages/Privacy_Policy';
 import Studentdata from './components/Dashboard/studentData';
 import ClientDashBoard from 'components/Dashboard/ClientDashboard';
+import LearnMore from './components/Dashboard/learnMore';
+import LearnMoreAboutClientsAndProjects from 'components/Dashboard/LearnMoreAboutClinetsAndProjects';
 
 
 function App() {
@@ -66,6 +68,8 @@ function App() {
         <Route path="/privacy" element={<Privacy_PolicyPage />} />
         <Route path="/students" element={<Studentdata />} />
         <Route path="/pages" element={<ProjectPage />} onEnter={isAdmin} />
+        <Route path="/learn-more" element={<LearnMore />} onEnter={isLoggedIn} />
+        <Route path="/learn-more-about-clients-and-projects" element={<LearnMoreAboutClientsAndProjects />} onEnter={isAdmin} />
         <Route path='*' element={<PageNotFound />} />
       </Routes>
     </Router>
