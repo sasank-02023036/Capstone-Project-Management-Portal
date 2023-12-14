@@ -190,6 +190,14 @@ function StudentCoursesPage({ data }) {
   const handleDropdownChange = (event, projectId) => {
     const selectedValue = event.target.value;
 
+    // If "None" is selected, remove the project from selectedPriorities
+      if (selectedValue === null) {
+        setSelectedPriorities((prevPriorities) =>
+          prevPriorities.filter((preference) => preference.project !== projectId)
+        );
+        return;
+      }
+
     // Check if the selected priority is already chosen for another project
     const isPrioritySelected = selectedPriorities.some(
       (preference) => preference.priority === selectedValue
@@ -365,11 +373,11 @@ function StudentCoursesPage({ data }) {
               </Card>
             );
           })}
-          {showSubmitButton && ( // Display the submit button when showSubmitButton is true
-                      <button className="set-preferences" style={{ marginLeft: 'auto' }} onClick={handlePreferencesSubmit}>
-                        Submit
-                      </button>
-                    )}
+          {showSubmitButton && selectedPriorities.length >= 4 && ( // Display the submit button when showSubmitButton is true and validation passes
+            <button className="set-preferences" style={{ marginLeft: 'auto' }} onClick={handlePreferencesSubmit}>
+              Submit
+            </button>
+          )}
         </div>
         <TablePagination
           sx={{ marginRight: "1.5rem" }}
