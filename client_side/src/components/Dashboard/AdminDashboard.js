@@ -143,9 +143,9 @@ export default function AdminDashboard() {
                 
                 
             </Grid>
+            
 
-            <Footer />
-            <FooterPlain />
+            
             
         </>
     )
