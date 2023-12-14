@@ -43,7 +43,7 @@ prefs = {'Rakshith': ['IT Cell - Social Media Tracker', 'U Access Inventory Syst
 #capacities={'1':2,'2':10,'3':4}
 # capacities={'Project1':3,'Project2':3,'Project3':3,'Project4':3,'Project5':3,'Project6':9,'Project7':3,'Project8':3,'Project9':3,'Project10':9,'Project11':3,'Project12':3,'Project13':3}
 
-{'IT Cell - Social Media Tracker': 3, 'U Access Inventory System': 3, 'Fusion System': 3, 'My Project 2.0': 3, 'Capstone Project Management System': 3, 'Drone Project': 3, 'Project Name 2': 3, 'Project Name': 3, 'MERN': 8}
+capacities = {'IT Cell - Social Media Tracker': 3, 'U Access Inventory System': 3, 'Fusion System': 3, 'My Project 2.0': 3, 'Capstone Project Management System': 3, 'Drone Project': 3, 'Project Name 2': 3, 'Project Name': 3, 'MERN': 8}
 
 num_persons=len(prefs)
 G.add_node('dest',demand=num_persons)

@@ -11,6 +11,8 @@ import Students from "../../assets/students.jpg"
 import PublishProjects from "components/project/PublishProjects";
 import PendingProjects from "components/project/PendingProjects";
 import ActiveProjects from "components/project/ActiveProjects";
+import Footer  from "components/Footer/footer";
+import FooterPlain from "components/Footer/footerPlain";
 import Studentdata from "./studentData";
 
 
@@ -141,6 +143,9 @@ export default function AdminDashboard() {
                 
                 
             </Grid>
+
+            <Footer />
+            <FooterPlain />
             
         </>
     )
