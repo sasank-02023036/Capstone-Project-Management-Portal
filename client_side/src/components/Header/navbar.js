@@ -168,7 +168,6 @@ const Navbar = () => {
                         onKeyDown={handleProfileListKeyDown}
                       >
                         <MenuItem onClick={handleProfileMenuItemClick}>Profile</MenuItem>
-                        <MenuItem onClick={handleCloseProfile}>My account</MenuItem>
                       </MenuList>
                     </ClickAwayListener>
                   </Paper>
