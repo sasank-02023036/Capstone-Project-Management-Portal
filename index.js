@@ -8,7 +8,8 @@ const cookieParser = require('cookie-parser');
 const userRoutes = require("./server_side/routes/userRoutes");
 const projectRoutes = require("./server_side/routes/projectRoutes");
 const courseRoutes = require("./server_side/routes/courseRoutes");
-const preferenceRoutes = require("./server_side/routes/preferenceRoutes")
+const preferenceRoutes = require("./server_side/routes/preferenceRoutes");
+const experienceRoutes = require("./server_side/routes/experienceRoutes.js");
 const app = express();
 const bodyParser = require('body-parser');
 
@@ -22,6 +23,8 @@ app.use('/api', userRoutes);
 app.use('/api', projectRoutes);
 app.use('/api', courseRoutes);
 app.use('/api', preferenceRoutes);
+app.use("/api", experienceRoutes);
+
 // --------------------------deployment------------------------------
 
 const __dirname1 = path.resolve();

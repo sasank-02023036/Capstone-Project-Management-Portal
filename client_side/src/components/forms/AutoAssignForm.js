@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useNavigate } from "react-router-dom";
 import "../../styles/AutoAssign.css";
 
-export default function AutoAssignForm({data, setData, enabled}) {
+export default function AutoAssignForm({data, setData, setAssignment, onClick, enabled}) {
   const navigate = useNavigate();
   const [open, setOpen] = React.useState(false);
   const [projectCapacities, setProjectCapacities] = React.useState({});
@@ -52,13 +52,23 @@ export default function AutoAssignForm({data, setData, enabled}) {
     }
   }
 
+  const autoAssign = async() => {
+    try {
+      const response = await axios.get('/api/assignProjects', {
+        params: {
+          pending: false
+        }
+      });
+      setAssignment(response.data);
+      onClick();
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   return (
     <div>
-
-
-      <button className="Auto-Assign-button" disabled={!enabled()} onClick={() => setOpen(true)}>Auto Assign</button>
-
-
+      <button className="Auto-Assign-button" onClick={autoAssign}>Auto Assign</button>
       {open && (
         <div>
 

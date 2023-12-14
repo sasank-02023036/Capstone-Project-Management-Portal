@@ -118,7 +118,7 @@ const getDate = (dateString) => {
   return `${day}-${month}-${year}`;
 };
 
-function PublishProjects() {
+function PublishProjects (){
   const navigate = useNavigate();
   const [popup, setPopup] = React.useState(false);
   const [clients, setClients] = React.useState([]);
@@ -306,5 +306,5 @@ function PublishProjects() {
     </div>
   );
 }
-
 export default PublishProjects;
+

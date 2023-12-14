@@ -16,5 +16,7 @@ router.get('/project/:_id', projectController.getProjectPdf);
 router.delete('/project/:_id', projectAuthenticationMiddleware, projectController.deleteProject);
 // approve a project.
 router.put('/project/:_id', adminAuthentication, projectController.approveProject);
+// assign projects
+router.get('/assignProjects', projectAuthenticationMiddleware, projectController.assignProjects);
 
 module.exports = router;
