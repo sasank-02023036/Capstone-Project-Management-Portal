@@ -87,6 +87,32 @@ exports.getProjects = async (req, res) => {
   }
 };
 
+exports.assignProjects = async (req, res) => {
+  try {
+    const { spawn } = require('child_process');
+    const pyProg = spawn('py', ['./server_side/python/python.py']);
+    let storeLines = []; // store the printed rows from the script
+    let storeErrors = []; // store errors occurred
+    pyProg.stdout.on('data', function(data) {
+        storeLines.push(data);
+    });
+    pyProg.stderr.on('data', (data) => {
+        storeErrors.push(data);
+    });
+    pyProg.on('close', () => {
+        if (storeErrors.length) {
+            res.write(Buffer.concat(storeErrors).toString());
+            res.end();
+        } else {
+          res.write(Buffer.concat(storeLines).toString());
+          res.end();
+        }
+    })
+  } catch (error) {
+    return res.status(500).json({ error: "Server Error" });
+  }
+};
+
 exports.getProjectPdf = async (req, res) => {
     try {
       const { _id } = req.params;

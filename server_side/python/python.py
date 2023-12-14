@@ -1,7 +1,5 @@
 import networkx as nx
 
-G=nx.DiGraph()
-
 prefs={'Atharva sachin khadgi':['Project4', 'Project10', 'Project2', 'Project7'],
 'Vivek Kamisetty':['Project9', 'Project11', 'Project5', 'Project4'], #'Project8'
 'Vishwajith Parushaboyena':['Project4', 'Project7', 'Project9', 'Project5'], #'Project11'
@@ -38,30 +36,36 @@ prefs={'Atharva sachin khadgi':['Project4', 'Project10', 'Project2', 'Project7']
 'Somesh Balani':['Project11', 'Project12', 'Project4', 'Project13'],
 'Sarthak Pansuria':['Project7', 'Project10', 'Project6', 'Project13']}
 
-#capacities={'1':2,'2':10,'3':4}
-capacities={'Project1':3,'Project2':3,'Project3':3,'Project4':3,'Project5':3,'Project6':9,'Project7':3,'Project8':3,'Project9':3,'Project10':9,'Project11':3,'Project12':3,'Project13':3}
+def project_preferences(prefs):
+    
+    G=nx.DiGraph()
+    
+    capacities={'Project1':3,'Project2':3,'Project3':3,'Project4':3,'Project5':3,'Project6':9,'Project7':3,'Project8':3,'Project9':3,'Project10':9,'Project11':3,'Project12':3,'Project13':3}
 
-num_persons=len(prefs)
-G.add_node('dest',demand=num_persons)
-A=[]
-for person,projectlist in prefs.items():
-    G.add_node(person,demand=-1)
-    for i,project in enumerate(projectlist):
-        if i==0:
-            cost=-100 # happy to assign first choice
-        elif i==1:
-            cost=-75 # slightly unhappy to assign second choice
-        elif i==2:
-            cost=-50 # ok to assign third choice
-        else:
-            cost=-25 # very unhappy to assign fourth choice
-        G.add_edge(person,project,capacity=1,weight=cost) # Edge taken if person does this project
+    num_persons=len(prefs)
+    G.add_node('dest',demand=num_persons)
+    A=[]
+    for person,projectlist in prefs.items():
+        G.add_node(person,demand=-1)
+        for i,project in enumerate(projectlist):
+            if i==0:
+                cost=-100 # happy to assign first choice
+            elif i==1:
+                cost=-75 # slightly unhappy to assign second choice
+            elif i==2:
+                cost=-50 # ok to assign third choice
+            else:
+                cost=-25 # very unhappy to assign fourth choice
+            G.add_edge(person,project,capacity=1,weight=cost) # Edge taken if person does this project
 
-for project,c in capacities.items():
-        G.add_edge(project,'dest',capacity=c,weight=0)
+    for project,c in capacities.items():
+            G.add_edge(project,'dest',capacity=c,weight=0)
 
-flowdict = nx.min_cost_flow(G)
-for person in prefs:
-    for project,flow in flowdict[person].items():
-        if flow:
-            print (person,'joins',project)
+    flowdict = nx.min_cost_flow(G)
+    for person in prefs:
+        for project,flow in flowdict[person].items():
+            if flow:
+                print (person,'joins',project)
+                
+project_preferences(prefs)
+    
