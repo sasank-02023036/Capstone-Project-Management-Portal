@@ -16,6 +16,7 @@ import Privacy_PolicyPage from 'pages/Privacy_Policy';
 import Studentdata from './components/Dashboard/studentData';
 import ClientDashBoard from 'components/Dashboard/ClientDashboard';
 
+
 function App() {
 
   const isAdmin = (nextState, replace) => {

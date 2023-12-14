@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import "../../styles/AutoAssign.css";
 import { useState, useEffect } from "react";
 
-export default function AutoAssignForm({data, setData, enabled}) {
+export default function AutoAssignForm({data, setData, setAssignment, onClick, enabled}) {
   const navigate = useNavigate();
   const [open, setOpen] = React.useState(false);
   const [projectCapacities, setProjectCapacities] = React.useState({});
@@ -99,32 +99,23 @@ export default function AutoAssignForm({data, setData, enabled}) {
     }
   }
 
+  const autoAssign = async() => {
+    try {
+      const response = await axios.get('/api/assignProjects', {
+        params: {
+          pending: false
+        }
+      });
+      setAssignment(response.data);
+      onClick();
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   return (
     <div>
-
-      <div>
-        <button className="Auto-Assign-button" onClick={() => console.log(assignments)}>
-          Auto Assign
-        </button>
-        </div>
-
-        {/* Render assignments */}
-        {/* <div>
-          <h2>Assignments</h2>
-          <ul>
-            {assignments.map((assignment, index) => (
-              <li key={index}>
-                <strong>Person:</strong> {assignment.person}, <strong>Project:</strong> {assignment.project}
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div> */}
-
-
-      
-
-
+      <button className="Auto-Assign-button" onClick={autoAssign}>Auto Assign</button>
       {open && (
         <div>
 

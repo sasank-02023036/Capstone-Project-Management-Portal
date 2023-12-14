@@ -3,6 +3,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 import "../../../styles/StageOne.css";
+import "../../../styles/StageTwo.css";
 
 import "../../../styles/preference-form.css";
 
@@ -126,6 +127,7 @@ export default function StageTwo({ data, setData }) {
   const [searchName, setSearchName] = useState("");
   const [filteredStudents, setFilteredStudents] = useState([]);
   const [responses, setResponses] = React.useState(null);
+  const [assignment, setAssignment] = React.useState(null);
 
 
   React.useEffect(() => {
@@ -404,7 +406,7 @@ const handleCopyResponses = () => {
 
 
           {/*    action buttons goes here   */}
-            <AutoAssignForm data={data} setData={setData} enabled={isAutoAssignEnabled}/>
+            <AutoAssignForm data={data} setData={setData} setAssignment={setAssignment} onClick={()=>setResponses(null)} enabled={isAutoAssignEnabled}/>
 
           <Box sx={{ ml: 1.5 }}></Box>
 
@@ -418,6 +420,12 @@ const handleCopyResponses = () => {
                     <pre>{JSON.stringify(responses, null, 2)}</pre>
                   </div>
                 )}
+        {assignment && (
+            <div className="assignment-data-wrapper">
+              {assignment}
+            </div>
+          )
+        }
       </StyledPaper>
     </div>
   );
