@@ -109,7 +109,7 @@ exports.assignProjects = async (req, res) => {
     }
 
     const { spawn } = require('child_process');
-    const pyProg = spawn('python3', ['./server_side/python/python.py', JSON.stringify(prefs), JSON.stringify(projs)]);
+    const pyProg = spawn('python', ['./server_side/python/python.py', JSON.stringify(prefs), JSON.stringify(projs)]);
     let storeLines = []; // store the printed rows from the script
     let storeErrors = []; // store errors occurred
     pyProg.stdout.on('data', function(data) {
