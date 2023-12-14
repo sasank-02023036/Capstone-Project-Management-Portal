@@ -101,11 +101,13 @@ export default function AutoAssignForm({data, setData, setAssignment, onClick, e
 
   const autoAssign = async() => {
     try {
-      const response = await axios.get('/api/assignProjects', {
-        params: {
-          pending: false
-        }
-      });
+      const response = await axios.post('/api/assignProjects', 
+      {courseId: data._id, courseName: data.name }, {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      }
+      );
       setAssignment(response.data);
       onClick();
     } catch (error) {
