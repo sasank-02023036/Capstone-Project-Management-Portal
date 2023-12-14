@@ -2,6 +2,9 @@ import networkx as nx
 import sys
 import json
 
+print(sys.version)
+print(sys.path)
+
 def project_preferences():
     
     G=nx.DiGraph()
