@@ -119,13 +119,13 @@ function StudentCoursesPage({ data }) {
   const [preview, setPreview] = useState(false);
   const [showPreferences, setShowPreferences] = useState(false);
   const [showSubmitButton, setShowSubmitButton] = useState(false);
+  const [displayData, setDisplayData] = useState([]);
 
   const [selected, setSelected] = React.useState("");
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(10);
   const [searchName, setSearchName] = useState("");
   const [selectedPriorities, setSelectedPriorities] = useState([]);
-  const disabledPriorities = [1, 2, 3, 4].filter((priority) => selectedPriorities.includes(priority));
 
 
   useEffect(() => {
@@ -236,6 +236,30 @@ function StudentCoursesPage({ data }) {
         })),
       });
       console.log(response.data);
+      // Assuming you have the course ID accessible in the 'data' object
+              const courseId = data._id; // Replace with the actual path to get the course ID
+              const response1 = await axios.get(`/api/preference/${courseId}`);
+              const userid = response.data.student;
+              console.log(userid);
+
+              // Extract data from the response as needed
+              const extractedData = response1.data;
+              // Extract relevant information for display
+              const displayData = extractedData
+                    .filter((entry) => entry.student._id === userid) // Filter entries by user ID match
+                    .map((entry) => {
+                      const projectPreferences = entry.projectPreferences.map((pref) => ({
+                        projectName: pref.project.name,
+                        projectId : pref.project._id,
+                        rank: pref.rank,
+                      }));
+
+                      return { projectPreferences };
+                    });
+
+              // Process the extracted data (e.g., log it to the console)
+              setDisplayData(displayData);
+              console.log(displayData);
     } catch (error) {
       console.error("Error submitting preferences:", error);
     }
@@ -313,7 +337,13 @@ function StudentCoursesPage({ data }) {
                 {showPreferences && (
                                       <Select
                                         label="Priority"
-                                        value={selectedPriorities.find((preference) => preference.project === row._id)?.priority || ''}
+                                        value={
+                                            selectedPriorities.find(
+                                              (preference) => preference.project === row._id
+                                            )?.priority || displayData.find(
+                                              (entry) => entry.projectId === row._id
+                                            )?.rank || ''
+                                          }
                                         onChange={(event) => handleDropdownChange(event, row._id)}
                                         sx={{ marginLeft: 'auto' }}
                                       >
@@ -327,6 +357,7 @@ function StudentCoursesPage({ data }) {
                                             {availablePriority === null ? 'None' : availablePriority}
                                           </MenuItem>
                                         ))}
+
                                       </Select>
 
                                     )}
