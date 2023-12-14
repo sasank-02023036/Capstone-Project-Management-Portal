@@ -1,0 +1,33 @@
+{
+  "files": {
+<<<<<<< HEAD
+    "main.css": "/static/css/main.5699dfc4.css",
+    "main.js": "/static/js/main.f6dc44ce.js",
+=======
+    "main.css": "/static/css/main.e1dadb34.css",
+    "main.js": "/static/js/main.a4f97f75.js",
+>>>>>>> 924cf6ad8e7d8ca459c304d0e858feb6880c4a75
+    "static/media/Books.jpg": "/static/media/Books.c058bfb9daaa484ed4c1.jpg",
+    "static/media/clients.jpg": "/static/media/clients.e019f656837b493abebc.jpg",
+    "static/media/students.jpg": "/static/media/students.756f0f258c5c6c813af8.jpg",
+    "static/media/cams-low-resolution-color-logo.png": "/static/media/cams-low-resolution-color-logo.f61e2a35a58b94877a46.png",
+    "static/media/SecondaryNav.svg": "/static/media/SecondaryNav.28e98b55067821cb3e7b.svg",
+    "index.html": "/index.html",
+    "static/media/calendar.svg": "/static/media/calendar.4aa0718afc3279c200f0.svg",
+<<<<<<< HEAD
+    "main.5699dfc4.css.map": "/static/css/main.5699dfc4.css.map",
+    "main.f6dc44ce.js.map": "/static/js/main.f6dc44ce.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.5699dfc4.css",
+    "static/js/main.f6dc44ce.js"
+=======
+    "main.e1dadb34.css.map": "/static/css/main.e1dadb34.css.map",
+    "main.a4f97f75.js.map": "/static/js/main.a4f97f75.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e1dadb34.css",
+    "static/js/main.a4f97f75.js"
+>>>>>>> 924cf6ad8e7d8ca459c304d0e858feb6880c4a75
+  ]
+}

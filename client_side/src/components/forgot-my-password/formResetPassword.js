@@ -22,7 +22,7 @@ const FormResetPassword = ({changeContent}) => {
 
     const handleBack = (event) => {
         event.preventDefault();
-        navigate("/signin", {replace: true});
+        navigate("/", {replace: true});
     }
 
     const handleContinue = async(event) => {

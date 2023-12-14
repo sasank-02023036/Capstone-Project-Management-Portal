@@ -432,6 +432,8 @@ html, body {
   .MuiCard-root{
     display: flex;
     flex-direction: column;
+    cursor: pointer; /* Add cursor pointer */
+    transition: transform 0.3s ease-in-out;
   }
   .MuiCardActions-root{
      margin-top: auto;
