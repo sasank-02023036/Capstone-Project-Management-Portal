@@ -2,6 +2,7 @@ import React from "react";
 import axios from 'axios';
 import { useNavigate } from "react-router-dom";
 import "../../styles/AutoAssign.css";
+import { useState, useEffect } from "react";
 
 export default function AutoAssignForm({data, setData, enabled}) {
   const navigate = useNavigate();
@@ -16,6 +17,52 @@ export default function AutoAssignForm({data, setData, enabled}) {
   const handleCapacityChange = (project, capacity) => {
     setProjectCapacities({ ...projectCapacities, [project]: capacity });
   };
+
+  // const [Assignments, setAssignments] = useState([])
+  // useEffect(() => {
+  //   // const fetchData = async () => {
+  //   //   try {
+  //   //     const response = await axios.get('/api/preferences');
+  //   //     setAssignments(response.data.assignments);
+  //   //   } catch (error) {
+  //   //     console.error('Error fetching data:', error);
+  //   //   }
+  //   // };
+
+  //   fetch("/api/preferences").then(res => res.json()).then(data => {setAssignments(data.assignments)})
+  // },[])
+
+
+  const [assignments, setAssignments] = useState([])
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch('http://127.0.0.1:5000/api/preferences', {
+          credentials: 'include',
+        });
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        const data = await response.json();
+        setAssignments(data.assignments);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+ 
+  // function onClickAutoAssign(){
+  //   console.log(Assignments);
+  //   return (
+  //     <div>
+  //     <p>{Assignments}</p>
+  //     </div>
+  //   );
+  // }
+  
 
   const handleSave = async() => {
     if (Object.keys(projectCapacities).length === projects.length) {
@@ -55,8 +102,27 @@ export default function AutoAssignForm({data, setData, enabled}) {
   return (
     <div>
 
+      <div>
+        <button className="Auto-Assign-button" onClick={() => console.log(assignments)}>
+          Auto Assign
+        </button>
+        </div>
 
-      <button className="Auto-Assign-button" disabled={!enabled()} onClick={() => setOpen(true)}>Auto Assign</button>
+        {/* Render assignments */}
+        {/* <div>
+          <h2>Assignments</h2>
+          <ul>
+            {assignments.map((assignment, index) => (
+              <li key={index}>
+                <strong>Person:</strong> {assignment.person}, <strong>Project:</strong> {assignment.project}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div> */}
+
+
+      
 
 
       {open && (

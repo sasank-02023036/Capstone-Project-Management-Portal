@@ -127,6 +127,7 @@ export default function StageTwo({ data, setData }) {
   const [filteredStudents, setFilteredStudents] = useState([]);
   const [responses, setResponses] = React.useState(null);
 
+
   React.useEffect(() => {
     async function getPreferences() {
       try {
