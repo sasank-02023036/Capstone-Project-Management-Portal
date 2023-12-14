@@ -1,4 +1,6 @@
+const Course = require("../models/courses");
 const Project = require("../models/projects");
+const Preference = require('../models/preferences');
 const multer = require("multer");
 const path = require("path");
 const fs = require("fs");
@@ -89,8 +91,25 @@ exports.getProjects = async (req, res) => {
 
 exports.assignProjects = async (req, res) => {
   try {
+    const { courseId, courseName } = req.body;
+    const preferences = await Preference.find({ course: courseId }).populate('student').populate('projectPreferences.project');
+    const prefs = {};
+    const projs = {};
+    for (var i = 0; i < preferences.length; i++) {
+      prefs[preferences[i].student.name] = [];
+      const temp = preferences[i].projectPreferences;
+      for (var j = 0; j < temp.length; j ++) {
+        prefs[preferences[i].student.name][temp[j].rank - 1] = temp[j].project.name;
+      }
+    }
+    const course = await Course.findOne({ name: courseName }).populate("projects")
+    const projects = course.projects;
+    for (var i = 0; i < projects.length; i++) {
+      projs[projects[i].name] = 3;
+    }
+
     const { spawn } = require('child_process');
-    const pyProg = spawn('py', ['./server_side/python/python.py']);
+    const pyProg = spawn('python', ['./server_side/python/python.py', JSON.stringify(prefs), JSON.stringify(projs)]);
     let storeLines = []; // store the printed rows from the script
     let storeErrors = []; // store errors occurred
     pyProg.stdout.on('data', function(data) {
@@ -109,6 +128,7 @@ exports.assignProjects = async (req, res) => {
         }
     })
   } catch (error) {
+    console.error(error);
     return res.status(500).json({ error: "Server Error" });
   }
 };
