@@ -129,6 +129,7 @@ export default function StageTwo({ data, setData }) {
   const [responses, setResponses] = React.useState(null);
   const [assignment, setAssignment] = React.useState(null);
 
+
   React.useEffect(() => {
     async function getPreferences() {
       try {

@@ -4,6 +4,10 @@ import axios from 'axios';
 import ConfirmationPopup from 'components/forms/ConfimationPopup';
 import CSVUploader from 'components/forms/CSVUploader';
 import "../../styles/index.css";
+import Navbar from 'components/Header/navbar';
+import Footer from 'components/Footer/footer';
+import FooterPlain from 'components/Footer/footerPlain';
+
 
 import {
   Table,
@@ -158,6 +162,8 @@ export default function Studentdata() {
   }
 
   return (
+    <>
+    <Navbar/>
     <div className='courses-students'>
       {popup && <ConfirmationPopup message="Are you sure you want to delete this student ?" onNo={onNo} onYes={onYes} />}
 
@@ -221,5 +227,10 @@ export default function Studentdata() {
         />
       </StyledPaper>
     </div>
+    <div className="bottom">
+        <Footer />
+        <FooterPlain />
+    </div>
+    </>
   );
 }
