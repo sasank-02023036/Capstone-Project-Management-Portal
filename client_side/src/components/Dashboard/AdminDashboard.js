@@ -215,7 +215,7 @@ export default function AdminDashboard() {
                                     <CardActions>
                                         <Button variant="contained" size="small" onClick={() => {navigate("/pages", {replace: true}); setTab(3);renderTab();}}>Go To Clients</Button>
                                         <Button variant="contained" size="small" onClick={() => navigate("/project", {replace: true})} >Projects</Button>
-                                        <Button variant="outlined" size="small" onClick={handleLearnMoreClientsAndProjectsClick} >learn more</Button>
+                                        {/* <Button variant="outlined" size="small" onClick={handleLearnMoreClientsAndProjectsClick} >learn more</Button> */}
                                     </CardActions>
                                 </Card>
                             </Box>
@@ -243,7 +243,7 @@ export default function AdminDashboard() {
                                             size="small"
                                             onClick={() => toStudents("/students", { replace: true })}
                                         >Go To Students</Button>
-                                        <Button variant="outlined" size="small" onClick={handleLearnMoreClick} >Learn More</Button>
+                                        {/* <Button variant="outlined" size="small" onClick={handleLearnMoreClick} >Learn More</Button> */}
                                     </CardActions>
                                 </Card>
                             </Box>
