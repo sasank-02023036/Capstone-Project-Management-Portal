@@ -143,9 +143,9 @@ exports.getUserByEmail = async (req, res) => {
   const requestingUser = req.user;
   const { email } = req.params;
 
-  if (requestingUser.role !== "ADMIN") {
-    return res.status(401).json({ error: "User not authorized" });
-  }
+  // if (requestingUser.role !== "ADMIN") {
+  //   return res.status(401).json({ error: "User not authorized" });
+  // }
 
   try {
     const user = await User.findOne({ email });
