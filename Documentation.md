@@ -178,6 +178,68 @@ This maps over the user data to create **TableRow** components with **TableCell*
 \
 Overall, this component fetches user data, displays it in a table, allows searching, and provides options for deleting users. It also includes styling and uses Material-UI components for a consistent design.
 
+### LearnMorePage Component Documentation
+
+##### Overview
+
+\
+The **LearnMorePage** component is a React functional component that represents the page providing information about the courses offered at UMass Boston. It includes details about the university's key features, diverse disciplines, and majors. The page encourages users to explore different departments and provides links for additional information.
+
+##### Structure
+
+\
+The component is structured using semantic HTML elements and leverages the Material-UI library for styling.
+
+##### Import Statements:
+![](addressed_bugs_and_pages_created/lm_imports.png)
+
+\
+The necessary dependencies are imported, including React, custom components (**Navbar**, **Footer**, and **FooterPlain**), and **Material-UI** components (Typography).
+
+##### Component Definition:
+![](addressed_bugs_and_pages_created/lm_component1.png)
+![](addressed_bugs_and_pages_created/lm_component2.png)
+
+##### Container and Styling:
+* The component is wrapped in a container div with flexbox styling to ensure proper layout.
+
+##### Navbar and Footer:
+* The Navbar component is included at the top, providing navigation functionality.
+* Two footer components (Footer and FooterPlain) are included at the bottom for additional information.
+Content Section:
+
+* The component includes sections with headers, paragraphs, and lists to present information about UMass Boston's courses, key features, and departments.
+Learn More Section:
+
+* A "Learn More" section provides a brief description of the Learn More page, inviting users to explore detailed information about the courses offered.
+##### External Link:
+
+* A link is provided to direct users to the UMass Boston Academics page. The link opens in a new tab (target="_blank") for user convenience.
+
+##### Usage
+* To use this component, include it in the routing configuration of the application or as part of a parent component responsible for rendering pages.
+
+![](addressed_bugs_and_pages_created/lm_import1.png)
+![](addressed_bugs_and_pages_created/lm_Route.png)
+
+
+
+##### Notes
+
+* The component uses Material-UI's Typography component for consistent and stylized text.
+* The externalLink variable holds the URL for the external link, providing easy maintenance and updates.
+
+##### Recommendations
+
+* Ensure that the external link is kept up-to-date with the relevant UMass Boston Academics page.
+* Customize the content and styling as needed to align with the overall theme of the application.
+* Consider adding more sections or links based on the specific information you want to present on the Learn More page.
+
+
+
+
+
+
 
 
 
