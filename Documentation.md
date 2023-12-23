@@ -327,6 +327,83 @@ The ⁠ ClientDashBoard ⁠ component is a React component designed for mana
 •⁠  ⁠State management is achieved using React's ⁠ useState ⁠ and ⁠ useEffect ⁠ hooks.
 •⁠  ⁠The code includes placeholders for server interactions (API calls).
 
+### Can't close projects tab
+
+##### Before:
+![](bugs/Projrcts_tab.png)
+
+##### After:
+![](addressed_bugs_and_pages_created/closing_projects_tab.png)
+
+### Cams Portal Deployment Documentation
+
+\
+This documentation provides step-by-step instructions on deploying the CAMS (Capstone Project Management System) portal on a Render server. Render is a cloud platform that simplifies deployment and hosting.
+
+#### Prerequisites
+
+Before you begin, ensure you have the following:
+
+##### Render Account:
+
+\
+Create an account on Render if you don't have one.
+
+##### Source Code:
+
+\
+Make sure you have the latest version of the CAMS portal source code.
+
+##### Environment Configuration:
+
+* Prepare environment configuration files, such as .env or .env.production, containing necessary environment variables like database connection strings, API keys, and other configurations.
+
+##### Deployment Steps
+1. Create a New Web Service on Render:
+* Log in to your Render account.
+
+* Click on the Create New button in the dashboard.
+
+* Choose Web Service.
+
+* Connect your GitHub, GitLab, or Bitbucket repository where the CAMS portal source code is hosted.
+
+* Select the branch you want to deploy.
+
+2. Configure Build Settings:
+* In the Render dashboard, navigate to your service.
+
+* Go to the Settings tab.
+
+* Under the Builds & Deploys section, choose your build environment. For a Node.js app, you might select Node.js.
+
+* Set the build command. For example, if your CAMS portal is a React app, the build command might be npm run build.
+
+* Set the start command. This is typically npm start for Node.js apps.
+
+3. Configure Environment Variables:
+* In the same Settings tab, under the Environment section, add environment variables required by your CAMS portal.
+
+    * For example:
+        * REACT_APP_API_BASE_URL: The base URL of your API.
+        * REACT_APP_API_KEY: API key for accessing services.
+4. Database Configuration (if applicable):
+* If your CAMS portal uses a database, ensure that your database is accessible from Render.
+
+* Update the database connection string or other database-related configurations in your environment variables.
+
+5. Save Changes and Deploy:
+* Save your changes.
+
+Trigger a manual deployment or wait for Render to automatically deploy your app.
+
+Render will provide a live URL for your deployed CAMS portal.
+
+![](addressed_bugs_and_pages_created/deployment1.jpg)
+![](addressed_bugs_and_pages_created/deployment2.jpg)
+![](addressed_bugs_and_pages_created/deployment3.jpg)
+
+
 
 
 
