@@ -235,19 +235,12 @@ Learn More Section:
 * Customize the content and styling as needed to align with the overall theme of the application.
 * Consider adding more sections or links based on the specific information you want to present on the Learn More page.
 
+### ClientDashBoard Component Documentation
 
-
-
-
-
-
-
-# ClientDashBoard Component Documentation
-
-## Overview
+##### Overview
 The ⁠ ClientDashBoard ⁠ component is a React component designed for managing and displaying projects in a dashboard interface. It includes features like project preview, search functionality, pagination, and inviting learners via email.
 
-## Component Structure
+##### Component Structure
 •⁠  ⁠*Navbar*: A top navigation bar.
   ⁠ jsx
   <Navbar position="relative"></Navbar>
@@ -278,7 +271,7 @@ The ⁠ ClientDashBoard ⁠ component is a React component designed for mana
   <form>...</form>
    ⁠
 
-## State Management
+##### State Management
 •⁠  ⁠⁠ useState ⁠ hooks are used to manage component states, including:
   ⁠ jsx
   const [projects, setProjects] = useState([]);
@@ -286,7 +279,7 @@ The ⁠ ClientDashBoard ⁠ component is a React component designed for mana
   
    ⁠
 
-## API Interactions
+##### API Interactions
 •⁠  ⁠*Fetching Projects*: An ⁠ axios ⁠ GET request to '/api/projects' retrieves project data.
   ⁠ jsx
   const response = await axios.get('/api/projects');
@@ -300,7 +293,7 @@ The ⁠ ClientDashBoard ⁠ component is a React component designed for mana
   console.log('Sending invites to:', email);
    ⁠
 
-## Key Functionalities
+##### Key Functionalities
 •⁠  ⁠*Search*: Filters projects based on the search input.
   ⁠ jsx
   const handleSearchNameChange = (event) => {...};
@@ -322,17 +315,23 @@ The ⁠ ClientDashBoard ⁠ component is a React component designed for mana
   const handleExpandClick = (projectId) => {...};
    ⁠
 
-## Styling
+##### Styling
 •⁠  ⁠Material-UI's ⁠ styled ⁠ API and components like ⁠ Box ⁠, ⁠ Card ⁠, ⁠ Button ⁠ are used for styling.
   ⁠ jsx
   const Search = styled('div')(({ theme }) => ({...}));
    ⁠
 •⁠  ⁠Custom styled components are created for specific elements like ⁠ Search ⁠, ⁠ HoverTableRow ⁠, ⁠ StyledTableCell ⁠.
 
-## Notes
+##### Notes
 •⁠  ⁠The component relies on Material-UI for UI components and styling.
 •⁠  ⁠State management is achieved using React's ⁠ useState ⁠ and ⁠ useEffect ⁠ hooks.
 •⁠  ⁠The code includes placeholders for server interactions (API calls).
+
+
+
+
+
+
 
 
 
