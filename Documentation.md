@@ -187,36 +187,84 @@ The ⁠ ClientDashBoard ⁠ component is a React component designed for mana
 
 ## Component Structure
 •⁠  ⁠*Navbar*: A top navigation bar.
+  ⁠ jsx
+  <Navbar position="relative"></Navbar>
+   ⁠
 •⁠  ⁠*ProjectPreview*: A modal for previewing project details.
+  ⁠ jsx
+  {preview && <ProjectPreview projectId={selectedProject} handleClose={handleClose} />}
+   ⁠
 •⁠  ⁠*Grid Layout*: Material-UI Grid for responsive layout.
+  ⁠ jsx
+  <Grid container spacing={2} justifyContent="center">...</Grid>
+   ⁠
 •⁠  ⁠*Cards and Dialogs*: Used for displaying projects and forms.
+  ⁠ jsx
+  <Card>...</Card>
+  <Dialog>...</Dialog>
+   ⁠
 •⁠  ⁠*Search Functionality*: Allows searching for projects by name.
+  ⁠ jsx
+  <Search>...</Search>
+   ⁠
 •⁠  ⁠*Pagination*: Controls for navigating through projects.
+  ⁠ jsx
+  <TablePagination>...</TablePagination>
+   ⁠
 •⁠  ⁠*Forms*: For submitting new experiences and inviting learners.
+  ⁠ jsx
+  <form>...</form>
+   ⁠
 
 ## State Management
 •⁠  ⁠⁠ useState ⁠ hooks are used to manage component states, including:
-  - Projects data.
-  - Popup and form visibility states.
-  - Pagination control (page number, rows per page).
-  - Search input state.
-  - Experience and skills input states.
-  - Email input state for inviting learners.
+  ⁠ jsx
+  const [projects, setProjects] = useState([]);
+  const [popup, setPopup] = useState(false);
+  
+   ⁠
 
 ## API Interactions
 •⁠  ⁠*Fetching Projects*: An ⁠ axios ⁠ GET request to '/api/projects' retrieves project data.
+  ⁠ jsx
+  const response = await axios.get('/api/projects');
+   ⁠
 •⁠  ⁠*Submitting Experiences*: An ⁠ axios ⁠ POST request to '/api/experience' submits new experience data.
+  ⁠ jsx
+  const response = await axios.post("/api/experience", { experienceText, skillsText });
+   ⁠
 •⁠  ⁠*Inviting Learners*: Email invitation logic (currently mocked with console logs).
+  ⁠ jsx
+  console.log('Sending invites to:', email);
+   ⁠
 
 ## Key Functionalities
 •⁠  ⁠*Search*: Filters projects based on the search input.
+  ⁠ jsx
+  const handleSearchNameChange = (event) => {...};
+   ⁠
 •⁠  ⁠*Pagination*: Handles page changes and rows per page for project listing.
+  ⁠ jsx
+  const handleChangePage = (event, newPage) => {...};
+   ⁠
 •⁠  ⁠*Form Submission*: Handles experience and skills data submission.
+  ⁠ jsx
+  const handleFormSubmit = async (experienceText, skillsText) => {...};
+   ⁠
 •⁠  ⁠*Inviting Learners*: Functionality to send email invitations (UI only).
+  ⁠ jsx
+  const sendInvites1 = async () => {...};
+   ⁠
 •⁠  ⁠*Project Expansion*: Expands project cards to show more details.
+  ⁠ jsx
+  const handleExpandClick = (projectId) => {...};
+   ⁠
 
 ## Styling
 •⁠  ⁠Material-UI's ⁠ styled ⁠ API and components like ⁠ Box ⁠, ⁠ Card ⁠, ⁠ Button ⁠ are used for styling.
+  ⁠ jsx
+  const Search = styled('div')(({ theme }) => ({...}));
+   ⁠
 •⁠  ⁠Custom styled components are created for specific elements like ⁠ Search ⁠, ⁠ HoverTableRow ⁠, ⁠ StyledTableCell ⁠.
 
 ## Notes
