@@ -110,7 +110,7 @@ export default function SignInPage() {
 
           
 
-                    <a className="forgot-password" href="/forgot-password">
+                    <a className="forgot-password" onClick={() => navigate("/forgot-password", {replace: true})}>
                       Forgot Password?
                     </a>
 
