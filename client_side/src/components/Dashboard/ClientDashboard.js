@@ -200,7 +200,48 @@ export default function ClientDashBoard() {
     setLatestExperience(null);
   };  
 
+  useEffect(() => {
+    if (searchName) {
+      const filtered = projects.filter((project) => project.name.toLowerCase().includes(searchName.toLowerCase()));
+      setFilteredProjects(filtered);
+    } else {
+      setFilteredProjects(projects);
+    }
+}, [projects, searchName]);
+
   const [email, setEmail] = useState('');
+  const [deleteConfirmationOpen, setDeleteConfirmationOpen] = useState(false);
+  const [selectedProjectToDelete, setSelectedProjectToDelete] = useState("");
+
+  const handleDeleteConfirmationOpen = (projectId) => {
+    setSelectedProjectToDelete(projectId);
+    setDeleteConfirmationOpen(true);
+    console.log(selectedProjectToDelete);
+  };
+
+  const handleDeleteConfirmationClose = () => {
+    setSelectedProject("");
+    setDeleteConfirmationOpen(false);
+  };
+
+  
+
+  const handleDeleteProject = async () => {
+    try {
+      const response = await axios.delete(`/api/project/${selectedProjectToDelete}`);
+      if (response.status === 200) {
+        
+        setProjects(projects.filter((project) => project._id !== selectedProjectToDelete));
+      } else {
+        console.error('Delete request failed with status:', response.status);
+      }
+      handleDeleteConfirmationClose();
+    } catch (error) {
+      console.error('Error deleting project:', error);
+      
+      handleDeleteConfirmationClose();
+    }
+  };
 
   const handleInviteStudents = () => {
     // Logic to open the invite dialog
@@ -303,14 +344,7 @@ export default function ClientDashBoard() {
     fetchTableData();
     }, []);
 
-  useEffect(() => {
-      if (searchName) {
-        const filtered = projects.filter((project) => project.name.toLowerCase().includes(searchName.toLowerCase()));
-        setFilteredProjects(filtered);
-      } else {
-        setFilteredProjects(projects);
-      }
-  }, [projects, searchName]);
+  
 
 
   const handleClose = () => {
@@ -597,7 +631,11 @@ export default function ClientDashBoard() {
                 Assigned To: {project.assignedTo || 'N/A'}
               </Typography>
               <CardActions sx={{ justifyContent: 'flex-end' }}>
-                <IconButton color="error" onClick={() => handleClick(project._id)} aria-label="delete">
+                {/* <IconButton color="error" onClick={() => handleClick(project._id)} aria-label="delete">
+                  <Delete />
+                </IconButton> */}
+
+                <IconButton color="error" onClick={() => handleDeleteConfirmationOpen(project._id)} aria-label="delete">
                   <Delete />
                 </IconButton>
               </CardActions>
@@ -621,7 +659,28 @@ export default function ClientDashBoard() {
       </StyledPaper>
 
     
-      </main>      
+      </main>
+      <Dialog
+        open={deleteConfirmationOpen}
+        onClose={handleDeleteConfirmationClose}
+        aria-labelledby="alert-dialog-title"
+        aria-describedby="alert-dialog-description"
+      >
+        <DialogTitle id="alert-dialog-title">{"Delete Project?"}</DialogTitle>
+        <DialogContent>
+          <DialogContentText id="alert-dialog-description">
+            Are you sure you want to delete this project?
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleDeleteConfirmationClose} color="primary">
+            Cancel
+          </Button>
+          <Button onClick={handleDeleteProject} color="primary" autoFocus>
+            Delete
+          </Button>
+        </DialogActions>
+      </Dialog>      
 
     </>
   );

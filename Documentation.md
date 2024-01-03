@@ -335,6 +335,32 @@ The ⁠ ClientDashBoard ⁠ component is a React component designed for mana
 ##### After:
 ![](addressed_bugs_and_pages_created/closing_projects_tab.png)
 
+\
+**project view** popup is being closed through the **handleClose** function. This function is passed as a prop to the **ProjectPreview** component, and it is invoked when the user clicks on the close icon within the popup.
+
+##### Close Icon in the Popup:
+
+* The close icon is implemented as an SVG icon within the popup-close div.
+
+##### onClick Event:
+
+* The onClick event is attached to the popup-close div.
+* When a user clicks on the close icon, the handleClose function is invoked.
+
+##### handleClose Function:
+
+* The handleClose function is passed as a prop to the ProjectPreview component. It is a callback function provided by the parent component.
+* This function is responsible for closing the popup. The specific implementation of this function is in the parent component that renders the ProjectPreview.
+
+##### Closing the Popup:
+
+* Inside the handleClose function, there is likely logic to hide or remove the popup from the view. This logic is implemented in the parent component.
+* For example, the handleClose function might update the state in the parent component to hide the popup, or it might be part of a larger context or state management system.
+
+##### CSS Styling:
+
+* The CSS styling for the close icon includes a hover effect to make it more interactive.
+
 ### Cams Portal Deployment Documentation
 
 \

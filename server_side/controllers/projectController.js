@@ -169,7 +169,11 @@ exports.deleteProject = async (req, res) => {
     try {
       const projectId = req.params._id;
 
-      if (req.user.role === "CLIENT") {
+      // if (req.user.role === "CLIENT") {
+      //   return res.status(401).json({error: "Unauthorized to access"});
+      // }
+
+      if (req.user.role === "STUDENT") {
         return res.status(401).json({error: "Unauthorized to access"});
       }
       // Find the project to delete
